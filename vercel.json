@@ -3,4 +3,6 @@
   "outputDirectory": "website/.next",
   "installCommand": "cd website && npm install",
   "framework": "nextjs",
+  "rootDirectory": "website"
+
 }
