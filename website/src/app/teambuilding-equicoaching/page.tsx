@@ -108,6 +108,45 @@ export default function TeambuildingEquicoachingPage() {
         </div>
       </section>
 
+      {/* ── VIDÉO ────────────────────────────────────── */}
+      <section style={{ backgroundColor: "#f2ede5" }} className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionReveal className="text-center mb-10">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                color: "#1a0a1e",
+              }}
+            >
+              Découvrez l&apos;équicoaching en action
+            </h2>
+            <p className="text-gray-600 max-w-xl mx-auto">
+              Une immersion concrète dans ce que vos équipes vont vivre.
+            </p>
+          </SectionReveal>
+          <SectionReveal>
+            <div
+              className="rounded-2xl overflow-hidden"
+              style={{
+                boxShadow: "0 8px 40px rgba(120,66,127,0.15)",
+                border: "1px solid rgba(120,66,127,0.1)",
+              }}
+            >
+              <video
+                controls
+                playsInline
+                className="w-full"
+                style={{ display: "block", maxHeight: "520px", objectFit: "cover" }}
+              >
+                <source src="/video-teambuilding.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture vidéo.
+              </video>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ── 3 RAISONS ────────────────────────────────── */}
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
