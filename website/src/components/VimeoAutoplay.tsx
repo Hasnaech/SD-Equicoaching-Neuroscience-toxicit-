@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
-    Vimeo: { Player: new (el: HTMLElement, opts: object) => any };
+    Vimeo: { Player: new (el: HTMLIFrameElement) => any };
   }
 }
 
@@ -20,7 +20,7 @@ function loadVimeoApi(): Promise<void> {
 
 export default function VimeoAutoplay({ videoId }: { videoId: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const mountRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const playerRef = useRef<any>(null);
 
   useEffect(() => {
@@ -31,19 +31,9 @@ export default function VimeoAutoplay({ videoId }: { videoId: string }) {
     let observer: IntersectionObserver;
 
     loadVimeoApi().then(() => {
-      if (!mountRef.current) return;
+      if (!iframeRef.current) return;
 
-      const player = new window.Vimeo.Player(mountRef.current, {
-        id: videoId,
-        width: "100%",
-        title: false,
-        byline: false,
-        portrait: false,
-        badge: false,
-        autopause: false,
-        dnt: true,
-        color: "78427f",
-      });
+      const player = new window.Vimeo.Player(iframeRef.current);
       playerRef.current = player;
 
       player.setVolume(0.3);
@@ -69,14 +59,29 @@ export default function VimeoAutoplay({ videoId }: { videoId: string }) {
     };
   }, [videoId]);
 
+  const src =
+    `https://player.vimeo.com/video/${videoId}` +
+    `?title=0&byline=0&portrait=0&badge=0&autopause=0&dnt=1&color=78427f`;
+
   return (
     <div
       ref={containerRef}
       style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}
     >
-      <div
-        ref={mountRef}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+      <iframe
+        ref={iframeRef}
+        src={src}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowFullScreen
+        title="Équicoaching en action"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          border: 0,
+        }}
       />
     </div>
   );
