@@ -75,7 +75,7 @@ export default function TeambuildingEquicoachingPage() {
         <GradientBlob />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionReveal>
-            <div className="inline-flex items-center gap-2 mb-6">
+            <div className="inline-flex items-center gap-2 mb-8">
               <span
                 className="text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
                 style={{
@@ -84,23 +84,28 @@ export default function TeambuildingEquicoachingPage() {
                   backgroundColor: "rgba(205,165,64,0.08)",
                 }}
               >
-                Teambuilding Équicoaching
+                Leadership &amp; Neurosciences Comportementales
               </span>
             </div>
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Vos teambuildings habituels :{" "}
+              Former vos comités de direction
+              <br />
               <span style={{ color: "#cda540" }}>
-                tout le monde fait semblant de s&apos;amuser,
-                puis rien ne change.
+                à la régulation du système nerveux
               </span>
+              <br />
+              sous pression.
             </h1>
-            <p className="text-white/70 max-w-xl mx-auto mb-10 leading-relaxed text-lg">
-              L&apos;équicoaching ne repose pas sur la confiance aveugle ou les jeux de
-              rôle. Il révèle les dynamiques réelles de votre équipe — en temps
-              réel, sans filtre.
+            <p
+              className="text-white/60 max-w-lg mx-auto mb-10 leading-relaxed"
+              style={{ fontSize: "1.2rem", fontStyle: "italic" }}
+            >
+              Une compétence stratégique
+              <br />
+              rarement enseignée.
             </p>
             <CalendlyButton variant="primary" size="lg">
               Demander un devis
