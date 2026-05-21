@@ -638,9 +638,6 @@ export default function NeurosciencesManagersPage() {
                   src="/weekend/jacuzzi.jpg"
                   alt="Jacuzzi privatif"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -666,9 +663,6 @@ export default function NeurosciencesManagersPage() {
                   src="/weekend/chambre.jpg"
                   alt="Chambre confortable"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -694,9 +688,6 @@ export default function NeurosciencesManagersPage() {
                   src="/weekend/equicoaching-session.jpg"
                   alt="Atelier équicoaching avec Sarah Dabancens"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -722,9 +713,6 @@ export default function NeurosciencesManagersPage() {
                   src="/weekend/cheval.jpg"
                   alt="Cheval au coucher du soleil"
                   className="w-full h-full object-cover object-top"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
