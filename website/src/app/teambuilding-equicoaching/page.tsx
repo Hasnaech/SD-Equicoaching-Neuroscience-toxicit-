@@ -133,15 +133,22 @@ export default function TeambuildingEquicoachingPage() {
                 border: "1px solid rgba(120,66,127,0.1)",
               }}
             >
-              <video
-                controls
-                playsInline
-                className="w-full"
-                style={{ display: "block", maxHeight: "520px", objectFit: "cover" }}
-              >
-                <source src="/video-teambuilding.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture vidéo.
-              </video>
+              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+                <iframe
+                  src="https://www.youtube.com/embed/ZMTDfHlLpB0"
+                  title="Équicoaching en action"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: 0,
+                  }}
+                />
+              </div>
             </div>
           </SectionReveal>
         </div>
