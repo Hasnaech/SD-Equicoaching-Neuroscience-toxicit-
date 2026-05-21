@@ -18,6 +18,7 @@ import {
   Award,
   Quote,
 } from "lucide-react";
+import Image from "next/image";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
@@ -58,25 +59,16 @@ export default function HomePage() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Vos équipes performent.{" "}
+                Neurosciences appliquées{" "}
                 <span style={{ color: "#cda540" }}>
-                  Mais sous pression, quelque chose se grippe.
+                  à la performance collective
                 </span>
               </h1>
 
               <p className="text-lg text-white/70 mb-6 leading-relaxed max-w-xl">
-                Pas une question de motivation. Pas une question de compétences.
-                Une question de système nerveux. Découvrez comment les leaders
-                qui durent ont appris à manager leur état interne avant de
-                manager l&apos;externe.
-              </p>
-
-              <p
-                className="text-base mb-10 leading-relaxed max-w-xl"
-                style={{ color: "#cda540", fontStyle: "italic" }}
-              >
-                Pourquoi vos meilleures décisions se prennent-elles rarement
-                sous pression ?
+                Les décisions stratégiques ne se prennent pas sous stress.
+                Nous formons vos directions à maintenir leur disponibilité
+                neurologique sous pression.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -708,6 +700,57 @@ export default function HomePage() {
               <p className="text-sm text-gray-400 mt-4">
                 Gratuit · Confidentiel · Dirigeants & DRH
               </p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── GALERIE PHOTOS ───────────────────────────── */}
+      <section
+        style={{ backgroundColor: "#1a0a1e", position: "relative", overflow: "hidden" }}
+        className="py-24"
+      >
+        <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(120,66,127,0.18) 0%, transparent 65%)", pointerEvents: "none" }} />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: "relative" }}>
+          <SectionReveal className="text-center mb-14">
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(205,165,64,0.08)", border: "1px solid rgba(205,165,64,0.25)", borderRadius: 100, padding: "6px 18px", marginBottom: 20 }}>
+              <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#cda540", flexShrink: 0 }} />
+              <span style={{ fontSize: 12, fontWeight: 700, color: "#cda540", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Ils ont vécu l&apos;expérience
+              </span>
+            </div>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ffffff", fontSize: "clamp(1.9rem, 3.5vw, 2.6rem)", fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
+              Sur le terrain,{" "}
+              <em style={{ color: "#cda540", fontStyle: "italic" }}>avec les chevaux</em>
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "1.05rem", maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
+              Des équipes dirigeantes en situation réelle, pas en salle de conférence.
+            </p>
+          </SectionReveal>
+
+          <SectionReveal>
+            <div className="gallery-bento" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 16 }}>
+              <div style={{ gridColumn: "1 / 8", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
+                <Image src="/images/teambuilding/photo-1.jpg" alt="Équipe qui célèbre avec un cheval devant des ruines de château" fill sizes="(max-width: 768px) 100vw, 55vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Célébration collective</span>
+              </div>
+              <div style={{ gridColumn: "8 / 13", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
+                <Image src="/images/teambuilding/photo-2.jpg" alt="Deux participantes avec un cheval dans un pré" fill sizes="(max-width: 768px) 100vw, 40vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Connexion et présence</span>
+              </div>
+              <div style={{ gridColumn: "1 / 6", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
+                <Image src="/images/teambuilding/photo-3.jpg" alt="Groupe de participants dans le paddock avec un cheval blanc" fill sizes="(max-width: 768px) 100vw, 38vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Dynamiques d&apos;équipe</span>
+              </div>
+              <div style={{ gridColumn: "6 / 13", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
+                <Image src="/images/teambuilding/photo-4.jpg" alt="Dirigeant en contact avec un cheval blanc accompagné d'une coach" fill sizes="(max-width: 768px) 100vw, 57vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Leadership et lâcher-prise</span>
+              </div>
             </div>
           </SectionReveal>
         </div>
