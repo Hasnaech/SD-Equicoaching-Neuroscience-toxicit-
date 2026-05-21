@@ -71,11 +71,20 @@ export default function Header() {
                   </Link>
                   <Link
                     href="/teambuilding-equicoaching"
-                    className="block px-5 py-3.5 text-sm text-white/80 hover:text-[#cda540] hover:bg-white/5 transition-colors"
+                    className="block px-5 py-3.5 text-sm text-white/80 hover:text-[#cda540] hover:bg-white/5 transition-colors border-b border-white/5"
                   >
                     <span className="font-medium">Teambuilding Équicoaching</span>
                     <span className="block text-xs text-white/40 mt-0.5">
                       Demi-journée ou journée complète
+                    </span>
+                  </Link>
+                  <Link
+                    href="/neurosciences-managers"
+                    className="block px-5 py-3.5 text-sm text-white/80 hover:text-[#cda540] hover:bg-white/5 transition-colors"
+                  >
+                    <span className="font-medium">Neurosciences pour Managers</span>
+                    <span className="block text-xs text-white/40 mt-0.5">
+                      Formation en ligne · Accompagnement individuel
                     </span>
                   </Link>
                 </div>
@@ -167,6 +176,13 @@ export default function Header() {
                     onClick={() => setMenuOpen(false)}
                   >
                     Teambuilding Équicoaching
+                  </Link>
+                  <Link
+                    href="/neurosciences-managers"
+                    className="text-sm text-white/60 hover:text-[#cda540] transition-colors py-1"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Neurosciences pour Managers
                   </Link>
                 </div>
               )}
