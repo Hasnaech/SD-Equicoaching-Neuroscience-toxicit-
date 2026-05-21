@@ -31,6 +31,10 @@ export default function YouTubeAutoplay({ videoId }: { videoId: string }) {
   const playerRef = useRef<any>(null);
 
   useEffect(() => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     let observer: IntersectionObserver;
 
     loadYTApi().then(() => {
@@ -47,9 +51,14 @@ export default function YouTubeAutoplay({ videoId }: { videoId: string }) {
           playsinline: 1,
           fs: 0,
           disablekb: 0,
+          cc_load_policy: 0,
         },
         events: {
           onReady: (event: any) => {
+            event.target.setVolume(30);
+
+            if (prefersReduced) return;
+
             observer = new IntersectionObserver(
               (entries) => {
                 if (entries[0].isIntersecting) {
@@ -77,19 +86,19 @@ export default function YouTubeAutoplay({ videoId }: { videoId: string }) {
       ref={containerRef}
       style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden" }}
     >
-      {/* iframe scaled up to crop YouTube logo/bars */}
+      {/* scaled to crop YouTube logo/bar from all edges */}
       <div
         ref={playerDivRef}
         style={{
           position: "absolute",
-          top: "-7%",
+          top: "-9%",
           left: "-2%",
           width: "104%",
-          height: "114%",
+          height: "118%",
           border: 0,
         }}
       />
-      {/* transparent overlay – blocks YouTube UI interaction but passes clicks to player */}
+      {/* overlay – intercepts YouTube UI, routes clicks to play/pause */}
       <div
         onClick={() => {
           const state = playerRef.current?.getPlayerState?.();

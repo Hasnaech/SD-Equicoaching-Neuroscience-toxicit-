@@ -110,31 +110,197 @@ export default function TeambuildingEquicoachingPage() {
       </section>
 
       {/* ── VIDÉO ────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#f2ede5" }} className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionReveal className="text-center mb-10">
+      <section
+        style={{ backgroundColor: "#f2ede5", position: "relative", overflow: "hidden" }}
+        className="py-24"
+      >
+        {/* Decorative blobs */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -100,
+            right: -100,
+            width: 380,
+            height: 380,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(120,66,127,0.13) 0%, transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            bottom: -80,
+            left: -80,
+            width: 300,
+            height: 300,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(120,66,127,0.09) 0%, transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+        {/* Decorative small dots */}
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: 60,
+            left: "8%",
+            width: 6,
+            height: 6,
+            borderRadius: "50%",
+            background: "rgba(120,66,127,0.25)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: 90,
+            left: "10%",
+            width: 4,
+            height: 4,
+            borderRadius: "50%",
+            background: "rgba(120,66,127,0.15)",
+            pointerEvents: "none",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            bottom: 80,
+            right: "9%",
+            width: 8,
+            height: 8,
+            borderRadius: "50%",
+            background: "rgba(120,66,127,0.2)",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: "relative" }}>
+          {/* Header */}
+          <SectionReveal className="text-center mb-12">
+            {/* Badge */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "rgba(120,66,127,0.08)",
+                border: "1px solid rgba(120,66,127,0.22)",
+                borderRadius: 100,
+                padding: "6px 18px",
+                marginBottom: 20,
+              }}
+            >
+              <span
+                style={{
+                  display: "inline-block",
+                  width: 6,
+                  height: 6,
+                  borderRadius: "50%",
+                  background: "#78427f",
+                  flexShrink: 0,
+                }}
+              />
+              <span
+                style={{
+                  fontSize: 12,
+                  fontWeight: 700,
+                  color: "#78427f",
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                }}
+              >
+                Vidéo exclusive
+              </span>
+            </div>
+
             <h2
-              className="text-3xl font-bold mb-4"
               style={{
                 fontFamily: "'Playfair Display', Georgia, serif",
                 color: "#1a0a1e",
+                fontSize: "clamp(2rem, 4vw, 2.75rem)",
+                fontWeight: 700,
+                lineHeight: 1.2,
+                marginBottom: 16,
               }}
             >
-              Découvrez l&apos;équicoaching en action
+              L&apos;équicoaching{" "}
+              <em style={{ color: "#78427f", fontStyle: "italic" }}>en action</em>
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
-              Une immersion concrète dans ce que vos équipes vont vivre.
+            <p
+              style={{
+                color: "#5a4a60",
+                fontSize: "1.1rem",
+                maxWidth: 520,
+                margin: "0 auto",
+                lineHeight: 1.7,
+              }}
+            >
+              Une immersion concrète dans ce que vos équipes vont vivre lors de
+              votre journée teambuilding.
             </p>
           </SectionReveal>
+
+          {/* Video — gradient border frame */}
           <SectionReveal>
             <div
-              className="rounded-2xl overflow-hidden"
               style={{
-                boxShadow: "0 8px 40px rgba(120,66,127,0.15)",
-                border: "1px solid rgba(120,66,127,0.1)",
+                padding: 3,
+                borderRadius: 22,
+                background:
+                  "linear-gradient(135deg, #78427f 0%, #b087b7 50%, #78427f 100%)",
+                boxShadow:
+                  "0 24px 70px rgba(120,66,127,0.28), 0 6px 20px rgba(0,0,0,0.08)",
               }}
             >
-              <YouTubeAutoplay videoId="ZMTDfHlLpB0" />
+              <div style={{ borderRadius: 19, overflow: "hidden" }}>
+                <YouTubeAutoplay videoId="ZMTDfHlLpB0" />
+              </div>
+            </div>
+
+            {/* Caption row */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                marginTop: 20,
+              }}
+            >
+              <div
+                style={{
+                  height: 1,
+                  width: 40,
+                  background: "rgba(120,66,127,0.3)",
+                }}
+              />
+              <span
+                style={{
+                  fontSize: 13,
+                  color: "#78427f",
+                  fontWeight: 500,
+                  letterSpacing: "0.04em",
+                }}
+              >
+                Cliquez pour mettre en pause · Son réglé à 30 %
+              </span>
+              <div
+                style={{
+                  height: 1,
+                  width: 40,
+                  background: "rgba(120,66,127,0.3)",
+                }}
+              />
             </div>
           </SectionReveal>
         </div>
