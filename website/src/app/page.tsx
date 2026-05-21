@@ -196,7 +196,6 @@ export default function HomePage() {
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            {/* Photo */}
             <SectionReveal direction="left">
               <div
                 className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-4"
@@ -225,7 +224,6 @@ export default function HomePage() {
               </div>
             </SectionReveal>
 
-            {/* Text */}
             <SectionReveal direction="right">
               <span
                 className="text-sm font-semibold uppercase tracking-widest mb-4 block"
