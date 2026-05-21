@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 const timeline = [
   { time: "9h00", titre: "Accueil & cadrage", desc: "Présentation du cadre, des règles de sécurité, des objectifs de la journée. Aucune expérience équestre requise." },
   { time: "9h30", titre: "Observation libre", desc: "Observer les chevaux en liberté. Premier miroir : comment vous vous positionnez dans l'espace collectif." },
-  { time: "10h30", titre: "Exercice individuel — Contact", desc: "Approcher un cheval seul. Le cheval réagit à votre état interne, pas à votre intention. Premier retour corporel." },
+  { time: "10h30", titre: "Exercice individuel, Contact", desc: "Approcher un cheval seul. Le cheval réagit à votre état interne, pas à votre intention. Premier retour corporel." },
   { time: "12h00", titre: "Débrief & déjeuner", desc: "Partage des observations. Apport théorique sur la neuroception et la contagion émotionnelle." },
-  { time: "14h00", titre: "Exercice collectif — Leadership en mouvement", desc: "Guider un cheval en groupe. Qui prend le leadership naturellement ? Qui s'efface ? Qui entre en conflit ?" },
+  { time: "14h00", titre: "Exercice collectif, Leadership en mouvement", desc: "Guider un cheval en groupe. Qui prend le leadership naturellement ? Qui s'efface ? Qui entre en conflit ?" },
   { time: "16h00", titre: "Retour sur le terrain professionnel", desc: "Transposition explicite : qu'est-ce que la journée a révélé sur les dynamiques de votre équipe ?" },
   { time: "17h00", titre: "Plan d'action collectif", desc: "Co-construction des 3 engagements prioritaires pour les 90 prochains jours." },
 ];
@@ -34,7 +34,7 @@ const raisons = [
   {
     number: "01",
     title: "Il détecte ce que vous cachez",
-    body: "500 kilos de capteurs neurologiques. Aucun discours ne passe. Le cheval perçoit l'incohérence entre votre état interne et votre communication externe — instantanément, sans jugement.",
+    body: "500 kilos de capteurs neurologiques. Aucun discours ne passe. Le cheval perçoit l'incohérence entre votre état interne et votre communication externe, instantanément, sans jugement.",
   },
   {
     number: "02",
@@ -44,7 +44,7 @@ const raisons = [
   {
     number: "03",
     title: "L'ancrage est corporel",
-    body: "Ce que vous vivez avec lui reste. Pas comme un PowerPoint. La mémoire corporelle ancre les apprentissages différemment — et durablement. Nos clients en parlent encore 6 mois après.",
+    body: "Ce que vous vivez avec lui reste. Pas comme un PowerPoint. La mémoire corporelle ancre les apprentissages différemment, et durablement. Nos clients en parlent encore 6 mois après.",
   },
 ];
 
@@ -60,7 +60,7 @@ const casClients = [
     titre: "Équipe commerciale en silos",
     contexte: "Une équipe de 14 commerciaux terrain dans le retail premium. Compétition interne, pas de partage d'informations clients. Le manager national était épuisé à arbitrer.",
     exercice: "Exercice de guidage en équipe : l'ensemble du groupe doit amener le cheval d'un point A à un point B, en restant coordonné.",
-    resultat: "Chaos complet. Le cheval refuse d'avancer. L'équipe découvre qu'elle n'a aucun processus de coordination informel — chacun tire dans sa direction.",
+    resultat: "Chaos complet. Le cheval refuse d'avancer. L'équipe découvre qu'elle n'a aucun processus de coordination informel, chacun tire dans sa direction.",
     impact: "3 mois après : mise en place d'un standup hebdomadaire de partage clients. Le NPS interne a progressé de 22 points. Un commercial 'désengagé' s'est repositionné en leader pair.",
   },
 ];
@@ -256,7 +256,7 @@ export default function TeambuildingEquicoachingPage() {
             </p>
           </SectionReveal>
 
-          {/* Video — gradient border frame */}
+          {/* Video, gradient border frame */}
           <SectionReveal>
             <div
               style={{
@@ -307,105 +307,6 @@ export default function TeambuildingEquicoachingPage() {
                   background: "rgba(120,66,127,0.3)",
                 }}
               />
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* ── GALERIE PHOTOS ───────────────────────────── */}
-      <section
-        style={{ backgroundColor: "#1a0a1e", position: "relative", overflow: "hidden" }}
-        className="py-24"
-      >
-        {/* Background glow */}
-        <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(120,66,127,0.18) 0%, transparent 65%)", pointerEvents: "none" }} />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: "relative" }}>
-          {/* Header */}
-          <SectionReveal className="text-center mb-14">
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(205,165,64,0.08)", border: "1px solid rgba(205,165,64,0.25)", borderRadius: 100, padding: "6px 18px", marginBottom: 20 }}>
-              <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#cda540", flexShrink: 0 }} />
-              <span style={{ fontSize: 12, fontWeight: 700, color: "#cda540", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-                Ils ont vécu l&apos;expérience
-              </span>
-            </div>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ffffff", fontSize: "clamp(1.9rem, 3.5vw, 2.6rem)", fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
-              Sur le terrain,{" "}
-              <em style={{ color: "#cda540", fontStyle: "italic" }}>avec les chevaux</em>
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "1.05rem", maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
-              Des équipes dirigeantes en situation réelle — pas en salle de conférence.
-            </p>
-          </SectionReveal>
-
-          {/* Bento grid */}
-          <SectionReveal>
-            <div className="gallery-bento" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gridTemplateRows: "auto", gap: 16 }}>
-
-              {/* Photo 1 — large left (castle ruins, team celebrating) */}
-              <div style={{ gridColumn: "1 / 8", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
-                <Image
-                  src="/images/teambuilding/photo-1.jpg"
-                  alt="Équipe qui célèbre avec un cheval devant des ruines de château"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 55vw"
-                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                  className="gallery-img"
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
-                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>
-                  Célébration collective
-                </span>
-              </div>
-
-              {/* Photo 2 — right top (two women with horse) */}
-              <div style={{ gridColumn: "8 / 13", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
-                <Image
-                  src="/images/teambuilding/photo-2.jpg"
-                  alt="Deux participantes avec un cheval dans un pré"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                  className="gallery-img"
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
-                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>
-                  Connexion & présence
-                </span>
-              </div>
-
-              {/* Photo 3 — bottom left (group in paddock) */}
-              <div style={{ gridColumn: "1 / 6", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
-                <Image
-                  src="/images/teambuilding/photo-3.jpg"
-                  alt="Groupe de participants dans le paddock avec un cheval blanc"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 38vw"
-                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                  className="gallery-img"
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
-                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>
-                  Dynamiques d&apos;équipe
-                </span>
-              </div>
-
-              {/* Photo 4 — bottom right large (man with white horse) */}
-              <div style={{ gridColumn: "6 / 13", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
-                <Image
-                  src="/images/teambuilding/photo-4.jpg"
-                  alt="Dirigeant en contact avec un cheval blanc accompagné d'une coach"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 57vw"
-                  style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
-                  className="gallery-img"
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
-                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>
-                  Leadership & lâcher-prise
-                </span>
-              </div>
-
             </div>
           </SectionReveal>
         </div>
@@ -699,6 +600,57 @@ export default function TeambuildingEquicoachingPage() {
             <p className="text-white/50 text-sm mt-4">
               Gratuit · Sans engagement · Réponse sous 48h
             </p>
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── GALERIE PHOTOS ───────────────────────────── */}
+      <section
+        style={{ backgroundColor: "#1a0a1e", position: "relative", overflow: "hidden" }}
+        className="py-24"
+      >
+        <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 700, height: 700, borderRadius: "50%", background: "radial-gradient(circle, rgba(120,66,127,0.18) 0%, transparent 65%)", pointerEvents: "none" }} />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: "relative" }}>
+          <SectionReveal className="text-center mb-14">
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(205,165,64,0.08)", border: "1px solid rgba(205,165,64,0.25)", borderRadius: 100, padding: "6px 18px", marginBottom: 20 }}>
+              <span style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#cda540", flexShrink: 0 }} />
+              <span style={{ fontSize: 12, fontWeight: 700, color: "#cda540", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Ils ont vécu l&apos;expérience
+              </span>
+            </div>
+            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#ffffff", fontSize: "clamp(1.9rem, 3.5vw, 2.6rem)", fontWeight: 700, lineHeight: 1.2, marginBottom: 14 }}>
+              Sur le terrain,{" "}
+              <em style={{ color: "#cda540", fontStyle: "italic" }}>avec les chevaux</em>
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "1.05rem", maxWidth: 480, margin: "0 auto", lineHeight: 1.7 }}>
+              Des équipes dirigeantes en situation réelle, pas en salle de conférence.
+            </p>
+          </SectionReveal>
+
+          <SectionReveal>
+            <div className="gallery-bento" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 16 }}>
+              <div style={{ gridColumn: "1 / 8", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
+                <Image src="/images/teambuilding/photo-1.jpg" alt="Équipe qui célèbre avec un cheval devant des ruines de château" fill sizes="(max-width: 768px) 100vw, 55vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Célébration collective</span>
+              </div>
+              <div style={{ gridColumn: "8 / 13", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
+                <Image src="/images/teambuilding/photo-2.jpg" alt="Deux participantes avec un cheval dans un pré" fill sizes="(max-width: 768px) 100vw, 40vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Connexion & présence</span>
+              </div>
+              <div style={{ gridColumn: "1 / 6", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
+                <Image src="/images/teambuilding/photo-3.jpg" alt="Groupe de participants dans le paddock avec un cheval blanc" fill sizes="(max-width: 768px) 100vw, 38vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Dynamiques d&apos;équipe</span>
+              </div>
+              <div style={{ gridColumn: "6 / 13", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
+                <Image src="/images/teambuilding/photo-4.jpg" alt="Dirigeant en contact avec un cheval blanc accompagné d'une coach" fill sizes="(max-width: 768px) 100vw, 57vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
+                <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Leadership & lâcher-prise</span>
+              </div>
+            </div>
           </SectionReveal>
         </div>
       </section>

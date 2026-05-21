@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "Contactez SD Équicoaching pour un diagnostic préliminaire gratuit. Téléphone, email, ou réserver directement via Calendly.",
   openGraph: {
-    title: "Contact — SD Équicoaching",
+    title: "Contact : SD Équicoaching",
     description: "Prenez contact avec Sarah Dabancens pour un diagnostic préliminaire gratuit.",
   },
 };

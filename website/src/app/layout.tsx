@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: {
     template: "%s | SD Équicoaching",
     default:
-      "SD Équicoaching — Formation Leadership & Neurosciences pour Managers",
+      "SD Équicoaching : Formation Leadership & Neurosciences pour Managers",
   },
   description:
     "Formation leadership par les neurosciences et l'équicoaching. Certifié Qualiopi, éligible OPCO. Manager de Transition pour dirigeants et DRH.",
