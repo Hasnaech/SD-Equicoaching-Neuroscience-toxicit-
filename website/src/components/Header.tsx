@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
@@ -12,6 +12,15 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [offresOpen, setOffresOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const openOffres = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOffresOpen(true);
+  };
+  const closeOffres = () => {
+    closeTimer.current = setTimeout(() => setOffresOpen(false), 120);
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -45,8 +54,8 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-8">
             <div
               className="relative"
-              onMouseEnter={() => setOffresOpen(true)}
-              onMouseLeave={() => setOffresOpen(false)}
+              onMouseEnter={openOffres}
+              onMouseLeave={closeOffres}
             >
               <button className="flex items-center gap-1 text-white/90 hover:text-[#cda540] transition-colors font-medium text-sm py-2">
                 Offres
@@ -56,19 +65,26 @@ export default function Header() {
                 />
               </button>
               {offresOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-[#1a0a1e] border border-white/10 rounded-xl shadow-2xl overflow-hidden">
+                <div
+                  className="absolute top-full left-1/2 -translate-x-1/2 w-64 bg-[#1a0a1e] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                  onMouseEnter={openOffres}
+                  onMouseLeave={closeOffres}
+                  style={{ marginTop: "-2px", paddingTop: "6px" }}
+                >
                   <Link
                     href="/formation-leadership"
                     className="block px-5 py-3.5 text-sm text-white/80 hover:text-[#cda540] hover:bg-white/5 transition-colors border-b border-white/5"
+                    onClick={() => setOffresOpen(false)}
                   >
                     <span className="font-medium">Formation Leadership</span>
                     <span className="block text-xs text-white/40 mt-0.5">
-                      21h · Qualiopi · OPCO
+                      Inter-entreprise · Qualiopi · OPCO
                     </span>
                   </Link>
                   <Link
                     href="/teambuilding-equicoaching"
                     className="block px-5 py-3.5 text-sm text-white/80 hover:text-[#cda540] hover:bg-white/5 transition-colors border-b border-white/5"
+                    onClick={() => setOffresOpen(false)}
                   >
                     <span className="font-medium">Teambuilding Équicoaching</span>
                     <span className="block text-xs text-white/40 mt-0.5">
@@ -78,6 +94,7 @@ export default function Header() {
                   <Link
                     href="/neurosciences-managers"
                     className="block px-5 py-3.5 text-sm text-white/80 hover:text-[#cda540] hover:bg-white/5 transition-colors"
+                    onClick={() => setOffresOpen(false)}
                   >
                     <span className="font-medium">Neurosciences pour Managers</span>
                     <span className="block text-xs text-white/40 mt-0.5">

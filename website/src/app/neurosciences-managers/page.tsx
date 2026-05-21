@@ -632,7 +632,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(205,165,64,0.08)" }}
               >
                 <img
-                  src="/weekend/jacuzzi.jpg"
+                  src="/jacuzzi.JPG"
                   alt="Jacuzzi privatif"
                   className="w-full h-full object-cover"
                 />
@@ -656,7 +656,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(120,66,127,0.12)" }}
               >
                 <img
-                  src="/weekend/chambre.jpg"
+                  src="/chambre.JPG"
                   alt="Chambre confortable"
                   className="w-full h-full object-cover"
                 />
@@ -680,7 +680,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(120,66,127,0.08)" }}
               >
                 <img
-                  src="/weekend/equicoaching-session.jpg"
+                  src="/equicoaching-session.JPG"
                   alt="Atelier équicoaching avec Sarah Dabancens"
                   className="w-full h-full object-cover"
                 />
@@ -704,7 +704,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(205,165,64,0.06)" }}
               >
                 <img
-                  src="/weekend/cheval.jpg"
+                  src="/cheval.png"
                   alt="Cheval au coucher du soleil"
                   className="w-full h-full object-cover object-top"
                 />
