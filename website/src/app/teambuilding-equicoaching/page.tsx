@@ -4,7 +4,7 @@ import { Clock, MapPin, Users, CheckCircle } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
-import YouTubeAutoplay from "@/components/YouTubeAutoplay";
+import VimeoAutoplay from "@/components/VimeoAutoplay";
 
 export const metadata: Metadata = {
   title: "Teambuilding Équicoaching Entreprise | SD Équicoaching",
@@ -263,7 +263,7 @@ export default function TeambuildingEquicoachingPage() {
               }}
             >
               <div style={{ borderRadius: 19, overflow: "hidden" }}>
-                <YouTubeAutoplay videoId="ZMTDfHlLpB0" />
+                <VimeoAutoplay videoId="1194368692" />
               </div>
             </div>
 
