@@ -85,28 +85,26 @@ export default function TeambuildingEquicoachingPage() {
                   backgroundColor: "rgba(205,165,64,0.08)",
                 }}
               >
-                Leadership &amp; Neurosciences Comportementales
+                Neurosciences appliquées à la performance collective
               </span>
             </div>
             <h1
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Former vos comités de direction
+              Les décisions stratégiques
               <br />
               <span style={{ color: "#cda540" }}>
-                à la régulation du système nerveux
+                ne se prennent pas sous stress.
               </span>
-              <br />
-              sous pression.
             </h1>
             <p
-              className="text-white/60 max-w-lg mx-auto mb-10 leading-relaxed"
-              style={{ fontSize: "1.2rem", fontStyle: "italic" }}
+              className="text-white/60 max-w-xl mx-auto mb-10 leading-relaxed"
+              style={{ fontSize: "1.15rem" }}
             >
-              Une compétence stratégique
+              Nous formons vos directions à maintenir
               <br />
-              rarement enseignée.
+              leur disponibilité neurologique sous pression.
             </p>
             <CalendlyButton variant="primary" size="lg">
               Demander un devis
