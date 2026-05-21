@@ -253,7 +253,7 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
                 Pendant 15 ans, j&apos;ai piloté des équipes en France et à
-                l&apos;international — secteur pharmaceutique, start-ups, luxe.
+                l&apos;international, secteur pharmaceutique, start-ups, luxe.
                 J&apos;ai vécu ce que vivent vos managers : les décisions sous
                 pression, les équipes démotivées, le coût humain et financier
                 d&apos;un leadership qui grippe.
@@ -594,7 +594,7 @@ export default function HomePage() {
             {[
               {
                 quote:
-                  "Notre CODIR était en train de s'éviter. Après la journée équicoaching, on a eu notre première vraie conversation difficile — et elle a débouché sur une décision. C'est rare.",
+                  "Notre CODIR était en train de s'éviter. Après la journée équicoaching, on a eu notre première vraie conversation difficile, et elle a débouché sur une décision. C'est rare.",
                 author: "DRH, Groupe industriel",
               },
               {
@@ -674,7 +674,7 @@ export default function HomePage() {
                   color: "#1a0a1e",
                 }}
               >
-                Diagnostic préliminaire — 30 minutes
+                Diagnostic préliminaire, 30 minutes
               </h2>
               <ul className="text-left space-y-3 mb-10 max-w-md mx-auto">
                 {[

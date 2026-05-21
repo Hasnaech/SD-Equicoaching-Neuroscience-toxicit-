@@ -6,11 +6,11 @@ import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 
 export const metadata: Metadata = {
-  title: "À propos de Sarah Dabancens — Manager de Transition & Équicoach | SD Équicoaching",
+  title: "À propos de Sarah Dabancens : Manager de Transition & Équicoach | SD Équicoaching",
   description:
     "Sarah Dabancens : 15 ans de terrain en direction commerciale, secteur pharmaceutique et international. Manager de Transition, équicoach certifiée ICF. Fondatrice de SD Équicoaching.",
   openGraph: {
-    title: "Sarah Dabancens — Fondatrice SD Équicoaching",
+    title: "Sarah Dabancens : Fondatrice SD Équicoaching",
     description:
       "De Directrice Commerciale à Manager de Transition. 15 ans de terrain. Équicoach certifiée. Qualiopi.",
   },
@@ -25,7 +25,7 @@ const team = [
   },
   {
     name: "Mahdi Lansari",
-    role: "Coach certifié ICF — Neurosciences",
+    role: "Coach certifié ICF, Neurosciences",
     description:
       "Coach certifié ICF et formateur en neurosciences comportementales. Intervient sur les modules de neuroplasticité et de régulation émotionnelle. Ancien directeur de business unit, 10 ans d'expérience terrain.",
   },
@@ -161,7 +161,7 @@ export default function AProposPage() {
               <div className="space-y-5 text-gray-700 leading-relaxed">
                 <p>
                   Pendant 15 ans, j&apos;ai piloté des équipes de vente en France et
-                  à l&apos;international — dans les secteurs pharmaceutique, start-up
+                  à l&apos;international, dans les secteurs pharmaceutique, start-up
                   et luxe. J&apos;ai géré des équipes de 5 à 45 personnes, traversé
                   des fusions, des restructurations, des changements de direction
                   stratégique à 180 degrés.
@@ -174,9 +174,9 @@ export default function AProposPage() {
                   se passe.
                 </p>
                 <p>
-                  Ce que j&apos;ai compris à 38 ans — en me formant aux neurosciences
+                  Ce que j&apos;ai compris à 38 ans, en me formant aux neurosciences
                   comportementales, à l&apos;équicoaching et aux outils de régulation
-                  du système nerveux — m&apos;a changée. Pas en tant que personne. En
+                  du système nerveux, m&apos;a changée. Pas en tant que personne. En
                   tant que leader. J&apos;ai arrêté de gérer les symptômes pour
                   travailler sur les causes.
                 </p>
@@ -191,7 +191,7 @@ export default function AProposPage() {
                   directions générales et de CODIR en transformation. Je forme
                   des managers à comprendre leur propre système nerveux pour
                   mieux réguler celui de leurs équipes. Et je certifie des
-                  programmes qui ont un impact mesurable — pas des formations
+                  programmes qui ont un impact mesurable, pas des formations
                   qu&apos;on oublie 3 semaines après.
                 </p>
               </div>

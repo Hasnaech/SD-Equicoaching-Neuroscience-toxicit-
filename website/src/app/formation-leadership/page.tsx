@@ -6,7 +6,7 @@ import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 
 export const metadata: Metadata = {
-  title: "Formation Leadership Neurosciences — 21h Certifié Qualiopi | SD Équicoaching",
+  title: "Formation Leadership Neurosciences, 21h Certifié Qualiopi | SD Équicoaching",
   description:
     "Formation leadership par les neurosciences comportementales. 21h certifiées Qualiopi, éligible OPCO. Comprendre pourquoi le cerveau bug sous pression. Pour managers et directeurs.",
   keywords:
@@ -29,25 +29,25 @@ const modules = [
     number: "02",
     title: "Neurobiologie de la décision",
     subtitle: "Pourquoi le cerveau bug sous pression",
-    body: "Sous stress, le cortex préfrontal — siège de la décision rationnelle — se met en veille au profit du système limbique. Nous explorons les mécanismes neurobiologiques qui expliquent les décisions impulsives, les conflits escaladés et les angles morts cognitifs.",
+    body: "Sous stress, le cortex préfrontal, siège de la décision rationnelle, se met en veille au profit du système limbique. Nous explorons les mécanismes neurobiologiques qui expliquent les décisions impulsives, les conflits escaladés et les angles morts cognitifs.",
   },
   {
     number: "03",
     title: "Neuroception & contagion émotionnelle",
     subtitle: "L'impact de votre état sur votre équipe",
-    body: "Votre système nerveux parle à celui de votre équipe — avant même que vous ouvriez la bouche. Neuroception (Porges), neurones miroirs (Rizzolatti) : comprendre comment votre état interne contamine l'environnement de travail, positivement ou négativement.",
+    body: "Votre système nerveux parle à celui de votre équipe, avant même que vous ouvriez la bouche. Neuroception (Porges), neurones miroirs (Rizzolatti) : comprendre comment votre état interne contamine l'environnement de travail, positivement ou négativement.",
   },
   {
     number: "04",
     title: "Saboteurs & neuroplasticité",
     subtitle: "Reconfigurer les schémas limitants",
-    body: "Chamine (Positive Intelligence) identifie 9 saboteurs cognitifs qui parasitent le leadership. Nous les cartographions dans votre équipe et dans votre propre fonctionnement. La neuroplasticité permet de les reconfigurer — avec les bons outils, en moins de 6 semaines.",
+    body: "Chamine (Positive Intelligence) identifie 9 saboteurs cognitifs qui parasitent le leadership. Nous les cartographions dans votre équipe et dans votre propre fonctionnement. La neuroplasticité permet de les reconfigurer, avec les bons outils, en moins de 6 semaines.",
   },
   {
     number: "05",
     title: "Co-régulation & leadership",
     subtitle: "Devenir un leader régulateur",
-    body: "Un leader régulateur est capable de stabiliser le système nerveux collectif de son équipe — même sous pression. Techniques de régulation descendante et ascendante, ancrage somatique, posture de présence. Ce module est le cœur opérationnel de la formation.",
+    body: "Un leader régulateur est capable de stabiliser le système nerveux collectif de son équipe, même sous pression. Techniques de régulation descendante et ascendante, ancrage somatique, posture de présence. Ce module est le cœur opérationnel de la formation.",
   },
   {
     number: "06",
@@ -59,7 +59,7 @@ const modules = [
 
 const programme = [
   {
-    jour: "Jour 1 — Matin",
+    jour: "Jour 1 : Matin",
     titre: "Fondations neurologiques",
     contenu: [
       "Introduction à la théorie polyvagale",
@@ -68,7 +68,7 @@ const programme = [
     ],
   },
   {
-    jour: "Jour 1 — Après-midi",
+    jour: "Jour 1 : Après-midi",
     titre: "Neurobiologie de la décision",
     contenu: [
       "Mécanismes du cerveau sous pression",
@@ -133,7 +133,7 @@ export default function FormationLeadershipPage() {
             </p>
             <p className="text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">
               Une formation fondée sur les neurosciences comportementales pour
-              comprendre pourquoi vos décisions — et celles de vos managers —
+              comprendre pourquoi vos décisions, et celles de vos managers ,
               se dégradent sous pression, et comment y remédier durablement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -175,7 +175,7 @@ export default function FormationLeadershipPage() {
               {
                 num: "03",
                 title: "Devenir un leader régulateur",
-                body: "Acquérir des outils concrets de co-régulation pour stabiliser le système nerveux collectif — même en contexte de crise.",
+                body: "Acquérir des outils concrets de co-régulation pour stabiliser le système nerveux collectif, même en contexte de crise.",
               },
               {
                 num: "04",
@@ -354,11 +354,11 @@ export default function FormationLeadershipPage() {
             </h2>
             <div className="flex flex-wrap justify-center gap-3">
               {[
-                "Stephen Porges — Théorie polyvagale",
-                "Shirzad Chamine — Positive Intelligence",
-                "Bessel Van der Kolk — Le corps n'oublie rien",
-                "Amy Edmondson — Sécurité psychologique",
-                "Giacomo Rizzolatti — Neurones miroirs",
+                "Stephen Porges : Théorie polyvagale",
+                "Shirzad Chamine : Positive Intelligence",
+                "Bessel Van der Kolk : Le corps n'oublie rien",
+                "Amy Edmondson : Sécurité psychologique",
+                "Giacomo Rizzolatti : Neurones miroirs",
               ].map((ref) => (
                 <span
                   key={ref}

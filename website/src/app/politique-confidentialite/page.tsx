@@ -34,7 +34,7 @@ export default function PolitiqueConfidentialitePage() {
               via ce site est :
             </p>
             <p className="mt-3">
-              <strong>SD Équicoaching</strong> — Sarah Dabancens
+              <strong>SD Équicoaching</strong>, Sarah Dabancens
               <br />
               Email : sarah.dabancens@sd-equicoaching.fr
               <br />
@@ -191,8 +191,8 @@ export default function PolitiqueConfidentialitePage() {
             <p>
               Si vous estimez que vos droits ne sont pas respectés, vous pouvez
               introduire une réclamation auprès de la Commission Nationale de
-              l&apos;Informatique et des Libertés (CNIL) — 3 place de Fontenoy,
-              75007 Paris — www.cnil.fr.
+              l&apos;Informatique et des Libertés (CNIL), 3 place de Fontenoy,
+              75007 Paris, www.cnil.fr.
             </p>
           </section>
 

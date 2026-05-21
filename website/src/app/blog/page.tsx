@@ -7,12 +7,12 @@ import GradientBlob from "@/components/GradientBlob";
 import SectionReveal from "@/components/SectionReveal";
 
 export const metadata: Metadata = {
-  title: "Blog — Neurosciences, Leadership & Équicoaching | SD Équicoaching",
+  title: "Blog : Neurosciences, Leadership & Équicoaching | SD Équicoaching",
   description:
     "Articles de fond sur les neurosciences du leadership, l'équicoaching en entreprise et la formation management. Pour dirigeants et DRH.",
   openGraph: {
     title: "Blog SD Équicoaching",
-    description: "Neurosciences, leadership et équicoaching — pour managers et dirigeants.",
+    description: "Neurosciences, leadership et équicoaching, pour managers et dirigeants.",
   },
 };
 
@@ -45,7 +45,7 @@ export default function BlogPage() {
               Blog
             </h1>
             <p className="text-white/60 text-lg max-w-xl mx-auto">
-              Neurosciences, leadership et équicoaching — des articles de fond
+              Neurosciences, leadership et équicoaching, des articles de fond
               pour prendre de meilleures décisions.
             </p>
           </SectionReveal>
