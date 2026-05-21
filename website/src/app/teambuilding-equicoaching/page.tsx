@@ -4,6 +4,7 @@ import { Clock, MapPin, Users, CheckCircle } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
+import YouTubeAutoplay from "@/components/YouTubeAutoplay";
 
 export const metadata: Metadata = {
   title: "Teambuilding Équicoaching Entreprise | SD Équicoaching",
@@ -133,22 +134,7 @@ export default function TeambuildingEquicoachingPage() {
                 border: "1px solid rgba(120,66,127,0.1)",
               }}
             >
-              <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
-                <iframe
-                  src="https://www.youtube.com/embed/ZMTDfHlLpB0"
-                  title="Équicoaching en action"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    border: 0,
-                  }}
-                />
-              </div>
+              <YouTubeAutoplay videoId="ZMTDfHlLpB0" />
             </div>
           </SectionReveal>
         </div>
