@@ -58,25 +58,16 @@ export default function HomePage() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
-                Vos équipes performent.{" "}
+                Neurosciences appliquées{" "}
                 <span style={{ color: "#cda540" }}>
-                  Mais sous pression, quelque chose se grippe.
+                  à la performance collective
                 </span>
               </h1>
 
               <p className="text-lg text-white/70 mb-6 leading-relaxed max-w-xl">
-                Pas une question de motivation. Pas une question de compétences.
-                Une question de système nerveux. Découvrez comment les leaders
-                qui durent ont appris à manager leur état interne avant de
-                manager l&apos;externe.
-              </p>
-
-              <p
-                className="text-base mb-10 leading-relaxed max-w-xl"
-                style={{ color: "#cda540", fontStyle: "italic" }}
-              >
-                Pourquoi vos meilleures décisions se prennent-elles rarement
-                sous pression ?
+                Les décisions stratégiques ne se prennent pas sous stress.
+                Nous formons vos directions à maintenir leur disponibilité
+                neurologique sous pression.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
