@@ -28,119 +28,20 @@ export const metadata: Metadata = {
 };
 
 const modules = [
-  {
-    number: "01",
-    title: "Comprendre ton système nerveux",
-    color: "#78427f",
-    items: [
-      "Les 3 états nerveux et leur impact sur le leadership",
-      "Neuroception, saboteurs internes, régulation polyvagale",
-      "Profil R.E.A.L. — auto-diagnostic de ta signature neurologique",
-    ],
-  },
-  {
-    number: "02",
-    title: "Émotions, attachement et intelligence relationnelle",
-    color: "#78427f",
-    items: [
-      "CNV appliquée au management : les 4 étapes (Observation – Sentiment – Besoin – Demande)",
-      "Difficile vs toxique : les 3 critères clés (impact, persistance, conscience)",
-      "Premières grilles d'observation factuelle",
-    ],
-  },
-  {
-    number: "03",
-    title: "Réguler ton système nerveux",
-    color: "#78427f",
-    items: [
-      "Respiration, ancrage corporel, 5 outils de régulation rapide",
-      "Routine de régulation quotidienne",
-      "Gérer son énergie sur le long terme",
-    ],
-  },
-  {
-    number: "04",
-    title: "Triangle de Karpman et dynamiques toxiques",
-    color: "#78427f",
-    items: [
-      "Victime, sauveur, persécuteur : reconnaître et sortir du triangle",
-      "5 dynamiques toxiques en équipe : lire et désamorcer",
-      "Profil R.E.A.L. point d'étape mi-parcours",
-    ],
-  },
-  {
-    number: "05",
-    title: "Reprogrammer tes schémas",
-    color: "#78427f",
-    items: [
-      "Neuroplasticité, croyances limitantes, expérience corrective",
-      "De l'identité héritée à l'identité choisie de manager",
-      "Pratique d'ancrage : installer une nouvelle norme intérieure",
-    ],
-  },
-  {
-    number: "06",
-    title: "Intelligence émotionnelle et relationnelle",
-    color: "#78427f",
-    items: [
-      "5 compétences de Goleman appliquées au management",
-      "Feedback émotionnellement intelligent",
-      "Manager en période de changement et d'incertitude",
-    ],
-  },
-  {
-    number: "07",
-    title: "Ancrer ton nouveau standard",
-    color: "#78427f",
-    items: [
-      "Stabilité émotionnelle durable et rituels quotidiens",
-      "Tenir dans les crises et pics de pression",
-      "Profil R.E.A.L. bilan final",
-    ],
-  },
-  {
-    number: "08",
-    title: "AVANCÉ — Gérer un collaborateur toxique",
-    color: "#cda540",
-    items: [
-      "Reconnaître : 3 critères, 5 profils, diagnostic factuel",
-      "Intervenir : conversation directe, maintenir le cadre, protéger l'équipe",
-      "Sortir et reconstruire : l'après, plan d'action",
-    ],
-  },
+  { number: "01", title: "Comprendre ton système nerveux", color: "#78427f", items: ["Les 3 états nerveux et leur impact sur le leadership", "Neuroception, saboteurs internes, régulation polyvagale", "Profil R.E.A.L. — auto-diagnostic de ta signature neurologique"] },
+  { number: "02", title: "Émotions, attachement et intelligence relationnelle", color: "#78427f", items: ["CNV appliquée au management : les 4 étapes (Observation – Sentiment – Besoin – Demande)", "Difficile vs toxique : les 3 critères clés (impact, persistance, conscience)", "Premières grilles d'observation factuelle"] },
+  { number: "03", title: "Réguler ton système nerveux", color: "#78427f", items: ["Respiration, ancrage corporel, 5 outils de régulation rapide", "Routine de régulation quotidienne", "Gérer son énergie sur le long terme"] },
+  { number: "04", title: "Triangle de Karpman et dynamiques toxiques", color: "#78427f", items: ["Victime, sauveur, persécuteur : reconnaître et sortir du triangle", "5 dynamiques toxiques en équipe : lire et désamorcer", "Profil R.E.A.L. point d'étape mi-parcours"] },
+  { number: "05", title: "Reprogrammer tes schémas", color: "#78427f", items: ["Neuroplasticité, croyances limitantes, expérience corrective", "De l'identité héritée à l'identité choisie de manager", "Pratique d'ancrage : installer une nouvelle norme intérieure"] },
+  { number: "06", title: "Intelligence émotionnelle et relationnelle", color: "#78427f", items: ["5 compétences de Goleman appliquées au management", "Feedback émotionnellement intelligent", "Manager en période de changement et d'incertitude"] },
+  { number: "07", title: "Ancrer ton nouveau standard", color: "#78427f", items: ["Stabilité émotionnelle durable et rituels quotidiens", "Tenir dans les crises et pics de pression", "Profil R.E.A.L. bilan final"] },
+  { number: "08", title: "AVANCÉ — Gérer un collaborateur toxique", color: "#cda540", items: ["Reconnaître : 3 critères, 5 profils, diagnostic factuel", "Intervenir : conversation directe, maintenir le cadre, protéger l'équipe", "Sortir et reconstruire : l'après, plan d'action"] },
 ];
 
 const mois = [
-  {
-    num: "01",
-    title: "Réguler son système nerveux",
-    items: [
-      "Définir les objectifs personnalisés et le plan des 3 mois",
-      "Explorer les états nerveux et identifier son profil dominant",
-      "Installer une routine de régulation adaptée",
-      "Travailler les modules M1–M3 en lien avec les situations réelles",
-      "Premiers outils : respiration, ancrage, régulation rapide, visualisation, audios",
-    ],
-  },
-  {
-    num: "02",
-    title: "Comprendre ses schémas relationnels",
-    items: [
-      "Triangle de Karpman et schémas — modules M4–M5",
-      "Identification du rôle réflexe dans les dynamiques toxiques",
-      "CNV : préparer et conduire un entretien difficile",
-      "Travail sur les croyances limitantes et l'identité de manager",
-    ],
-  },
-  {
-    num: "03",
-    title: "Ancrer — Intervenir — Atteindre son objectif",
-    items: [
-      "Simulation d'entretiens difficiles avec debriefing",
-      "Ancrage des rituels de régulation long terme",
-      "Déploiement du plan d'action 30/60/90 jours",
-    ],
-  },
+  { num: "01", title: "Réguler son système nerveux", items: ["Définir les objectifs personnalisés et le plan des 3 mois", "Explorer les états nerveux et identifier son profil dominant", "Installer une routine de régulation adaptée", "Travailler les modules M1–M3 en lien avec les situations réelles", "Premiers outils : respiration, ancrage, régulation rapide, visualisation, audios"] },
+  { num: "02", title: "Comprendre ses schémas relationnels", items: ["Triangle de Karpman et schémas — modules M4–M5", "Identification du rôle réflexe dans les dynamiques toxiques", "CNV : préparer et conduire un entretien difficile", "Travail sur les croyances limitantes et l'identité de manager"] },
+  { num: "03", title: "Ancrer — Intervenir — Atteindre son objectif", items: ["Simulation d'entretiens difficiles avec debriefing", "Ancrage des rituels de régulation long terme", "Déploiement du plan d'action 30/60/90 jours"] },
 ];
 
 export default function NeurosciencesManagersPage() {
@@ -158,9 +59,7 @@ export default function NeurosciencesManagersPage() {
             </h1>
             <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">24h de formation en ligne · 18h d&apos;accompagnement individuel · 3 mois</p>
             <p className="text-white/60 max-w-xl mx-auto mb-10 leading-relaxed">Comprendre et gérer les comportements difficiles et toxiques à la lumière des neurosciences. Un programme complet pour managers en activité, 100 % à distance.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <CalendlyButton variant="primary" size="lg">Réserver un entretien découverte</CalendlyButton>
-            </div>
+            <CalendlyButton variant="primary" size="lg">Réserver un entretien découverte</CalendlyButton>
           </SectionReveal>
         </div>
       </section>
@@ -316,7 +215,7 @@ export default function NeurosciencesManagersPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
             <SectionReveal delay={0} className="col-span-2">
               <div className="relative rounded-2xl overflow-hidden h-64 md:h-72" style={{ background: "rgba(205,165,64,0.08)" }}>
-                <img src="/weekend/jacuzzi.jpg" alt="Jacuzzi privatif" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                <img src="/weekend/jacuzzi.jpg" alt="Jacuzzi privatif" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)" }}>
                   <span className="text-white font-semibold text-sm">Jacuzzi privatif</span>
                 </div>
@@ -324,7 +223,7 @@ export default function NeurosciencesManagersPage() {
             </SectionReveal>
             <SectionReveal delay={0.08} className="col-span-2">
               <div className="relative rounded-2xl overflow-hidden h-64 md:h-72" style={{ background: "rgba(120,66,127,0.12)" }}>
-                <img src="/weekend/chambre.jpg" alt="Chambre confortable" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                <img src="/weekend/chambre.jpg" alt="Chambre confortable" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)" }}>
                   <span className="text-white font-semibold text-sm">Chambre & espace privatif</span>
                 </div>
@@ -332,7 +231,7 @@ export default function NeurosciencesManagersPage() {
             </SectionReveal>
             <SectionReveal delay={0.14} className="col-span-2 md:col-span-3">
               <div className="relative rounded-2xl overflow-hidden h-56 md:h-64" style={{ background: "rgba(120,66,127,0.08)" }}>
-                <img src="/weekend/equicoaching-session.jpg" alt="Atelier équicoaching avec Sarah Dabancens" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                <img src="/weekend/equicoaching-session.jpg" alt="Atelier équicoaching avec Sarah Dabancens" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)" }}>
                   <span className="text-white font-semibold text-sm">Atelier équicoaching en extérieur</span>
                 </div>
@@ -340,7 +239,7 @@ export default function NeurosciencesManagersPage() {
             </SectionReveal>
             <SectionReveal delay={0.2} className="col-span-2 md:col-span-1">
               <div className="relative rounded-2xl overflow-hidden h-56 md:h-64" style={{ background: "rgba(205,165,64,0.06)" }}>
-                <img src="/weekend/cheval.jpg" alt="Cheval au coucher du soleil" className="w-full h-full object-cover object-top" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                <img src="/weekend/cheval.jpg" alt="Cheval au coucher du soleil" className="w-full h-full object-cover object-top" />
                 <div className="absolute inset-0 flex items-end p-4" style={{ background: "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)" }}>
                   <span className="text-white font-semibold text-sm">Le cadre naturel</span>
                 </div>
@@ -352,7 +251,7 @@ export default function NeurosciencesManagersPage() {
               <h3 className="text-xl font-bold text-white mb-8 text-center" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Tout est inclus dans les 3 500 €</h3>
               <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
                 {[
-                  { emoji: "🛏️", title: "Hébergement", desc: "Chambre privàtisée pour la durée du week-end" },
+                  { emoji: "🛏️", title: "Hébergement", desc: "Chambre privatisée pour la durée du week-end" },
                   { emoji: "🍽️", title: "Repas", desc: "Repas inclus pendant tout le séjour" },
                   { emoji: "♨️", title: "Jacuzzi privatif", desc: "Accès au jacuzzi pour une récupération profonde" },
                   { emoji: "🐴", title: "Atelier équicoaching", desc: "Session intensive avec les chevaux pour ancrer les apprentissages" },
@@ -377,14 +276,13 @@ export default function NeurosciencesManagersPage() {
           </SectionReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { icon: <Calendar size={20} />, label: "Dates", value: "À définir selon vos disponibilités" },
-              { icon: <Clock size={20} />, label: "Durée totale", value: "24h formation + 18h accompagnement" },
-              { icon: <MapPin size={20} />, label: "Format", value: "100 % distanciel via Zoom" },
-              { icon: <Zap size={20} />, label: "Accès formation", value: "Illimité à vie, mises à jour incluses" },
+              { label: "Dates", value: "À définir selon vos disponibilités" },
+              { label: "Durée totale", value: "24h formation + 18h accompagnement" },
+              { label: "Format", value: "100 % distanciel via Zoom" },
+              { label: "Accès formation", value: "Illimité à vie, mises à jour incluses" },
             ].map((item, i) => (
               <SectionReveal key={i} delay={i * 0.07}>
                 <div className="rounded-xl p-5 text-center" style={{ background: "rgba(120,66,127,0.03)", border: "1px solid rgba(120,66,127,0.1)" }}>
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: "rgba(120,66,127,0.1)", color: "#78427f" }}>{item.icon}</div>
                   <p className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color: "#78427f" }}>{item.label}</p>
                   <p className="text-sm text-gray-600 leading-snug">{item.value}</p>
                 </div>
