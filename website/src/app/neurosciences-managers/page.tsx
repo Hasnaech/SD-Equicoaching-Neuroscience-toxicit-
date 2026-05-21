@@ -598,6 +598,210 @@ export default function NeurosciencesManagersPage() {
         </div>
       </section>
 
+      {/* ── WEEK-END IMMERSIF ─────────────────────────────── */}
+      <section style={{ backgroundColor: "#1a0a1e" }} className="py-24">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <SectionReveal className="text-center mb-16">
+            <span
+              className="text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full inline-block mb-6"
+              style={{
+                border: "1px solid #cda540",
+                color: "#cda540",
+                backgroundColor: "rgba(205,165,64,0.08)",
+              }}
+            >
+              Inclus dans le programme
+            </span>
+            <h2
+              className="text-4xl sm:text-5xl font-bold text-white mb-4"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+            >
+              Un week-end immersif{" "}
+              <span style={{ color: "#cda540" }}>au cœur du vivant</span>
+            </h2>
+            <p className="text-white/60 max-w-xl mx-auto text-lg leading-relaxed">
+              Au cours des 3 mois, un week-end complet pour ancrer dans le corps
+              ce que la formation a travaillé dans la tête.
+            </p>
+          </SectionReveal>
+
+          {/* Photo grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
+            {/* Jacuzzi */}
+            <SectionReveal delay={0} className="col-span-2 row-span-1">
+              <div
+                className="relative rounded-2xl overflow-hidden h-64 md:h-72"
+                style={{ background: "rgba(205,165,64,0.08)" }}
+              >
+                <img
+                  src="/weekend/jacuzzi.jpg"
+                  alt="Jacuzzi privatif"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                <div
+                  className="absolute inset-0 flex items-end p-4"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)",
+                  }}
+                >
+                  <span className="text-white font-semibold text-sm">
+                    Jacuzzi privatif
+                  </span>
+                </div>
+              </div>
+            </SectionReveal>
+
+            {/* Chambre */}
+            <SectionReveal delay={0.08} className="col-span-2 row-span-1">
+              <div
+                className="relative rounded-2xl overflow-hidden h-64 md:h-72"
+                style={{ background: "rgba(120,66,127,0.12)" }}
+              >
+                <img
+                  src="/weekend/chambre.jpg"
+                  alt="Chambre confortable"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                <div
+                  className="absolute inset-0 flex items-end p-4"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)",
+                  }}
+                >
+                  <span className="text-white font-semibold text-sm">
+                    Chambre & espace privatif
+                  </span>
+                </div>
+              </div>
+            </SectionReveal>
+
+            {/* Équicoaching Sarah */}
+            <SectionReveal delay={0.14} className="col-span-2 md:col-span-3">
+              <div
+                className="relative rounded-2xl overflow-hidden h-56 md:h-64"
+                style={{ background: "rgba(120,66,127,0.08)" }}
+              >
+                <img
+                  src="/weekend/equicoaching-session.jpg"
+                  alt="Atelier équicoaching avec Sarah Dabancens"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                <div
+                  className="absolute inset-0 flex items-end p-4"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)",
+                  }}
+                >
+                  <span className="text-white font-semibold text-sm">
+                    Atelier équicoaching en extérieur
+                  </span>
+                </div>
+              </div>
+            </SectionReveal>
+
+            {/* Cheval blanc */}
+            <SectionReveal delay={0.2} className="col-span-2 md:col-span-1">
+              <div
+                className="relative rounded-2xl overflow-hidden h-56 md:h-64"
+                style={{ background: "rgba(205,165,64,0.06)" }}
+              >
+                <img
+                  src="/weekend/cheval.jpg"
+                  alt="Cheval au coucher du soleil"
+                  className="w-full h-full object-cover object-top"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                  }}
+                />
+                <div
+                  className="absolute inset-0 flex items-end p-4"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(26,10,30,0.85) 0%, transparent 60%)",
+                  }}
+                >
+                  <span className="text-white font-semibold text-sm">
+                    Le cadre naturel
+                  </span>
+                </div>
+              </div>
+            </SectionReveal>
+          </div>
+
+          {/* Ce qui est inclus */}
+          <SectionReveal>
+            <div
+              className="rounded-2xl p-8 md:p-10"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(205,165,64,0.2)",
+              }}
+            >
+              <h3
+                className="text-xl font-bold text-white mb-8 text-center"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              >
+                Tout est inclus dans les 3 500&nbsp;€
+              </h3>
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  {
+                    emoji: "🛏️",
+                    title: "Hébergement",
+                    desc: "Chambre privatisée pour la durée du week-end",
+                  },
+                  {
+                    emoji: "🍽️",
+                    title: "Repas",
+                    desc: "Repas inclus pendant tout le séjour",
+                  },
+                  {
+                    emoji: "♨️",
+                    title: "Jacuzzi privatif",
+                    desc: "Accès au jacuzzi pour une récupération profonde",
+                  },
+                  {
+                    emoji: "🐴",
+                    title: "Atelier équicoaching",
+                    desc: "Session intensive avec les chevaux pour ancrer les apprentissages",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="text-center">
+                    <div className="text-3xl mb-3">{item.emoji}</div>
+                    <h4
+                      className="font-bold text-sm mb-2"
+                      style={{ color: "#cda540" }}
+                    >
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-white/50 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="text-center text-white/40 text-xs mt-8">
+                Le week-end se déroule pendant la période d&apos;accompagnement
+                des 3 mois, à une date définie ensemble selon vos disponibilités.
+              </p>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ── MODALITÉS ─────────────────────────────────────── */}
       <section className="bg-white py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
