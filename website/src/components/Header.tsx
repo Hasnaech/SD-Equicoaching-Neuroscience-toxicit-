@@ -42,7 +42,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link
             href="/"
-            className="flex items-center group"
+            className="flex items-center gap-2.5 group"
             onClick={() => setMenuOpen(false)}
           >
             <Image
@@ -51,6 +51,20 @@ export default function Header() {
               height={48}
               className="h-10 lg:h-12 w-auto"
             />
+            <div className="flex flex-col leading-none">
+              <span
+                className="text-white font-semibold text-sm tracking-wide"
+                style={{ fontFamily: "Georgia, serif" }}
+              >
+                SD Équicoaching
+              </span>
+              <span
+                className="text-[#cda540] text-[10px] tracking-widest uppercase mt-0.5"
+                style={{ fontFamily: "Georgia, serif" }}
+              >
+                Neurosciences
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
