@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import React from "react";
+import Image from "next/image";
+import imgJacuzzi from "@/assets/jacuzzi.jpg";
+import imgChambre from "@/assets/chambre.jpg";
+import imgEquicoaching from "@/assets/equicoaching-session.jpg";
+import imgCheval from "@/assets/cheval.png";
 import {
   CheckCircle,
   Monitor,
@@ -601,7 +606,6 @@ export default function NeurosciencesManagersPage() {
       {/* ── WEEK-END IMMERSIF ─────────────────────────────── */}
       <section style={{ backgroundColor: "#1a0a1e" }} className="py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
           <SectionReveal className="text-center mb-16">
             <span
               className="text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full inline-block mb-6"
@@ -626,18 +630,18 @@ export default function NeurosciencesManagersPage() {
             </p>
           </SectionReveal>
 
-          {/* Photo grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16">
-            {/* Jacuzzi */}
             <SectionReveal delay={0} className="col-span-2 row-span-1">
               <div
                 className="relative rounded-2xl overflow-hidden h-64 md:h-72"
                 style={{ background: "rgba(205,165,64,0.08)" }}
               >
-                <img
-                  src="/jacuzzi.JPG"
+                <Image
+                  src={imgJacuzzi}
                   alt="Jacuzzi privatif"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -653,16 +657,17 @@ export default function NeurosciencesManagersPage() {
               </div>
             </SectionReveal>
 
-            {/* Chambre */}
             <SectionReveal delay={0.08} className="col-span-2 row-span-1">
               <div
                 className="relative rounded-2xl overflow-hidden h-64 md:h-72"
                 style={{ background: "rgba(120,66,127,0.12)" }}
               >
-                <img
-                  src="/chambre.JPG"
+                <Image
+                  src={imgChambre}
                   alt="Chambre confortable"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -678,16 +683,17 @@ export default function NeurosciencesManagersPage() {
               </div>
             </SectionReveal>
 
-            {/* Équicoaching Sarah */}
             <SectionReveal delay={0.14} className="col-span-2 md:col-span-3">
               <div
                 className="relative rounded-2xl overflow-hidden h-56 md:h-64"
                 style={{ background: "rgba(120,66,127,0.08)" }}
               >
-                <img
-                  src="/equicoaching-session.JPG"
+                <Image
+                  src={imgEquicoaching}
                   alt="Atelier équicoaching avec Sarah Dabancens"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 75vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -703,16 +709,17 @@ export default function NeurosciencesManagersPage() {
               </div>
             </SectionReveal>
 
-            {/* Cheval blanc */}
             <SectionReveal delay={0.2} className="col-span-2 md:col-span-1">
               <div
                 className="relative rounded-2xl overflow-hidden h-56 md:h-64"
                 style={{ background: "rgba(205,165,64,0.06)" }}
               >
-                <img
-                  src="/cheval.png"
+                <Image
+                  src={imgCheval}
                   alt="Cheval au coucher du soleil"
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -729,7 +736,6 @@ export default function NeurosciencesManagersPage() {
             </SectionReveal>
           </div>
 
-          {/* Ce qui est inclus */}
           <SectionReveal>
             <div
               className="rounded-2xl p-8 md:p-10"
