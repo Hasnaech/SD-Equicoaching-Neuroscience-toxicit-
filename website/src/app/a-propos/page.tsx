@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import React from "react";
+import Image from "next/image";
 import { Award, Heart, Target, BookOpen } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
+import imgSarah from "@/assets/sarah.jpg";
 
 export const metadata: Metadata = {
   title: "À propos de Sarah Dabancens : Manager de Transition & Équicoach | SD Équicoaching",
@@ -104,38 +106,57 @@ export default function AProposPage() {
             {/* Photo */}
             <SectionReveal direction="left" className="sticky top-24">
               <div
-                className="rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-6"
+                className="rounded-2xl overflow-hidden"
                 style={{
-                  background: "linear-gradient(135deg, rgba(120,66,127,0.15), rgba(205,165,64,0.08))",
                   border: "1px solid rgba(120,66,127,0.15)",
-                  height: "520px",
+                  boxShadow: "0 24px 80px rgba(120,66,127,0.18)",
                 }}
               >
-                <div
-                  className="w-36 h-36 rounded-full"
-                  style={{ background: "linear-gradient(135deg, #78427f, #cda540)" }}
-                />
-                <div className="text-center px-8">
-                  <p
-                    className="text-2xl font-bold"
+                {/* Portrait photo */}
+                <div className="relative w-full" style={{ aspectRatio: "4/5" }}>
+                  <Image
+                    src={imgSarah}
+                    alt="Sarah Dabancens, fondatrice de SD Équicoaching"
+                    fill
+                    className="object-cover object-top"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  {/* Subtle gradient overlay at bottom */}
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-32"
                     style={{
-                      fontFamily: "'Playfair Display', Georgia, serif",
-                      color: "#1a0a1e",
+                      background: "linear-gradient(to top, rgba(26,10,30,0.65) 0%, transparent 100%)",
                     }}
-                  >
-                    Sarah Dabancens
-                  </p>
-                  <p className="text-gray-500 mt-2">Fondatrice de SD Équicoaching</p>
-                  <div className="flex flex-wrap justify-center gap-2 mt-5">
-                    {["Qualiopi", "ICF", "Manager de Transition"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="qualiopi-badge"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  />
+                  {/* Name tag over photo */}
+                  <div className="absolute bottom-0 inset-x-0 p-6 text-center">
+                    <p
+                      className="text-xl font-bold text-white"
+                      style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    >
+                      Sarah Dabancens
+                    </p>
+                    <p className="text-white/70 text-sm mt-1">Fondatrice de SD Équicoaching</p>
                   </div>
+                </div>
+                {/* Badges */}
+                <div
+                  className="flex flex-wrap justify-center gap-2 px-6 py-5"
+                  style={{ backgroundColor: "#f2ede5" }}
+                >
+                  {["Qualiopi", "ICF", "Manager de Transition"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs font-semibold px-3 py-1.5 rounded-full"
+                      style={{
+                        backgroundColor: "rgba(120,66,127,0.1)",
+                        color: "#78427f",
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </SectionReveal>
