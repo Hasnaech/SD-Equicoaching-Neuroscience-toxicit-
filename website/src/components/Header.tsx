@@ -2,8 +2,10 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
+import imgLogo from "@/assets/logo.svg";
 
 const INSTAGRAM = "https://www.instagram.com/sarahdabancens/";
 const LINKEDIN = "https://www.linkedin.com/in/sarah-dabancens/";
@@ -40,15 +42,15 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link
             href="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center group"
             onClick={() => setMenuOpen(false)}
           >
-            <span
-              className="text-[#cda540] text-lg font-bold tracking-tight"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              SD Équicoaching
-            </span>
+            <Image
+              src={imgLogo}
+              alt="SD Équicoaching"
+              height={48}
+              className="h-10 lg:h-12 w-auto"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
