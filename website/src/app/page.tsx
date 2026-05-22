@@ -18,8 +18,6 @@ import {
   Award,
   Quote,
 } from "lucide-react";
-import Image from "next/image";
-import imgHero from "@/assets/cheval.png";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
@@ -86,89 +84,125 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right: circular horse photo with animated rings */}
+            {/* Right: motion design élégant */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 1, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               className="relative flex justify-center lg:justify-end"
             >
-              <div className="relative w-80 h-80 lg:w-[400px] lg:h-[400px]">
-                {/* Outer glow */}
+              <div className="relative w-80 h-80 lg:w-[420px] lg:h-[420px]">
+
+                {/* ── Diffuse ambient glow ── */}
                 <div
                   className="absolute inset-0 rounded-full"
                   style={{
-                    background: "radial-gradient(circle, rgba(205,165,64,0.22) 0%, transparent 70%)",
-                    filter: "blur(32px)",
-                    transform: "scale(1.2)",
+                    background:
+                      "radial-gradient(circle, rgba(205,165,64,0.2) 0%, rgba(120,66,127,0.14) 45%, transparent 72%)",
+                    filter: "blur(36px)",
+                    transform: "scale(1.35)",
                   }}
                 />
 
-                {/* Outer rotating dashed ring */}
-                <motion.div
-                  className="absolute inset-0 rounded-full"
-                  style={{ border: "1px dashed rgba(205,165,64,0.35)" }}
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-                />
-
-                {/* Inner counter-rotating ring */}
-                <motion.div
-                  className="absolute inset-4 rounded-full"
-                  style={{ border: "1px dashed rgba(120,66,127,0.3)" }}
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                />
-
-                {/* Photo circle */}
-                <div
-                  className="absolute inset-8 rounded-full overflow-hidden"
-                  style={{
-                    border: "2px solid rgba(205,165,64,0.55)",
-                    boxShadow: "0 0 40px rgba(205,165,64,0.12) inset",
-                  }}
-                >
-                  <Image
-                    src={imgHero}
-                    alt="Séance d'équicoaching avec les chevaux"
-                    fill
-                    className="object-cover object-[50%_20%]"
-                    priority
-                  />
-                  {/* Radial vignette */}
-                  <div
-                    className="absolute inset-0 rounded-full"
+                {/* ── Central morphing orb ── */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <motion.div
                     style={{
-                      background: "radial-gradient(circle, transparent 45%, rgba(26,10,30,0.55) 100%)",
+                      width: "58%",
+                      height: "58%",
+                      borderRadius: "50%",
+                      background:
+                        "radial-gradient(circle at 36% 30%, rgba(205,165,64,0.95) 0%, rgba(120,66,127,0.88) 46%, rgba(26,10,30,0.45) 90%)",
+                      filter: "blur(6px)",
                     }}
+                    animate={{
+                      scale: [1, 1.08, 0.96, 1.05, 1],
+                      filter: ["blur(6px)", "blur(9px)", "blur(5px)", "blur(8px)", "blur(6px)"],
+                    }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
                   />
                 </div>
 
-                {/* 3 pulsing accent dots on the ring */}
-                {([
-                  { angle: 45,  color: "#cda540", size: 6 },
-                  { angle: 195, color: "#78427f", size: 5 },
-                  { angle: 315, color: "#cda540", size: 4 },
-                ] as Array<{ angle: number; color: string; size: number }>).map((dot, i) => {
-                  const rad = (dot.angle * Math.PI) / 180;
-                  const r = 50; // % radius from center (inset-0 = 50% from center)
-                  const cx = 50 + r * Math.cos(rad);
-                  const cy = 50 + r * Math.sin(rad);
-                  return (
-                    <div
-                      key={i}
-                      className="absolute"
-                      style={{ left: `${cx}%`, top: `${cy}%`, transform: "translate(-50%,-50%)" }}
-                    >
-                      <motion.div
-                        className="rounded-full"
-                        style={{ width: dot.size, height: dot.size, backgroundColor: dot.color }}
-                        animate={{ scale: [1, 1.8, 1], opacity: [0.6, 1, 0.6] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
-                      />
-                    </div>
-                  );
-                })}
+                {/* ── Floating purple accent orb ── */}
+                <motion.div
+                  className="absolute rounded-full"
+                  style={{
+                    width: "36%",
+                    height: "36%",
+                    top: "54%",
+                    left: "52%",
+                    background:
+                      "radial-gradient(circle at 42% 40%, rgba(120,66,127,0.92) 0%, rgba(205,165,64,0.18) 70%, transparent 100%)",
+                    filter: "blur(20px)",
+                  }}
+                  animate={{ x: [0, -18, -30, -12, 0], y: [0, -14, 8, 20, 0] }}
+                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+                />
+
+                {/* ── Outer solid ring ── */}
+                <div
+                  className="absolute inset-0 rounded-full"
+                  style={{ border: "1px solid rgba(205,165,64,0.28)" }}
+                />
+
+                {/* ── Inner ring ── */}
+                <div
+                  className="absolute inset-5 rounded-full"
+                  style={{ border: "1px solid rgba(120,66,127,0.2)" }}
+                />
+
+                {/* ── Gold dot orbiting outer ring (clockwise) ── */}
+                <motion.div
+                  className="absolute inset-0"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+                >
+                  <div
+                    className="absolute rounded-full"
+                    style={{
+                      width: 10, height: 10,
+                      top: -5, left: "calc(50% - 5px)",
+                      background: "#cda540",
+                      boxShadow: "0 0 12px rgba(205,165,64,0.95), 0 0 26px rgba(205,165,64,0.45)",
+                    }}
+                  />
+                </motion.div>
+
+                {/* ── Purple dot orbiting inner ring (counter-clockwise) ── */}
+                <motion.div
+                  className="absolute inset-5"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 21, repeat: Infinity, ease: "linear" }}
+                >
+                  <div
+                    className="absolute rounded-full"
+                    style={{
+                      width: 7, height: 7,
+                      top: -3.5, left: "calc(50% - 3.5px)",
+                      background: "#78427f",
+                      boxShadow: "0 0 10px rgba(120,66,127,0.95), 0 0 20px rgba(120,66,127,0.4)",
+                    }}
+                  />
+                </motion.div>
+
+                {/* ── Small gold dot — same outer ring, half-speed offset ── */}
+                <motion.div
+                  className="absolute inset-0"
+                  initial={{ rotate: 180 }}
+                  animate={{ rotate: 180 + 360 }}
+                  transition={{ duration: 22, repeat: Infinity, ease: "linear", repeatType: "loop" }}
+                >
+                  <div
+                    className="absolute rounded-full"
+                    style={{
+                      width: 5, height: 5,
+                      top: -2.5, left: "calc(50% - 2.5px)",
+                      background: "rgba(205,165,64,0.65)",
+                      boxShadow: "0 0 8px rgba(205,165,64,0.7)",
+                    }}
+                  />
+                </motion.div>
+
               </div>
             </motion.div>
           </div>
@@ -226,100 +260,6 @@ export default function HomePage() {
               </span>
             ))}
           </SectionReveal>
-        </div>
-      </section>
-
-      {/* ── SARAH'S STORY ────────────────────────────────── */}
-      <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <SectionReveal direction="left">
-              <div
-                className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-4"
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(120,66,127,0.15), rgba(205,165,64,0.08))",
-                  border: "1px solid rgba(120,66,127,0.15)",
-                  height: "420px",
-                }}
-              >
-                <div
-                  className="w-28 h-28 rounded-full"
-                  style={{
-                    background: "linear-gradient(135deg, #78427f, #cda540)",
-                  }}
-                />
-                <p
-                  className="text-center font-semibold text-xl"
-                  style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    color: "#1a0a1e",
-                  }}
-                >
-                  Sarah Dabancens
-                </p>
-              </div>
-            </SectionReveal>
-
-            <SectionReveal direction="right">
-              <span
-                className="text-sm font-semibold uppercase tracking-widest mb-4 block"
-                style={{ color: "#cda540" }}
-              >
-                Fondatrice
-              </span>
-              <h2
-                className="text-3xl lg:text-4xl font-bold mb-6"
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  color: "#1a0a1e",
-                }}
-              >
-                De Directrice Commerciale à Manager de Transition
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Pendant 15 ans, j&apos;ai piloté des équipes en France et à
-                l&apos;international, secteur pharmaceutique, start-ups, luxe.
-                J&apos;ai vécu ce que vivent vos managers : les décisions sous
-                pression, les équipes démotivées, le coût humain et financier
-                d&apos;un leadership qui grippe.
-              </p>
-              <p className="text-gray-700 leading-relaxed mb-8">
-                SD Équicoaching, c&apos;est tout ce que j&apos;aurais voulu
-                apprendre à l&apos;époque. Une approche ancrée dans les
-                neurosciences comportementales, testée sur le terrain, et
-                accélérée par l&apos;équicoaching.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {[
-                  "Manager de Transition",
-                  "Équicoach certifiée",
-                  "Qualiopi",
-                  "ICF",
-                  "Neurosciences comportementales",
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-semibold px-3 py-1.5 rounded-full"
-                    style={{
-                      backgroundColor: "rgba(120,66,127,0.1)",
-                      color: "#78427f",
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <Link
-                href="/a-propos"
-                className="inline-flex items-center gap-2 font-semibold transition-colors hover:gap-3"
-                style={{ color: "#78427f" }}
-              >
-                En savoir plus sur Sarah
-                <ArrowRight size={16} />
-              </Link>
-            </SectionReveal>
-          </div>
         </div>
       </section>
 
