@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Clock, ArrowLeft, ArrowRight, Calendar } from "lucide-react";
 import { blogPosts, getBlogPost, getRelatedPosts } from "@/lib/blog-data";
@@ -140,8 +141,22 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </section>
 
+      {/* ── HERO IMAGE ───────────────────────────────── */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-0 relative z-10">
+        <div className="relative h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden shadow-2xl">
+          <Image
+            src={post.image}
+            alt={post.imageAlt}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 1024px) 100vw, 900px"
+          />
+        </div>
+      </div>
+
       {/* ── ARTICLE CONTENT ──────────────────────────── */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-12">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="blog-content"
@@ -200,45 +215,56 @@ export default async function BlogPostPage({ params }: Props) {
                   className="group block"
                 >
                   <div
-                    className="rounded-xl p-7 h-full transition-all duration-200 group-hover:shadow-md"
+                    className="rounded-xl overflow-hidden h-full transition-all duration-200 group-hover:shadow-md"
                     style={{
                       border: "1px solid rgba(120,66,127,0.1)",
                     }}
                   >
-                    <div className="flex items-center gap-3 mb-3">
-                      <span
-                        className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
+                    <div className="relative h-40 overflow-hidden">
+                      <Image
+                        src={rpost.image}
+                        alt={rpost.imageAlt}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                    <div className="p-7">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span
+                          className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
+                          style={{
+                            backgroundColor: "rgba(120,66,127,0.08)",
+                            color: "#78427f",
+                          }}
+                        >
+                          {rpost.category}
+                        </span>
+                        <span className="text-xs text-gray-400 flex items-center gap-1">
+                          <Clock size={11} />
+                          {rpost.readTime}
+                        </span>
+                      </div>
+                      <h3
+                        className="font-bold text-lg mb-2 group-hover:text-[#78427f] transition-colors leading-snug"
                         style={{
-                          backgroundColor: "rgba(120,66,127,0.08)",
-                          color: "#78427f",
+                          fontFamily: "'Playfair Display', Georgia, serif",
+                          color: "#1a0a1e",
                         }}
                       >
-                        {rpost.category}
-                      </span>
-                      <span className="text-xs text-gray-400 flex items-center gap-1">
-                        <Clock size={11} />
-                        {rpost.readTime}
+                        {rpost.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm line-clamp-2 mb-4">
+                        {rpost.excerpt}
+                      </p>
+                      <span
+                        className="inline-flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
+                        style={{ color: "#78427f" }}
+                      >
+                        Lire
+                        <ArrowRight size={13} />
                       </span>
                     </div>
-                    <h3
-                      className="font-bold text-lg mb-2 group-hover:text-[#78427f] transition-colors leading-snug"
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        color: "#1a0a1e",
-                      }}
-                    >
-                      {rpost.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm line-clamp-2 mb-4">
-                      {rpost.excerpt}
-                    </p>
-                    <span
-                      className="inline-flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
-                      style={{ color: "#78427f" }}
-                    >
-                      Lire
-                      <ArrowRight size={13} />
-                    </span>
                   </div>
                 </Link>
               ))}

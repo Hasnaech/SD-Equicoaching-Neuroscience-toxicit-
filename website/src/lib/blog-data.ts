@@ -6,6 +6,8 @@ export interface BlogPost {
   date: string;
   category: string;
   keywords: string[];
+  image: string;
+  imageAlt: string;
   content: string;
 }
 
@@ -19,6 +21,8 @@ export const blogPosts: BlogPost[] = [
     date: "2026-04-15",
     category: "Formation",
     keywords: ["formation management", "formation manager 2026", "choisir formation leadership"],
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Groupe de managers en formation autour d'une table de travail",
     content: `
 ## Le paradoxe de la formation management en 2026
 
@@ -143,6 +147,8 @@ Si vous voulez évaluer si cette formation correspond à votre contexte, réserv
     date: "2026-03-28",
     category: "Neurosciences",
     keywords: ["neurosciences management", "neurosciences leadership", "cerveau pression décision"],
+    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Illustration d'un cerveau humain, neurosciences et prise de décision",
     content: `
 ## Pourquoi vos managers font exactement l'inverse de ce qu'ils savent faire, sous pression
 
@@ -293,6 +299,8 @@ C'est le fondement de notre approche chez SD Équicoaching.
     date: "2026-03-10",
     category: "Équicoaching",
     keywords: ["équicoaching entreprise", "teambuilding cheval", "cohésion équipe équicoaching"],
+    image: "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Cheval dans un pré, séance d'équicoaching en entreprise",
     content: `
 ## L'équicoaching n'est pas du développement personnel équestre
 
@@ -426,6 +434,8 @@ Ce n'est pas un outil pour tout le monde, dans toutes les situations. C'est un o
     date: "2026-02-18",
     category: "Leadership",
     keywords: ["management épuisement", "leadership toxique", "burnout équipe manager"],
+    image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Professionnel épuisé à son bureau, burnout managérial",
     content: `
 ## Le coût invisible du leadership réactif
 
@@ -543,6 +553,8 @@ C'est exactement ce que nous travaillons dans notre formation Leadership Haute P
     date: "2026-01-30",
     category: "Équicoaching",
     keywords: ["équicoaching neurosciences", "médiation cheval", "équicoaching efficacité"],
+    image: "https://images.unsplash.com/photo-1494952823985-8e0e8a5c6ca4?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Cheval majestueux dans un champ, équicoaching et neurosciences",
     content: `
 ## La question légitime
 
@@ -661,6 +673,8 @@ Ce n'est pas de la certitude scientifique. C'est de la rigueur pratique.
       "développement leadership manager",
       "intelligence positive entreprise",
     ],
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Personne en réflexion face à un paysage de montagne, introspection et leadership",
     content: `
 ## Le paradoxe du leader compétent qui se sabote lui-même
 
@@ -853,6 +867,8 @@ Si vous voulez identifier vos saboteurs dominants et construire un plan de déve
       "leadership négatif",
       "management dysfonctionnel",
     ],
+    image: "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Réunion tendue en entreprise, management dysfonctionnel",
     content: `
 ## La vérité inconfortable sur le management toxique
 
@@ -1005,6 +1021,8 @@ Chez SD Équicoaching, notre approche inclut une phase de diagnostic 360° (feed
       "neurosciences leadership réunion",
       "stress réunion cerveau",
     ],
+    image: "https://images.unsplash.com/photo-1499914485622-a88fac536970?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Salle de réunion moderne, managers autour d'une table",
     content: `
 ## La scène que vous connaissez
 
@@ -1170,6 +1188,8 @@ C'est une compétence qui s'apprend. Elle s'apprend avec les bons protocoles, et
       "auto-évaluation leadership",
       "manager toxique quiz",
     ],
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Personne remplissant un questionnaire d'auto-évaluation managériale",
     content: `
 ## Avant de commencer : quelques règles du jeu
 
@@ -1342,6 +1362,8 @@ Les managers qui progressent le plus vite ne sont pas ceux qui ont les scores le
       "management collaborateur difficile",
       "salarié toxique protocole",
     ],
+    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80",
+    imageAlt: "Conversation difficile entre un manager et un collaborateur en entreprise",
     content: `
 ## Le coût réel d'un collaborateur toxique
 

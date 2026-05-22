@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Clock, ArrowRight, Calendar } from "lucide-react";
 import { blogPosts } from "@/lib/blog-data";
 import GradientBlob from "@/components/GradientBlob";
@@ -68,21 +69,22 @@ export default function BlogPage() {
                 <div className="grid lg:grid-cols-5 gap-0">
                   {/* Visual */}
                   <div
-                    className="lg:col-span-2 flex items-center justify-center p-12"
-                    style={{
-                      background: "linear-gradient(135deg, #78427f, #1a0a1e)",
-                      minHeight: "300px",
-                    }}
+                    className="lg:col-span-2 relative overflow-hidden"
+                    style={{ minHeight: "300px" }}
                   >
-                    <div className="text-center">
+                    <Image
+                      src={featured.image}
+                      alt={featured.imageAlt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
+                    <div
+                      className="absolute inset-0 flex items-end p-6"
+                      style={{ background: "linear-gradient(to top, rgba(26,10,30,0.7) 0%, transparent 60%)" }}
+                    >
                       <span
-                        className="text-8xl font-black text-white/10 block"
-                        style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-                      >
-                        01
-                      </span>
-                      <span
-                        className="text-sm font-semibold uppercase tracking-widest"
+                        className="text-xs font-semibold uppercase tracking-widest"
                         style={{ color: "#cda540" }}
                       >
                         À la une
@@ -161,53 +163,68 @@ export default function BlogPage() {
               <SectionReveal key={post.slug} delay={i * 0.1}>
                 <Link href={`/blog/${post.slug}`} className="group block h-full">
                   <div
-                    className="rounded-xl p-7 h-full flex flex-col transition-all duration-200 group-hover:shadow-lg"
+                    className="rounded-xl overflow-hidden h-full flex flex-col transition-all duration-200 group-hover:shadow-lg"
                     style={{
                       background: "white",
                       border: "1px solid rgba(120,66,127,0.1)",
                     }}
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <span
-                        className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{
-                          backgroundColor: "rgba(120,66,127,0.08)",
-                          color: "#78427f",
-                        }}
-                      >
-                        {post.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-gray-400">
-                        <Clock size={12} />
-                        {post.readTime}
-                      </span>
+                    {/* Thumbnail */}
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.imageAlt}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span
+                          className="text-xs font-semibold uppercase tracking-widest px-2.5 py-1 rounded-full backdrop-blur-sm"
+                          style={{
+                            backgroundColor: "rgba(26,10,30,0.75)",
+                            color: "#cda540",
+                          }}
+                        >
+                          {post.category}
+                        </span>
+                      </div>
                     </div>
 
-                    <h3
-                      className="text-xl font-bold mb-3 flex-1 group-hover:text-[#78427f] transition-colors leading-snug"
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        color: "#1a0a1e",
-                      }}
-                    >
-                      {post.title}
-                    </h3>
+                    <div className="p-7 flex flex-col flex-1">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="flex items-center gap-1 text-xs text-gray-400">
+                          <Clock size={12} />
+                          {post.readTime}
+                        </span>
+                      </div>
 
-                    <p className="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
-                      <span className="text-xs text-gray-400">
-                        {formatDate(post.date)}
-                      </span>
-                      <span
-                        className="inline-flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
-                        style={{ color: "#78427f" }}
+                      <h3
+                        className="text-xl font-bold mb-3 flex-1 group-hover:text-[#78427f] transition-colors leading-snug"
+                        style={{
+                          fontFamily: "'Playfair Display', Georgia, serif",
+                          color: "#1a0a1e",
+                        }}
                       >
-                        Lire
-                        <ArrowRight size={14} />
-                      </span>
+                        {post.title}
+                      </h3>
+
+                      <p className="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-3">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                        <span className="text-xs text-gray-400">
+                          {formatDate(post.date)}
+                        </span>
+                        <span
+                          className="inline-flex items-center gap-1 text-sm font-semibold group-hover:gap-2 transition-all"
+                          style={{ color: "#78427f" }}
+                        >
+                          Lire
+                          <ArrowRight size={14} />
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </Link>
