@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import React from "react";
 import Image from "next/image";
+import imgJacuzzi from "@/assets/jacuzzi.jpg";
+import imgChambre from "@/assets/chambre.jpg";
+import imgEquicoaching from "@/assets/equicoaching-session.jpg";
+import imgCheval from "@/assets/cheval.png";
 import {
   CheckCircle,
   Monitor,
@@ -633,7 +637,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(205,165,64,0.08)" }}
               >
                 <Image
-                  src="/jacuzzi.JPG"
+                  src={imgJacuzzi}
                   alt="Jacuzzi privatif"
                   fill
                   className="object-cover"
@@ -659,7 +663,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(120,66,127,0.12)" }}
               >
                 <Image
-                  src="/chambre.JPG"
+                  src={imgChambre}
                   alt="Chambre confortable"
                   fill
                   className="object-cover"
@@ -685,7 +689,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(120,66,127,0.08)" }}
               >
                 <Image
-                  src="/equicoaching-session.JPG"
+                  src={imgEquicoaching}
                   alt="Atelier équicoaching avec Sarah Dabancens"
                   fill
                   className="object-cover"
@@ -711,7 +715,7 @@ export default function NeurosciencesManagersPage() {
                 style={{ background: "rgba(205,165,64,0.06)" }}
               >
                 <Image
-                  src="/cheval.png"
+                  src={imgCheval}
                   alt="Cheval au coucher du soleil"
                   fill
                   className="object-cover object-top"
