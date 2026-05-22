@@ -6,6 +6,10 @@ import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 import VimeoAutoplay from "@/components/VimeoAutoplay";
+import imgGallery1 from "@/assets/equicoaching-session.jpg";
+import imgGallery2 from "@/assets/cheval.png";
+import imgGallery3 from "@/assets/jacuzzi.jpg";
+import imgGallery4 from "@/assets/chambre.jpg";
 
 export const metadata: Metadata = {
   title: "Teambuilding Équicoaching Entreprise | SD Équicoaching",
@@ -629,22 +633,22 @@ export default function TeambuildingEquicoachingPage() {
           <SectionReveal>
             <div className="gallery-bento" style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 16 }}>
               <div style={{ gridColumn: "1 / 8", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
-                <Image src="/images/teambuilding/photo-1.jpg" alt="Équipe qui célèbre avec un cheval devant des ruines de château" fill sizes="(max-width: 768px) 100vw, 55vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <Image src={imgGallery1} alt="Séance d'équicoaching en groupe" fill sizes="(max-width: 768px) 100vw, 55vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
                 <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Célébration collective</span>
               </div>
               <div style={{ gridColumn: "8 / 13", gridRow: "1 / 2", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "16/10" }}>
-                <Image src="/images/teambuilding/photo-2.jpg" alt="Deux participantes avec un cheval dans un pré" fill sizes="(max-width: 768px) 100vw, 40vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <Image src={imgGallery2} alt="Connexion avec le cheval en équicoaching" fill sizes="(max-width: 768px) 100vw, 40vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
                 <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Connexion & présence</span>
               </div>
               <div style={{ gridColumn: "1 / 6", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
-                <Image src="/images/teambuilding/photo-3.jpg" alt="Groupe de participants dans le paddock avec un cheval blanc" fill sizes="(max-width: 768px) 100vw, 38vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <Image src={imgGallery3} alt="Cadre naturel pour le teambuilding équicoaching" fill sizes="(max-width: 768px) 100vw, 38vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
                 <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Dynamiques d&apos;équipe</span>
               </div>
               <div style={{ gridColumn: "6 / 13", gridRow: "2 / 3", position: "relative", borderRadius: 18, overflow: "hidden", aspectRatio: "4/3" }}>
-                <Image src="/images/teambuilding/photo-4.jpg" alt="Dirigeant en contact avec un cheval blanc accompagné d'une coach" fill sizes="(max-width: 768px) 100vw, 57vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
+                <Image src={imgGallery4} alt="Espace de travail pour le leadership et le lâcher-prise" fill sizes="(max-width: 768px) 100vw, 57vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} className="gallery-img" />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(26,10,30,0.55) 0%, transparent 50%)", borderRadius: 18 }} />
                 <span style={{ position: "absolute", bottom: 16, left: 18, color: "rgba(255,255,255,0.85)", fontSize: 13, fontWeight: 500, letterSpacing: "0.03em" }}>Leadership & lâcher-prise</span>
               </div>
