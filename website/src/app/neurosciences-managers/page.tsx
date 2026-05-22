@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import React from "react";
+import Image from "next/image";
+import imgJacuzzi from "@/assets/jacuzzi.jpg";
+import imgChambre from "@/assets/chambre.jpg";
+import imgEquicoaching from "@/assets/equicoaching-session.jpg";
+import imgCheval from "@/assets/cheval.png";
 import {
   CheckCircle,
   Monitor,
@@ -631,10 +636,12 @@ export default function NeurosciencesManagersPage() {
                 className="relative rounded-2xl overflow-hidden h-64 md:h-72"
                 style={{ background: "rgba(205,165,64,0.08)" }}
               >
-                <img
-                  src="/jacuzzi.JPG"
+                <Image
+                  src={imgJacuzzi}
                   alt="Jacuzzi privatif"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -655,10 +662,12 @@ export default function NeurosciencesManagersPage() {
                 className="relative rounded-2xl overflow-hidden h-64 md:h-72"
                 style={{ background: "rgba(120,66,127,0.12)" }}
               >
-                <img
-                  src="/chambre.JPG"
+                <Image
+                  src={imgChambre}
                   alt="Chambre confortable"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -679,10 +688,12 @@ export default function NeurosciencesManagersPage() {
                 className="relative rounded-2xl overflow-hidden h-56 md:h-64"
                 style={{ background: "rgba(120,66,127,0.08)" }}
               >
-                <img
-                  src="/equicoaching-session.JPG"
+                <Image
+                  src={imgEquicoaching}
                   alt="Atelier équicoaching avec Sarah Dabancens"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 75vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
@@ -703,10 +714,12 @@ export default function NeurosciencesManagersPage() {
                 className="relative rounded-2xl overflow-hidden h-56 md:h-64"
                 style={{ background: "rgba(205,165,64,0.06)" }}
               >
-                <img
-                  src="/cheval.png"
+                <Image
+                  src={imgCheval}
                   alt="Cheval au coucher du soleil"
-                  className="w-full h-full object-cover object-top"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                 />
                 <div
                   className="absolute inset-0 flex items-end p-4"
