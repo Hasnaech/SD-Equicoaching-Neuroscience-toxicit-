@@ -18,6 +18,8 @@ import {
   Award,
   Quote,
 } from "lucide-react";
+import Image from "next/image";
+import imgHero from "@/assets/cheval.png";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
@@ -93,44 +95,30 @@ export default function HomePage() {
             >
               <div className="relative">
                 <div
-                  className="absolute inset-0 rounded-full opacity-30"
+                  className="absolute inset-0 rounded-2xl opacity-40"
                   style={{
-                    background:
-                      "radial-gradient(circle, #cda540 0%, transparent 70%)",
-                    transform: "scale(1.2)",
+                    background: "radial-gradient(circle, #cda540 0%, transparent 70%)",
+                    transform: "scale(1.15)",
                     filter: "blur(40px)",
                   }}
                 />
                 <div
-                  className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-4"
-                  style={{
-                    border: "2px solid rgba(205,165,64,0.3)",
-                    background:
-                      "linear-gradient(135deg, rgba(120,66,127,0.4), rgba(26,10,30,0.8))",
-                  }}
+                  className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden"
+                  style={{ border: "2px solid rgba(205,165,64,0.3)" }}
                 >
+                  <Image
+                    src={imgHero}
+                    alt="Équicoaching — cheval et coach"
+                    fill
+                    className="object-cover object-center"
+                    priority
+                  />
                   <div
-                    className="w-24 h-24 rounded-full"
+                    className="absolute inset-0"
                     style={{
-                      background:
-                        "linear-gradient(135deg, #78427f, #cda540)",
+                      background: "linear-gradient(to top, rgba(26,10,30,0.5) 0%, transparent 60%)",
                     }}
                   />
-                  <div className="text-center px-6">
-                    <p
-                      className="text-white font-semibold text-lg"
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                      }}
-                    >
-                      Sarah Dabancens
-                    </p>
-                    <p className="text-white/50 text-sm mt-1">
-                      Manager de Transition
-                      <br />
-                      Équicoach certifiée
-                    </p>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -196,7 +184,6 @@ export default function HomePage() {
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            {/* Photo */}
             <SectionReveal direction="left">
               <div
                 className="relative w-full max-w-md mx-auto rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-4"
@@ -225,7 +212,6 @@ export default function HomePage() {
               </div>
             </SectionReveal>
 
-            {/* Text */}
             <SectionReveal direction="right">
               <span
                 className="text-sm font-semibold uppercase tracking-widest mb-4 block"
