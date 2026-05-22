@@ -1,156 +1,188 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-type Phase = "ventral" | "sympathique" | "regulation";
-const SEQ: Phase[] = ["ventral", "sympathique", "regulation"];
+// ── Brand colors ──────────────────────────────────────────────────────────────
+type RGB = { r: number; g: number; b: number };
+const GOLD: RGB = { r: 212, g: 175, b: 55  };
+const RED:  RGB = { r: 231, g: 76,  b: 60  };
 
-const GOLD = "#D4AF37";
-const RED  = "#E74C3C";
+function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
 
-// ── Expanding ripple ring ─────────────────────────────────────────────────────
-function RippleRing({ active, delay }: { active: boolean; delay: number }) {
-  return (
-    <motion.div
-      style={{
-        position: "absolute",
-        inset: 0,
-        borderRadius: "50%",
-        border: "1.5px solid rgba(231,76,60,0.8)",
-        pointerEvents: "none",
-      }}
-      animate={
-        active
-          ? { scale: [1, 2.9], opacity: [0.72, 0] }
-          : { scale: 1,        opacity: 0 }
-      }
-      transition={
-        active
-          ? { duration: 1.6, delay, ease: "easeOut", repeat: Infinity }
-          : { duration: 0.5, ease: "easeOut" }
-      }
-    />
+function lerpColor(c1: RGB, c2: RGB, t: number): RGB {
+  return {
+    r: Math.round(lerp(c1.r, c2.r, t)),
+    g: Math.round(lerp(c1.g, c2.g, t)),
+    b: Math.round(lerp(c1.b, c2.b, t)),
+  };
+}
+
+function rgba({ r, g, b }: RGB, a: number) {
+  return `rgba(${r},${g},${b},${a.toFixed(3)})`;
+}
+
+// Smooth S-curve
+function ease(t: number) {
+  return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+// ── Draw a glowing sphere on canvas ──────────────────────────────────────────
+function drawOrb(
+  ctx: CanvasRenderingContext2D,
+  cx: number, cy: number,
+  r: number,
+  color: RGB,
+  glowRadius: number,
+) {
+  // --- Multi-pass glow (each pass adds depth) ---
+  ctx.save();
+  for (let pass = 3; pass >= 1; pass--) {
+    ctx.shadowBlur  = glowRadius * pass * 0.9;
+    ctx.shadowColor = rgba(color, 0.35);
+    ctx.beginPath();
+    ctx.arc(cx, cy, r * (1 + pass * 0.12), 0, Math.PI * 2);
+    ctx.fillStyle = rgba(color, 0.02);
+    ctx.fill();
+  }
+  ctx.shadowBlur = 0;
+
+  // --- Main sphere (radial gradient for depth) ---
+  ctx.shadowBlur  = glowRadius * 1.2;
+  ctx.shadowColor = rgba(color, 0.7);
+  const grad = ctx.createRadialGradient(
+    cx - r * 0.28, cy - r * 0.28, r * 0.04,
+    cx, cy, r,
   );
+  grad.addColorStop(0,   rgba(color, 1.0));
+  grad.addColorStop(0.5, rgba(color, 0.92));
+  grad.addColorStop(1,   rgba(color, 0.55));
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = grad;
+  ctx.fill();
+  ctx.shadowBlur = 0;
+
+  // --- Specular highlight (glass-like sheen top-left) ---
+  const hl = ctx.createRadialGradient(
+    cx - r * 0.3, cy - r * 0.3, 0,
+    cx - r * 0.3, cy - r * 0.3, r * 0.52,
+  );
+  hl.addColorStop(0, "rgba(255,255,255,0.40)");
+  hl.addColorStop(1, "rgba(255,255,255,0.00)");
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = hl;
+  ctx.fill();
+  ctx.restore();
 }
 
 // ── Main component ────────────────────────────────────────────────────────────
 export default function NervousSystemOrb() {
-  const [phaseIdx, setPhaseIdx] = useState(0);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef    = useRef<number>(0);
+  const t0Ref     = useRef<number | null>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setPhaseIdx((i) => (i + 1) % 3), 5000);
-    return () => clearTimeout(t);
-  }, [phaseIdx]);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  const phase    = SEQ[phaseIdx];
-  const isStress = phase === "sympathique";
-  const isRegul  = phase === "regulation";
+    // Retina-aware sizing
+    const setupCanvas = () => {
+      const dpr  = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width === 0) return;
+      canvas.width  = rect.width  * dpr;
+      canvas.height = rect.height * dpr;
+      const ctx = canvas.getContext("2d");
+      ctx?.scale(dpr, dpr);
+    };
+    setupCanvas();
 
-  // ── Orb color & glow per phase ─────────────────────────────────────────────
-  const color = isStress ? RED : GOLD;
+    const draw = (ts: number) => {
+      if (!t0Ref.current) t0Ref.current = ts;
+      const sec   = (ts - t0Ref.current) / 1000;   // seconds since mount
+      const cycle = sec % 15;                        // position in 15s loop
+      const phase = Math.floor(cycle / 5);           // 0 | 1 | 2
+      const pt    = (cycle % 5) / 5;                 // 0→1 within phase
 
-  const glow = isStress
-    ? "0 0 60px rgba(231,76,60,1), 0 0 130px rgba(231,76,60,0.52), 0 0 250px rgba(231,76,60,0.22)"
-    : "0 0 60px rgba(212,175,55,0.85), 0 0 130px rgba(212,175,55,0.38), 0 0 230px rgba(212,175,55,0.16)";
+      const ctx = canvas.getContext("2d");
+      if (!ctx) { rafRef.current = requestAnimationFrame(draw); return; }
 
-  // ── Breathing (scale) ──────────────────────────────────────────────────────
-  // Ventral: slow 2.2s breath, Regulation: slower 3.8s calm breath
-  // Sympathique: hold at 1 (jitter handles movement)
-  const scaleTarget  = isStress ? 1    : (isRegul ? [1, 1.04, 1] : [1, 1.08, 1]);
-  const scaleDur     = isStress ? 0.25 : (isRegul ? 3.8           : 2.2);
-  const scaleRepeat  = isStress ? 0    : Infinity;
+      const rect = canvas.getBoundingClientRect();
+      const W = rect.width;
+      const H = rect.height;
+      ctx.clearRect(0, 0, W, H);
 
-  // ── Jitter (x / y) — rapid mirror oscillation during stress ───────────────
-  const xTarget: number | number[] = isStress ? [-5, 5] : 0;
-  const yTarget: number | number[] = isStress ? [-4, 4] : 0;
-  const xDur    = isStress ? 0.11 : 0.4;   // 0.11s = ~9 oscillations/sec
-  const yDur    = isStress ? 0.14 : 0.4;   // slightly offset for realism
+      const cx     = W / 2;
+      const cy     = H / 2;
+      const BASE_R = Math.min(W, H) * 0.26;
+
+      // ── PHASE 0 — VENTRAL (calme, doré) ────────────────────────────────────
+      if (phase === 0) {
+        // Slow deep breath (~2.2s period)
+        const breath = Math.sin(sec * (Math.PI / 1.1)) * 0.07;
+        drawOrb(ctx, cx, cy, BASE_R * (1 + breath), GOLD, 55 + Math.abs(breath) * 60);
+
+      // ── PHASE 1 — SYMPATHIQUE (stress, rouge) ──────────────────────────────
+      } else if (phase === 1) {
+        const colorT = ease(Math.min(pt * 2.8, 1));
+        const color  = lerpColor(GOLD, RED, colorT);
+
+        // Fast pulsing (8 Hz escalates to stress)
+        const pulse  = Math.sin(sec * Math.PI * (4 + colorT * 6)) * 0.09 * colorT;
+        const r      = BASE_R * (1 + pulse);
+
+        // Jitter: sum of 2 incommensurate sinusoids → smooth quasi-random motion
+        const jStr = colorT * 6;
+        const jx   = cx + (Math.sin(sec * 43) + Math.sin(sec * 79)) * jStr;
+        const jy   = cy + (Math.sin(sec * 61) + Math.sin(sec * 97)) * jStr * 0.65;
+
+        drawOrb(ctx, jx, jy, r, color, 55 + colorT * 50);
+
+        // Expanding shock-wave rings (3, staggered by 1/3)
+        for (let i = 0; i < 3; i++) {
+          const rt  = ((pt * 2 + i / 3) % 1);           // 0→1 per ring cycle
+          const rr  = BASE_R + rt * BASE_R * 2.4;
+          const ra  = (1 - rt) * 0.7 * colorT;
+          ctx.beginPath();
+          ctx.arc(cx, cy, rr, 0, Math.PI * 2);
+          ctx.strokeStyle = rgba(RED, ra);
+          ctx.lineWidth   = 1.8;
+          ctx.stroke();
+        }
+
+      // ── PHASE 2 — RÉGULATION (retour au calme) ─────────────────────────────
+      } else {
+        const colorT  = ease(Math.min(pt * 1.8, 1));
+        const color   = lerpColor(RED, GOLD, colorT);
+
+        // Jitter decays exponentially over first 40% of phase
+        const jDecay  = Math.max(0, 1 - pt / 0.4);
+        const jStr    = 6 * jDecay;
+        const jx      = cx + (Math.sin(sec * 43) + Math.sin(sec * 79)) * jStr;
+        const jy      = cy + (Math.sin(sec * 61) + Math.sin(sec * 97)) * jStr * 0.65;
+
+        // Breathing gradually deepens as calm returns
+        const breathDepth = (1 - jDecay) * 0.05;
+        const breath      = Math.sin(sec * (Math.PI / 1.7)) * breathDepth;
+        const r           = BASE_R * (1 + breath);
+
+        const glowAmt = lerp(105, 55, colorT);
+        drawOrb(ctx, jx, jy, r, color, glowAmt);
+      }
+
+      rafRef.current = requestAnimationFrame(draw);
+    };
+
+    rafRef.current = requestAnimationFrame(draw);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   return (
-    <div
-      className="relative flex items-center justify-center select-none"
-      style={{ width: "100%", height: "100%" }}
-    >
-      {/* Ambient outer haze — changes color with phase */}
-      <motion.div
-        animate={{
-          backgroundColor: isStress
-            ? "rgba(231,76,60,0.16)"
-            : "rgba(212,175,55,0.12)",
-        }}
-        transition={{ duration: 1.8, ease: "easeInOut" }}
-        style={{
-          position: "absolute",
-          width: "88%",
-          height: "88%",
-          borderRadius: "50%",
-          filter: "blur(64px)",
-          pointerEvents: "none",
-        }}
-      />
-
-      {/* Ripple shock waves — stress only */}
-      <div style={{ position: "absolute", width: "58%", height: "58%" }}>
-        <RippleRing active={isStress} delay={0}    />
-        <RippleRing active={isStress} delay={0.53} />
-        <RippleRing active={isStress} delay={1.06} />
-      </div>
-
-      {/* ── Main orb — all visual states on one element ── */}
-      <motion.div
-        animate={{
-          backgroundColor: color,
-          boxShadow: glow,
-          scale: scaleTarget,
-          x: xTarget,
-          y: yTarget,
-        }}
-        transition={{
-          // Color + glow: smooth 1.4s crossfade
-          backgroundColor: { duration: 1.4, ease: "easeInOut" },
-          boxShadow:       { duration: 1.4, ease: "easeInOut" },
-          // Breathing: loops during calm phases
-          scale: {
-            duration:   scaleDur,
-            ease:       "easeInOut",
-            repeat:     scaleRepeat,
-            repeatType: "mirror",
-          },
-          // Jitter: rapid mirror oscillation during stress, quick stop otherwise
-          x: {
-            duration:   xDur,
-            ease:       "easeInOut",
-            repeat:     isStress ? Infinity : 0,
-            repeatType: "mirror",
-          },
-          y: {
-            duration:   yDur,
-            ease:       "easeInOut",
-            repeat:     isStress ? Infinity : 0,
-            repeatType: "mirror",
-          },
-        }}
-        style={{
-          position:     "absolute",
-          width:        "58%",
-          height:       "58%",
-          borderRadius: "50%",
-        }}
-      />
-
-      {/* Glass specular highlight — static layer above orb */}
-      <div
-        style={{
-          position:     "absolute",
-          width:        "58%",
-          height:       "58%",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle at 33% 27%, rgba(255,255,255,0.36) 0%, rgba(255,255,255,0.12) 38%, transparent 60%)",
-          pointerEvents: "none",
-        }}
-      />
-    </div>
+    <canvas
+      ref={canvasRef}
+      style={{ width: "100%", height: "100%", display: "block" }}
+      aria-hidden="true"
+    />
   );
 }
