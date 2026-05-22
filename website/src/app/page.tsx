@@ -18,6 +18,8 @@ import {
   Award,
   Quote,
 } from "lucide-react";
+import Image from "next/image";
+import imgHero from "@/assets/cheval.png";
 import GradientBlob from "@/components/GradientBlob";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
@@ -84,219 +86,89 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right: animated abstract illustration */}
+            {/* Right: circular horse photo with animated rings */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.9, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               className="relative flex justify-center lg:justify-end"
             >
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96 select-none">
-                {/* Ambient glow */}
+              <div className="relative w-80 h-80 lg:w-[400px] lg:h-[400px]">
+                {/* Outer glow */}
                 <div
-                  className="absolute inset-0"
+                  className="absolute inset-0 rounded-full"
                   style={{
-                    background:
-                      "radial-gradient(ellipse at 55% 50%, rgba(205,165,64,0.14) 0%, rgba(120,66,127,0.09) 50%, transparent 75%)",
-                    filter: "blur(28px)",
-                    transform: "scale(1.25)",
+                    background: "radial-gradient(circle, rgba(205,165,64,0.22) 0%, transparent 70%)",
+                    filter: "blur(32px)",
+                    transform: "scale(1.2)",
                   }}
                 />
 
-                {/* SVG: rotating rings + dashed connection lines */}
-                <svg
-                  className="absolute inset-0 w-full h-full"
-                  viewBox="0 0 320 320"
-                  fill="none"
-                  overflow="visible"
+                {/* Outer rotating dashed ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-full"
+                  style={{ border: "1px dashed rgba(205,165,64,0.35)" }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Inner counter-rotating ring */}
+                <motion.div
+                  className="absolute inset-4 rounded-full"
+                  style={{ border: "1px dashed rgba(120,66,127,0.3)" }}
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Photo circle */}
+                <div
+                  className="absolute inset-8 rounded-full overflow-hidden"
+                  style={{
+                    border: "2px solid rgba(205,165,64,0.55)",
+                    boxShadow: "0 0 40px rgba(205,165,64,0.12) inset",
+                  }}
                 >
-                  <motion.circle
-                    cx="160" cy="160" r="148"
-                    stroke="rgba(205,165,64,0.15)"
-                    strokeWidth="1"
-                    strokeDasharray="10 8"
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-                    style={{ transformOrigin: "160px 160px" }}
+                  <Image
+                    src={imgHero}
+                    alt="Séance d'équicoaching avec les chevaux"
+                    fill
+                    className="object-cover object-[50%_20%]"
+                    priority
                   />
-                  <motion.circle
-                    cx="160" cy="160" r="98"
-                    stroke="rgba(120,66,127,0.2)"
-                    strokeWidth="1"
-                    strokeDasharray="5 10"
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-                    style={{ transformOrigin: "160px 160px" }}
+                  {/* Radial vignette */}
+                  <div
+                    className="absolute inset-0 rounded-full"
+                    style={{
+                      background: "radial-gradient(circle, transparent 45%, rgba(26,10,30,0.55) 100%)",
+                    }}
                   />
-                  {/* Connection lines center → nodes */}
-                  <line x1="160" y1="160" x2="262" y2="68"  stroke="rgba(205,165,64,0.18)"  strokeWidth="0.8" strokeDasharray="5 7" />
-                  <line x1="160" y1="160" x2="292" y2="208" stroke="rgba(205,165,64,0.12)"  strokeWidth="0.8" strokeDasharray="5 7" />
-                  <line x1="160" y1="160" x2="58"  y2="264" stroke="rgba(120,66,127,0.18)"  strokeWidth="0.8" strokeDasharray="5 7" />
-                  <line x1="160" y1="160" x2="48"  y2="98"  stroke="rgba(120,66,127,0.12)"  strokeWidth="0.8" strokeDasharray="5 7" />
-                  <line x1="160" y1="160" x2="160" y2="24"  stroke="rgba(205,165,64,0.10)"  strokeWidth="0.8" strokeDasharray="5 7" />
-                </svg>
-
-                {/* Center: horse-head icon, floating */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    animate={{ y: [0, -11, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    <div
-                      className="w-20 h-20 rounded-2xl flex items-center justify-center"
-                      style={{
-                        background: "rgba(205,165,64,0.07)",
-                        border: "1px solid rgba(205,165,64,0.28)",
-                        backdropFilter: "blur(8px)",
-                      }}
-                    >
-                      <svg width="46" height="46" viewBox="0 0 46 46" fill="none">
-                        {/* Simplified horse-head silhouette */}
-                        <path
-                          d="M23 7 C20 7 17 9 16 12 C15 15 16 19 18 22 C20 25 21 28 21 33 L25 33 C25 28 26 25 28 22 C30 19 31 15 30 12 C29 9 26 7 23 7 Z"
-                          fill="#cda540" opacity="0.88"
-                        />
-                        <path
-                          d="M20 8 C18 6 15 6 14 8 C13 10 14 13 16 14 C14 13 13 10 14 8 C15 6 18 7 20 8 Z"
-                          fill="#78427f" opacity="0.75"
-                        />
-                        <circle cx="20" cy="16" r="1.6" fill="#1a0a1e" opacity="0.65" />
-                        <circle cx="19.4" cy="15.4" r="0.5" fill="white" opacity="0.7" />
-                        <path d="M16 21 Q18 23 20 21" stroke="#cda540" strokeWidth="0.8" strokeLinecap="round" opacity="0.5" />
-                      </svg>
-                    </div>
-                  </motion.div>
                 </div>
 
-                {/* Node — top center: golden star */}
-                <div className="absolute" style={{ top: "4%", left: "43%" }}>
-                  <motion.div
-                    animate={{ y: [0, -14, 0], rotate: [0, 18, 0] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-                  >
-                    <div
-                      className="w-10 h-10 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(205,165,64,0.1)", border: "1px solid rgba(205,165,64,0.38)" }}
-                    >
-                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                        <path
-                          d="M9 1 L10.4 6.5 L16 6.5 L11.5 10 L13 16 L9 12.8 L5 16 L6.5 10 L2 6.5 L7.6 6.5 Z"
-                          fill="#cda540" opacity="0.92"
-                        />
-                      </svg>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Node — top-right: floating asterisk */}
-                <div className="absolute" style={{ top: "14%", right: "8%" }}>
-                  <motion.div
-                    animate={{ y: [0, -12, 0], rotate: [0, 30, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
-                  >
-                    <span style={{ color: "#cda540", fontSize: "22px", lineHeight: 1, opacity: 0.7 }}>✦</span>
-                  </motion.div>
-                </div>
-
-                {/* Node — right: Neurosciences label */}
-                <div className="absolute" style={{ top: "44%", right: "2%" }}>
-                  <motion.div
-                    animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  >
-                    <div
-                      className="px-2.5 py-1 rounded-full text-xs font-medium"
-                      style={{
-                        background: "rgba(120,66,127,0.13)",
-                        border: "1px solid rgba(120,66,127,0.38)",
-                        color: "rgba(200,155,220,0.92)",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Neurosciences
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Node — bottom-left: leaf */}
-                <div className="absolute" style={{ bottom: "12%", left: "7%" }}>
-                  <motion.div
-                    animate={{ y: [0, -10, 0], rotate: [0, -8, 0] }}
-                    transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                  >
-                    <div
-                      className="w-11 h-11 rounded-xl flex items-center justify-center"
-                      style={{ background: "rgba(120,66,127,0.1)", border: "1px solid rgba(120,66,127,0.3)" }}
-                    >
-                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <ellipse cx="11" cy="11" rx="6" ry="9" transform="rotate(-20 11 11)"
-                          fill="rgba(120,66,127,0.5)" stroke="rgba(120,66,127,0.7)" strokeWidth="1" />
-                        <line x1="11" y1="4" x2="11" y2="18" stroke="rgba(120,66,127,0.5)"
-                          strokeWidth="0.8" transform="rotate(-20 11 11)" />
-                      </svg>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Node — top-left: Leadership label */}
-                <div className="absolute" style={{ top: "13%", left: "4%" }}>
-                  <motion.div
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 0.7 }}
-                  >
-                    <div
-                      className="px-2.5 py-1 rounded-full text-xs font-medium"
-                      style={{
-                        background: "rgba(205,165,64,0.08)",
-                        border: "1px solid rgba(205,165,64,0.28)",
-                        color: "rgba(205,165,64,0.88)",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Leadership
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Node — bottom: Équicoaching label */}
-                <div className="absolute" style={{ bottom: "5%", left: "26%" }}>
-                  <motion.div
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                  >
-                    <div
-                      className="px-2.5 py-1 rounded-full text-xs font-medium"
-                      style={{
-                        background: "rgba(205,165,64,0.07)",
-                        border: "1px solid rgba(205,165,64,0.22)",
-                        color: "rgba(205,165,64,0.78)",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
-                      Équicoaching
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Floating micro-particles */}
+                {/* 3 pulsing accent dots on the ring */}
                 {([
-                  { top: "31%", left: "5%",  size: 3, color: "rgba(205,165,64,0.55)", dur: 3.5, delay: 0   },
-                  { top: "63%", left: "22%", size: 2, color: "rgba(120,66,127,0.5)",  dur: 4.0, delay: 0.8 },
-                  { top: "21%", left: "56%", size: 4, color: "rgba(205,165,64,0.38)", dur: 5.0, delay: 1.2 },
-                  { top: "79%", left: "64%", size: 2, color: "rgba(120,66,127,0.4)",  dur: 3.8, delay: 0.4 },
-                  { top: "47%", left: "79%", size: 3, color: "rgba(205,165,64,0.48)", dur: 4.5, delay: 1.8 },
-                  { top: "14%", left: "37%", size: 2, color: "rgba(120,66,127,0.55)", dur: 3.2, delay: 2.2 },
-                ] as Array<{ top: string; left: string; size: number; color: string; dur: number; delay: number }>).map(
-                  (p, i) => (
-                    <motion.div
+                  { angle: 45,  color: "#cda540", size: 6 },
+                  { angle: 195, color: "#78427f", size: 5 },
+                  { angle: 315, color: "#cda540", size: 4 },
+                ] as Array<{ angle: number; color: string; size: number }>).map((dot, i) => {
+                  const rad = (dot.angle * Math.PI) / 180;
+                  const r = 50; // % radius from center (inset-0 = 50% from center)
+                  const cx = 50 + r * Math.cos(rad);
+                  const cy = 50 + r * Math.sin(rad);
+                  return (
+                    <div
                       key={i}
-                      className="absolute rounded-full"
-                      style={{ top: p.top, left: p.left, width: p.size, height: p.size, backgroundColor: p.color }}
-                      animate={{ y: [0, -(7 + i * 2), 0], opacity: [0.4, 0.9, 0.4] }}
-                      transition={{ duration: p.dur, repeat: Infinity, ease: "easeInOut", delay: p.delay }}
-                    />
-                  )
-                )}
+                      className="absolute"
+                      style={{ left: `${cx}%`, top: `${cy}%`, transform: "translate(-50%,-50%)" }}
+                    >
+                      <motion.div
+                        className="rounded-full"
+                        style={{ width: dot.size, height: dot.size, backgroundColor: dot.color }}
+                        animate={{ scale: [1, 1.8, 1], opacity: [0.6, 1, 0.6] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           </div>
