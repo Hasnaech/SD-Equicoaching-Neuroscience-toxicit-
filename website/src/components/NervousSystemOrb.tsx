@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 
 type Phase = "ventral" | "sympathique" | "regulation";
 const SEQ: Phase[] = ["ventral", "sympathique", "regulation"];
-const PHASE_MS = 5000;
 
-// ── Ripple ring — expands outward only during stress ──────────────────────────
+const GOLD = "#D4AF37";
+const RED  = "#E74C3C";
+
+// ── Expanding ripple ring ─────────────────────────────────────────────────────
 function RippleRing({ active, delay }: { active: boolean; delay: number }) {
   return (
     <motion.div
@@ -15,18 +17,18 @@ function RippleRing({ active, delay }: { active: boolean; delay: number }) {
         position: "absolute",
         inset: 0,
         borderRadius: "50%",
-        border: "1.5px solid rgba(231,76,60,0.75)",
+        border: "1.5px solid rgba(231,76,60,0.8)",
         pointerEvents: "none",
       }}
       animate={
         active
-          ? { scale: [1, 2.8], opacity: [0.65, 0] }
-          : { scale: 1, opacity: 0 }
+          ? { scale: [1, 2.9], opacity: [0.72, 0] }
+          : { scale: 1,        opacity: 0 }
       }
       transition={
         active
-          ? { duration: 1.7, delay, ease: "easeOut", repeat: Infinity }
-          : { duration: 0.6, ease: "easeOut" }
+          ? { duration: 1.6, delay, ease: "easeOut", repeat: Infinity }
+          : { duration: 0.5, ease: "easeOut" }
       }
     />
   );
@@ -36,9 +38,8 @@ function RippleRing({ active, delay }: { active: boolean; delay: number }) {
 export default function NervousSystemOrb() {
   const [phaseIdx, setPhaseIdx] = useState(0);
 
-  // Advance phase every 5 seconds
   useEffect(() => {
-    const t = setTimeout(() => setPhaseIdx((i) => (i + 1) % 3), PHASE_MS);
+    const t = setTimeout(() => setPhaseIdx((i) => (i + 1) % 3), 5000);
     return () => clearTimeout(t);
   }, [phaseIdx]);
 
@@ -46,104 +47,107 @@ export default function NervousSystemOrb() {
   const isStress = phase === "sympathique";
   const isRegul  = phase === "regulation";
 
-  // ── Color ──────────────────────────────────────────────────────────────────
-  const orbColor = isStress ? "#E74C3C" : "#D4AF37";
+  // ── Orb color & glow per phase ─────────────────────────────────────────────
+  const color = isStress ? RED : GOLD;
 
-  // ── Scale keyframes ────────────────────────────────────────────────────────
-  const scaleKeys: number[] = isStress
-    // Fast erratic pulses — stress
-    ? [1, 1.15, 0.91, 1.12, 0.93, 1.13, 0.95, 1.09, 0.97, 1.05, 1]
-    : isRegul
-    // Gradually settles — regulation
-    ? [1.04, 1.02, 1.01, 1.005, 1]
-    // Slow breathing — ventral
-    : [1, 1.065, 0.995, 1.055, 1.01, 1];
-
-  // ── Jitter keyframes (x/y) — stress only ─────────────────────────────────
-  const xKeys: number[] = isStress
-    ? [0, -4, 4, -3, 4, -4, 3, -3, 4, -3, 2, -3, 0]
-    : [0];
-  const yKeys: number[] = isStress
-    ? [0, 2, -3, 2, -2, 3, -2, 3, -2, 2, -3, 2, 0]
-    : [0];
-
-  // ── Glow ──────────────────────────────────────────────────────────────────
   const glow = isStress
-    ? "0 0 55px rgba(231,76,60,0.95), 0 0 110px rgba(231,76,60,0.45), 0 0 200px rgba(231,76,60,0.2)"
-    : "0 0 55px rgba(212,175,55,0.75), 0 0 110px rgba(212,175,55,0.32), 0 0 200px rgba(212,175,55,0.14)";
+    ? "0 0 60px rgba(231,76,60,1), 0 0 130px rgba(231,76,60,0.52), 0 0 250px rgba(231,76,60,0.22)"
+    : "0 0 60px rgba(212,175,55,0.85), 0 0 130px rgba(212,175,55,0.38), 0 0 230px rgba(212,175,55,0.16)";
 
-  const scaleDur = isStress ? 4.4 : 4.8;
+  // ── Breathing (scale) ──────────────────────────────────────────────────────
+  // Ventral: slow 2.2s breath, Regulation: slower 3.8s calm breath
+  // Sympathique: hold at 1 (jitter handles movement)
+  const scaleTarget  = isStress ? 1    : (isRegul ? [1, 1.04, 1] : [1, 1.08, 1]);
+  const scaleDur     = isStress ? 0.25 : (isRegul ? 3.8           : 2.2);
+  const scaleRepeat  = isStress ? 0    : Infinity;
+
+  // ── Jitter (x / y) — rapid mirror oscillation during stress ───────────────
+  const xTarget: number | number[] = isStress ? [-5, 5] : 0;
+  const yTarget: number | number[] = isStress ? [-4, 4] : 0;
+  const xDur    = isStress ? 0.11 : 0.4;   // 0.11s = ~9 oscillations/sec
+  const yDur    = isStress ? 0.14 : 0.4;   // slightly offset for realism
 
   return (
     <div
       className="relative flex items-center justify-center select-none"
       style={{ width: "100%", height: "100%" }}
     >
-      {/* Ambient outer haze */}
+      {/* Ambient outer haze — changes color with phase */}
       <motion.div
+        animate={{
+          backgroundColor: isStress
+            ? "rgba(231,76,60,0.16)"
+            : "rgba(212,175,55,0.12)",
+        }}
+        transition={{ duration: 1.8, ease: "easeInOut" }}
         style={{
           position: "absolute",
           width: "88%",
           height: "88%",
           borderRadius: "50%",
-          filter: "blur(55px)",
+          filter: "blur(64px)",
           pointerEvents: "none",
         }}
-        animate={{
-          backgroundColor: isStress
-            ? "rgba(231,76,60,0.14)"
-            : "rgba(212,175,55,0.11)",
-        }}
-        transition={{ duration: 2, ease: "easeInOut" }}
       />
 
-      {/* Ripple rings — stress only */}
-      <div
-        style={{
-          position: "absolute",
-          width: "52%",
-          height: "52%",
-        }}
-      >
-        <RippleRing active={isStress} delay={0}   />
-        <RippleRing active={isStress} delay={0.57} />
-        <RippleRing active={isStress} delay={1.14} />
+      {/* Ripple shock waves — stress only */}
+      <div style={{ position: "absolute", width: "58%", height: "58%" }}>
+        <RippleRing active={isStress} delay={0}    />
+        <RippleRing active={isStress} delay={0.53} />
+        <RippleRing active={isStress} delay={1.06} />
       </div>
 
-      {/* ── Main orb ── */}
+      {/* ── Main orb — all visual states on one element ── */}
       <motion.div
-        style={{
-          position: "absolute",
-          width: "52%",
-          height: "52%",
-          borderRadius: "50%",
-        }}
         animate={{
-          backgroundColor: orbColor,
+          backgroundColor: color,
           boxShadow: glow,
-          scale: scaleKeys,
-          x: xKeys,
-          y: yKeys,
+          scale: scaleTarget,
+          x: xTarget,
+          y: yTarget,
         }}
         transition={{
-          backgroundColor: { duration: 1.8, ease: "easeInOut" },
-          boxShadow:       { duration: 1.8, ease: "easeInOut" },
-          scale:           { duration: scaleDur, ease: "easeInOut" },
-          // Jitter stops quickly when leaving stress phase
-          x: { duration: isStress ? scaleDur : 0.5, ease: isStress ? "easeInOut" : "easeOut" },
-          y: { duration: isStress ? scaleDur : 0.5, ease: isStress ? "easeInOut" : "easeOut" },
+          // Color + glow: smooth 1.4s crossfade
+          backgroundColor: { duration: 1.4, ease: "easeInOut" },
+          boxShadow:       { duration: 1.4, ease: "easeInOut" },
+          // Breathing: loops during calm phases
+          scale: {
+            duration:   scaleDur,
+            ease:       "easeInOut",
+            repeat:     scaleRepeat,
+            repeatType: "mirror",
+          },
+          // Jitter: rapid mirror oscillation during stress, quick stop otherwise
+          x: {
+            duration:   xDur,
+            ease:       "easeInOut",
+            repeat:     isStress ? Infinity : 0,
+            repeatType: "mirror",
+          },
+          y: {
+            duration:   yDur,
+            ease:       "easeInOut",
+            repeat:     isStress ? Infinity : 0,
+            repeatType: "mirror",
+          },
+        }}
+        style={{
+          position:     "absolute",
+          width:        "58%",
+          height:       "58%",
+          borderRadius: "50%",
         }}
       />
 
-      {/* Specular highlight — static glass-like sheen */}
+      {/* Glass specular highlight — static layer above orb */}
       <div
         style={{
-          position: "absolute",
-          width: "52%",
-          height: "52%",
+          position:     "absolute",
+          width:        "58%",
+          height:       "58%",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle at 34% 28%, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.1) 36%, transparent 58%)",
+            "radial-gradient(circle at 33% 27%, rgba(255,255,255,0.36) 0%, rgba(255,255,255,0.12) 38%, transparent 60%)",
           pointerEvents: "none",
         }}
       />
