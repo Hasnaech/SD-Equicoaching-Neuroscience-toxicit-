@@ -48,6 +48,7 @@ export default function Header() {
             <Image
               src={imgLogo}
               alt="SD Équicoaching"
+              width={48}
               height={48}
               className="h-10 lg:h-12 w-auto"
             />
