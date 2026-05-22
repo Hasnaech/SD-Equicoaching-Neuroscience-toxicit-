@@ -19,6 +19,7 @@ import {
   Quote,
 } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
+import NervousSystemOrb from "@/components/NervousSystemOrb";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -84,125 +85,15 @@ export default function HomePage() {
               </div>
             </motion.div>
 
-            {/* Right: motion design élégant */}
+            {/* Right: animation système nerveux autonome */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2, delay: 0.3 }}
               className="relative flex justify-center lg:justify-end"
             >
-              <div className="relative w-80 h-80 lg:w-[420px] lg:h-[420px]">
-
-                {/* ── Diffuse ambient glow ── */}
-                <div
-                  className="absolute inset-0 rounded-full"
-                  style={{
-                    background:
-                      "radial-gradient(circle, rgba(205,165,64,0.2) 0%, rgba(120,66,127,0.14) 45%, transparent 72%)",
-                    filter: "blur(36px)",
-                    transform: "scale(1.35)",
-                  }}
-                />
-
-                {/* ── Central morphing orb ── */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    style={{
-                      width: "58%",
-                      height: "58%",
-                      borderRadius: "50%",
-                      background:
-                        "radial-gradient(circle at 36% 30%, rgba(205,165,64,0.95) 0%, rgba(120,66,127,0.88) 46%, rgba(26,10,30,0.45) 90%)",
-                      filter: "blur(6px)",
-                    }}
-                    animate={{
-                      scale: [1, 1.08, 0.96, 1.05, 1],
-                      filter: ["blur(6px)", "blur(9px)", "blur(5px)", "blur(8px)", "blur(6px)"],
-                    }}
-                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                  />
-                </div>
-
-                {/* ── Floating purple accent orb ── */}
-                <motion.div
-                  className="absolute rounded-full"
-                  style={{
-                    width: "36%",
-                    height: "36%",
-                    top: "54%",
-                    left: "52%",
-                    background:
-                      "radial-gradient(circle at 42% 40%, rgba(120,66,127,0.92) 0%, rgba(205,165,64,0.18) 70%, transparent 100%)",
-                    filter: "blur(20px)",
-                  }}
-                  animate={{ x: [0, -18, -30, -12, 0], y: [0, -14, 8, 20, 0] }}
-                  transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-                />
-
-                {/* ── Outer solid ring ── */}
-                <div
-                  className="absolute inset-0 rounded-full"
-                  style={{ border: "1px solid rgba(205,165,64,0.28)" }}
-                />
-
-                {/* ── Inner ring ── */}
-                <div
-                  className="absolute inset-5 rounded-full"
-                  style={{ border: "1px solid rgba(120,66,127,0.2)" }}
-                />
-
-                {/* ── Gold dot orbiting outer ring (clockwise) ── */}
-                <motion.div
-                  className="absolute inset-0"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
-                >
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: 10, height: 10,
-                      top: -5, left: "calc(50% - 5px)",
-                      background: "#cda540",
-                      boxShadow: "0 0 12px rgba(205,165,64,0.95), 0 0 26px rgba(205,165,64,0.45)",
-                    }}
-                  />
-                </motion.div>
-
-                {/* ── Purple dot orbiting inner ring (counter-clockwise) ── */}
-                <motion.div
-                  className="absolute inset-5"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 21, repeat: Infinity, ease: "linear" }}
-                >
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: 7, height: 7,
-                      top: -3.5, left: "calc(50% - 3.5px)",
-                      background: "#78427f",
-                      boxShadow: "0 0 10px rgba(120,66,127,0.95), 0 0 20px rgba(120,66,127,0.4)",
-                    }}
-                  />
-                </motion.div>
-
-                {/* ── Small gold dot — same outer ring, half-speed offset ── */}
-                <motion.div
-                  className="absolute inset-0"
-                  initial={{ rotate: 180 }}
-                  animate={{ rotate: 180 + 360 }}
-                  transition={{ duration: 22, repeat: Infinity, ease: "linear", repeatType: "loop" }}
-                >
-                  <div
-                    className="absolute rounded-full"
-                    style={{
-                      width: 5, height: 5,
-                      top: -2.5, left: "calc(50% - 2.5px)",
-                      background: "rgba(205,165,64,0.65)",
-                      boxShadow: "0 0 8px rgba(205,165,64,0.7)",
-                    }}
-                  />
-                </motion.div>
-
+              <div className="w-72 h-72 lg:w-[420px] lg:h-[420px]">
+                <NervousSystemOrb />
               </div>
             </motion.div>
           </div>
