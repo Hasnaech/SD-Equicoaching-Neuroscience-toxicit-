@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   ChevronDown,
@@ -21,10 +20,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
+import HeroIllustration from "@/components/HeroIllustration";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import equicoachingImg from "@/assets/equicoaching-session.jpg";
 
 export default function HomePage() {
   return (
@@ -122,75 +121,33 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* ── Right: equicoaching photo ── */}
+            {/* ── Right: illustration motion design ── */}
             <div className="relative flex justify-center lg:justify-end">
-              {/* Decorative offset frame */}
-              <div
-                className="absolute -top-4 -right-4 w-full h-full rounded-3xl hidden lg:block"
-                style={{
-                  border: "1px solid rgba(205,165,64,0.25)",
-                  borderRadius: "24px",
-                  maxWidth: "480px",
-                }}
-              />
+              <div className="relative w-full" style={{ maxWidth: "480px" }}>
 
-              <div
-                className="relative overflow-hidden w-full"
-                style={{
-                  maxWidth: "480px",
-                  borderRadius: "20px",
-                  aspectRatio: "4 / 5",
-                  boxShadow:
-                    "0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(205,165,64,0.15)",
-                }}
-              >
-                <Image
-                  src={equicoachingImg}
-                  alt="Séance d'équicoaching — Sarah Dabancens avec un cheval"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 480px"
-                />
-
-                {/* Gradient overlay bottom */}
+                {/* Soft radial backdrop behind the illustration */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 p-6"
+                  className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(26,10,30,0.92) 0%, rgba(26,10,30,0.4) 55%, transparent 100%)",
+                      "radial-gradient(circle at 50% 50%, rgba(120,66,127,0.18) 0%, transparent 70%)",
+                    filter: "blur(48px)",
+                    transform: "scale(1.15)",
                   }}
-                >
-                  <p
-                    className="text-white text-[0.95rem] font-semibold leading-snug"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-                  >
-                    Le cheval comme miroir de cohérence
-                  </p>
-                  <p className="text-white/50 text-xs mt-1 tracking-wide">
-                    Équicoaching · Ancrage corporel
-                  </p>
+                />
+
+                {/* Illustration — carré 1:1 */}
+                <div style={{ aspectRatio: "1 / 1", position: "relative" }}>
+                  <HeroIllustration />
                 </div>
 
-                {/* Top-left accent badge */}
-                <div
-                  className="absolute top-5 left-5 flex items-center gap-1.5 px-3 py-1.5 rounded-full"
-                  style={{
-                    backgroundColor: "rgba(205,165,64,0.18)",
-                    border: "1px solid rgba(205,165,64,0.45)",
-                    backdropFilter: "blur(8px)",
-                  }}
-                >
-                  <div
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: "#cda540" }}
-                  />
-                  <span
-                    className="text-[10px] font-semibold tracking-widest uppercase"
-                    style={{ color: "#cda540" }}
+                {/* Caption flottant sous l'illustration */}
+                <div className="text-center mt-3">
+                  <p
+                    className="text-white/30 text-[10px] tracking-[0.22em] uppercase"
                   >
-                    200+ centres partenaires
-                  </span>
+                    Système Nerveux Autonome · Régulation · Performance
+                  </p>
                 </div>
               </div>
             </div>
