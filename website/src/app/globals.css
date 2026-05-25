@@ -48,20 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-/* ── Blob animation ─────────────────────────────────── */
-@keyframes blob-float {
-  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  25% { transform: translate(30px, -20px) scale(1.05) rotate(5deg); }
-  50% { transform: translate(-20px, 30px) scale(0.95) rotate(-3deg); }
-  75% { transform: translate(20px, 10px) scale(1.03) rotate(2deg); }
-}
-
-@keyframes blob-float-2 {
-  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  33% { transform: translate(-40px, 20px) scale(1.08) rotate(-6deg); }
-  66% { transform: translate(25px, -35px) scale(0.92) rotate(4deg); }
-}
-
+/* ── Utility animations (micro-interactions only) ─── */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
@@ -77,17 +64,7 @@ h1, h2, h3, h4, h5, h6 {
   50% { box-shadow: 0 0 0 12px rgba(205, 165, 64, 0); }
 }
 
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(8px); opacity: 0.5; }
-}
-
-.blob-1 { animation: blob-float 12s ease-in-out infinite; }
-.blob-2 { animation: blob-float-2 16s ease-in-out infinite; }
-.blob-3 { animation: blob-float 20s ease-in-out infinite reverse; }
-
 .animate-fadeInUp { animation: fadeInUp 0.7s ease forwards; }
-.animate-scroll-bounce { animation: scroll-bounce 1.5s ease-in-out infinite; }
 
 /* ── Utility classes ────────────────────────────────── */
 .font-heading { font-family: 'Playfair Display', Georgia, serif; }

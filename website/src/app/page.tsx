@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   ChevronDown,
@@ -17,12 +18,13 @@ import {
   Globe,
   Award,
   Quote,
+  CheckCircle,
 } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
-import NervousSystemOrb from "@/components/NervousSystemOrb";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import equicoachingImg from "@/assets/equicoaching-session.jpg";
 
 export default function HomePage() {
   return (
@@ -33,22 +35,31 @@ export default function HomePage() {
         style={{ backgroundColor: "#1a0a1e" }}
       >
         <GradientBlob />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: text */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 mb-8">
+
+        {/* Subtle grid overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#cda540 1px, transparent 1px), linear-gradient(90deg, #cda540 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* ── Left: text ── */}
+            <div>
+              {/* Eyebrow badge */}
+              <div className="inline-flex items-center gap-2 mb-7">
                 <span
-                  className="text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
+                  className="text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-1.5 rounded-full"
                   style={{
-                    border: "1px solid #cda540",
+                    border: "1px solid rgba(205,165,64,0.5)",
                     color: "#cda540",
                     backgroundColor: "rgba(205,165,64,0.08)",
+                    letterSpacing: "0.18em",
                   }}
                 >
                   Manager de Transition · Neurosciences · Équicoaching
@@ -56,58 +67,142 @@ export default function HomePage() {
               </div>
 
               <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+                className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] font-bold text-white mb-6 leading-[1.12]"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Neurosciences appliquées{" "}
-                <span style={{ color: "#cda540" }}>
+                <em
+                  className="not-italic"
+                  style={{
+                    background: "linear-gradient(135deg, #cda540 0%, #e8c060 60%, #cda540 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
                   à la performance collective
-                </span>
+                </em>
               </h1>
 
-              <p className="text-lg text-white/70 mb-6 leading-relaxed max-w-xl">
+              <p className="text-[1.05rem] text-white/65 mb-5 leading-relaxed max-w-[520px]">
                 Les décisions stratégiques ne se prennent pas sous stress.
                 Nous formons vos directions à maintenir leur disponibilité
                 neurologique sous pression.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* Trust micro-list */}
+              <ul className="flex flex-col gap-2 mb-8">
+                {[
+                  "Méthode A.N.E. — Analyse · Neurosciences · Équicoaching",
+                  "Certifié Qualiopi · Éligible OPCO",
+                  "150+ managers formés · 98 % de satisfaction",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5">
+                    <CheckCircle
+                      size={14}
+                      style={{ color: "#cda540", flexShrink: 0 }}
+                    />
+                    <span className="text-white/55 text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
                 <CalendlyButton variant="primary" size="lg">
                   Réserver un diagnostic gratuit
                 </CalendlyButton>
                 <a
                   href="#methode"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-white transition-all border border-white/20 hover:border-white/60 hover:bg-white/5"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white/85 transition-all duration-200 border border-white/15 hover:border-white/40 hover:text-white hover:bg-white/5 cursor-pointer"
                 >
-                  Découvrir notre approche
-                  <ArrowRight size={16} />
+                  Découvrir l&apos;approche
+                  <ArrowRight size={15} />
                 </a>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Right: animation système nerveux autonome */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-              className="relative flex justify-center lg:justify-end"
-            >
-              <div className="w-72 h-72 lg:w-[420px] lg:h-[420px]">
-                <NervousSystemOrb />
+            {/* ── Right: equicoaching photo ── */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Decorative offset frame */}
+              <div
+                className="absolute -top-4 -right-4 w-full h-full rounded-3xl hidden lg:block"
+                style={{
+                  border: "1px solid rgba(205,165,64,0.25)",
+                  borderRadius: "24px",
+                  maxWidth: "480px",
+                }}
+              />
+
+              <div
+                className="relative overflow-hidden w-full"
+                style={{
+                  maxWidth: "480px",
+                  borderRadius: "20px",
+                  aspectRatio: "4 / 5",
+                  boxShadow:
+                    "0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(205,165,64,0.15)",
+                }}
+              >
+                <Image
+                  src={equicoachingImg}
+                  alt="Séance d'équicoaching — Sarah Dabancens avec un cheval"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 480px"
+                />
+
+                {/* Gradient overlay bottom */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 p-6"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(26,10,30,0.92) 0%, rgba(26,10,30,0.4) 55%, transparent 100%)",
+                  }}
+                >
+                  <p
+                    className="text-white text-[0.95rem] font-semibold leading-snug"
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                  >
+                    Le cheval comme miroir de cohérence
+                  </p>
+                  <p className="text-white/50 text-xs mt-1 tracking-wide">
+                    Équicoaching · Ancrage corporel
+                  </p>
+                </div>
+
+                {/* Top-left accent badge */}
+                <div
+                  className="absolute top-5 left-5 flex items-center gap-1.5 px-3 py-1.5 rounded-full"
+                  style={{
+                    backgroundColor: "rgba(205,165,64,0.18)",
+                    border: "1px solid rgba(205,165,64,0.45)",
+                    backdropFilter: "blur(8px)",
+                  }}
+                >
+                  <div
+                    className="w-1.5 h-1.5 rounded-full"
+                    style={{ backgroundColor: "#cda540" }}
+                  />
+                  <span
+                    className="text-[10px] font-semibold tracking-widest uppercase"
+                    style={{ color: "#cda540" }}
+                  >
+                    200+ centres partenaires
+                  </span>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator — static */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-white/30 text-xs tracking-widest uppercase">
+          <span className="text-white/25 text-[10px] tracking-[0.2em] uppercase">
             Défiler
           </span>
-          <ChevronDown
-            size={20}
-            className="text-white/30 animate-scroll-bounce"
-          />
+          <ChevronDown size={18} className="text-white/25" />
         </div>
       </section>
 
@@ -194,9 +289,8 @@ export default function HomePage() {
               },
             ].map((card, i) => (
               <SectionReveal key={i} delay={i * 0.12}>
-                <motion.div
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="rounded-2xl p-8 h-full"
+                <div
+                  className="rounded-2xl p-8 h-full card-hover cursor-default"
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(205,165,64,0.2)",
@@ -221,7 +315,7 @@ export default function HomePage() {
                   <p className="text-sm font-semibold" style={{ color: "#cda540" }}>
                     {card.cost}
                   </p>
-                </motion.div>
+                </div>
               </SectionReveal>
             ))}
           </div>

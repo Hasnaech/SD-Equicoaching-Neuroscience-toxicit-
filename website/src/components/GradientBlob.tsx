@@ -12,9 +12,9 @@ export default function GradientBlob({ className = "" }: GradientBlobProps) {
       className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}
       aria-hidden="true"
     >
-      {/* Blob 1 — violet glow */}
+      {/* Blob 1 — violet glow (static) */}
       <div
-        className="blob-1 absolute rounded-full opacity-30"
+        className="absolute rounded-full opacity-30"
         style={{
           width: "600px",
           height: "600px",
@@ -25,9 +25,9 @@ export default function GradientBlob({ className = "" }: GradientBlobProps) {
           filter: "blur(80px)",
         }}
       />
-      {/* Blob 2 — gold glow */}
+      {/* Blob 2 — gold glow (static) */}
       <div
-        className="blob-2 absolute rounded-full opacity-20"
+        className="absolute rounded-full opacity-20"
         style={{
           width: "500px",
           height: "500px",
@@ -38,9 +38,9 @@ export default function GradientBlob({ className = "" }: GradientBlobProps) {
           filter: "blur(90px)",
         }}
       />
-      {/* Blob 3 — deep violet */}
+      {/* Blob 3 — deep violet (static) */}
       <div
-        className="blob-3 absolute rounded-full opacity-25"
+        className="absolute rounded-full opacity-25"
         style={{
           width: "400px",
           height: "400px",
