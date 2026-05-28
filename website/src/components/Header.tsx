@@ -40,16 +40,32 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link
             href="/"
-            className="flex items-center group"
+            className="flex items-center gap-3 group"
             onClick={() => setMenuOpen(false)}
           >
+            {/* Emblème seul (oval + cheval + SD) */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.svg"
-              alt="SD Équicoaching — Neurosciences"
-              className="h-10 lg:h-12 w-auto"
-              style={{ maxWidth: "220px" }}
+              src="/logo-mark.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-10 lg:h-11 w-auto"
             />
+            {/* Wordmark textuel */}
+            <div className="flex flex-col leading-none">
+              <span
+                className="font-bold text-sm tracking-wide"
+                style={{ fontFamily: "Georgia, serif", color: "#cda540" }}
+              >
+                SD Équicoaching
+              </span>
+              <span
+                className="text-[9px] tracking-[0.22em] uppercase mt-0.5"
+                style={{ color: "rgba(205,165,64,0.65)" }}
+              >
+                Neurosciences
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">

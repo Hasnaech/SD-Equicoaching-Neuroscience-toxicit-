@@ -1,38 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" fill="none">
-  <!-- Anneau circulaire doré -->
-  <circle cx="24" cy="24" r="20" stroke="#cda540" stroke-width="1.5" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 355" fill="none">
 
-  <!-- Trait interne décoratif -->
-  <circle cx="24" cy="24" r="15" stroke="#78427f" stroke-width="0.5" stroke-dasharray="3 4" fill="none"/>
+  <!-- ══ OVAL BORDER (gold/olive) ══ -->
+  <rect x="35" y="10" width="230" height="292" rx="115"
+        fill="none" stroke="#a08820" stroke-width="2.5"/>
 
-  <!-- Courbe équine stylisée (silhouette tête de cheval abstraite) -->
-  <path d="M18 14 C18 14 16 16 16 19 C16 22 17 23 19 24 C20 24.5 20.5 25 20 27 C19.5 29 18 30 18 30"
-        stroke="#cda540" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- ══ HORSE HEAD (gold, upper-right, profile facing right) ══ -->
 
-  <!-- Point focal doré (oeil / étoile) -->
-  <circle cx="22" cy="18" r="1.5" fill="#cda540"/>
+  <!-- Main head outline -->
+  <path d="M 183,36 C 195,28 214,27 218,36 C 221,43 215,49 209,51
+           C 220,57 228,68 230,82 C 232,93 227,104 221,110
+           C 217,115 211,120 204,122 C 195,124 184,122 176,116
+           C 168,110 163,100 163,88 C 163,74 169,60 179,51
+           C 181,45 182,40 183,36 Z"
+        stroke="#a08820" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
 
-  <!-- Initiales SD -->
-  <text x="28" y="28"
-        font-family="Georgia, serif"
-        font-size="16"
-        font-weight="bold"
-        fill="#cda540"
-        letter-spacing="1">SD</text>
+  <!-- Eye -->
+  <ellipse cx="217" cy="70" rx="3" ry="2.5" fill="#a08820"/>
 
-  <!-- Séparateur vertical fin -->
-  <line x1="56" y1="10" x2="56" y2="38" stroke="#cda540" stroke-width="0.5" opacity="0.5"/>
+  <!-- Nostril hint -->
+  <path d="M 222,105 C 219,109 217,108 219,105"
+        stroke="#a08820" stroke-width="1.4" stroke-linecap="round"/>
 
-  <!-- Wordmark -->
-  <text x="62" y="22"
-        font-family="Georgia, serif"
-        font-size="10"
-        font-weight="bold"
-        fill="#ffffff"
-        letter-spacing="0.5">Équicoaching</text>
-  <text x="62" y="34"
-        font-family="Georgia, serif"
-        font-size="7.5"
-        fill="#cda540"
-        letter-spacing="1.5">NEUROSCIENCES</text>
+  <!-- Mane (3 flowing strands) -->
+  <path d="M 182,40 C 168,46 154,49 140,50"
+        stroke="#a08820" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 178,49 C 163,56 148,62 135,65"
+        stroke="#a08820" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M 172,59 C 157,67 142,74 130,78"
+        stroke="#a08820" stroke-width="1.4" stroke-linecap="round"/>
+
+  <!-- ══ CALLIGRAPHIC SD MONOGRAM (violet) ══ -->
+
+  <!-- Letter S -->
+  <path d="M 164,80 C 180,68 200,73 198,92 C 196,108 175,118 153,124
+           C 127,132 108,146 110,165 C 112,180 128,192 150,192
+           C 164,192 177,185 182,174"
+        stroke="#72327a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Letter D — vertical stroke -->
+  <path d="M 118,82 C 116,122 116,158 118,194"
+        stroke="#72327a" stroke-width="6.5" stroke-linecap="round"/>
+
+  <!-- Letter D — bowl -->
+  <path d="M 118,82 C 155,74 182,98 182,138 C 182,174 158,194 118,194"
+        stroke="#72327a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ══ ÉQUICOACHING text (violet, below oval) ══ -->
+  <text x="150" y="336"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="20" fill="#72327a"
+        text-anchor="middle" letter-spacing="5">ÉQUICOACHING</text>
+
 </svg>
