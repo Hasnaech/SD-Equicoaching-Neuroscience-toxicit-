@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
-import imgLogo from "@/assets/logo.svg";
 
 const INSTAGRAM = "https://www.instagram.com/sarahdabancens/";
 const LINKEDIN = "https://www.linkedin.com/in/sarah-dabancens/";
@@ -45,10 +43,10 @@ export default function Header() {
             className="flex items-center gap-2.5 group"
             onClick={() => setMenuOpen(false)}
           >
-            <Image
-              src={imgLogo}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.svg"
               alt="SD Équicoaching"
-              height={48}
               className="h-10 lg:h-12 w-auto"
             />
             <div className="flex flex-col leading-none">
