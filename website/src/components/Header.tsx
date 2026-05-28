@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import CalendlyButton from "./CalendlyButton";
-import imgLogo from "@/assets/logo.svg";
 
 const INSTAGRAM = "https://www.instagram.com/sarahdabancens/";
 const LINKEDIN = "https://www.linkedin.com/in/sarah-dabancens/";
@@ -42,29 +40,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link
             href="/"
-            className="flex items-center gap-2.5 group"
+            className="flex items-center group"
             onClick={() => setMenuOpen(false)}
           >
-            <Image
-              src={imgLogo}
-              alt="SD Équicoaching"
-              height={48}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.svg"
+              alt="SD Équicoaching — Neurosciences"
               className="h-10 lg:h-12 w-auto"
+              style={{ maxWidth: "220px" }}
             />
-            <div className="flex flex-col leading-none">
-              <span
-                className="text-white font-semibold text-sm tracking-wide"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                SD Équicoaching
-              </span>
-              <span
-                className="text-[#cda540] text-[10px] tracking-widest uppercase mt-0.5"
-                style={{ fontFamily: "Georgia, serif" }}
-              >
-                Neurosciences
-              </span>
-            </div>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-8">
