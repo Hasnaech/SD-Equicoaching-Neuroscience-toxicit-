@@ -71,14 +71,6 @@ export default function HeroIllustration() {
 
       ctx.clearRect(0, 0, w, h);
 
-      /* Fond dégradé radial sombre */
-      const bg = ctx.createRadialGradient(w * 0.6, h * 0.4, 0, w * 0.5, h * 0.5, w * 0.8);
-      bg.addColorStop(0,   "#1e0e38");
-      bg.addColorStop(0.5, "#140820");
-      bg.addColorStop(1,   "#0a0412");
-      ctx.fillStyle = bg;
-      ctx.fillRect(0, 0, w, h);
-
       /* Grille de points or (bas-droite, comme la référence) */
       const gStep = 18, gCols = 14, gRows = 9;
       const gx0 = w * 0.70, gy0 = h * 0.68;
