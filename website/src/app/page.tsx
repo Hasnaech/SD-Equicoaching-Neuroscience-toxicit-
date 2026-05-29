@@ -116,6 +116,26 @@ export default function HomePage() {
                 {/* Illustration — carré 1:1 */}
                 <div style={{ aspectRatio: "1 / 1", position: "relative" }}>
                   <HeroIllustration />
+
+                  {/* Animated words following the particle wave diagonal */}
+                  <span
+                    className="hero-word"
+                    style={{ bottom: "18%", left: "7%", animationDelay: "0s" }}
+                  >
+                    Performance
+                  </span>
+                  <span
+                    className="hero-word"
+                    style={{ top: "38%", left: "18%", animationDelay: "3s" }}
+                  >
+                    Collective
+                  </span>
+                  <span
+                    className="hero-word"
+                    style={{ top: "7%", right: "6%", animationDelay: "6s" }}
+                  >
+                    Régulation
+                  </span>
                 </div>
 
                 {/* Caption flottant sous l'illustration */}
