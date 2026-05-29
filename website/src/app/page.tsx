@@ -31,16 +31,16 @@ export default function HomePage() {
       {/* ── HERO ─────────────────────────────────────────── */}
       <section
         className="relative min-h-screen flex items-center overflow-hidden"
-        style={{ backgroundColor: "#f2ede5" }}
+        style={{ backgroundColor: "#1a0a1e" }}
       >
         <GradientBlob />
 
         {/* Subtle grid overlay */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.06]"
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
           style={{
             backgroundImage:
-              "linear-gradient(#78427f 1px, transparent 1px), linear-gradient(90deg, #78427f 1px, transparent 1px)",
+              "linear-gradient(#cda540 1px, transparent 1px), linear-gradient(90deg, #cda540 1px, transparent 1px)",
             backgroundSize: "64px 64px",
           }}
         />
@@ -66,8 +66,8 @@ export default function HomePage() {
               </div>
 
               <h1
-                className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] font-bold mb-6 leading-[1.12]"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a0a1e" }}
+                className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] font-bold text-white mb-6 leading-[1.12]"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Neurosciences appliquées{" "}
                 <em
@@ -90,8 +90,7 @@ export default function HomePage() {
                 </CalendlyButton>
                 <a
                   href="#methode"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold transition-all duration-200 cursor-pointer"
-                  style={{ color: "#1a0a1e", border: "1px solid rgba(26,10,30,0.2)" }}
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white/85 transition-all duration-200 border border-white/15 hover:border-white/40 hover:text-white hover:bg-white/5 cursor-pointer"
                 >
                   Découvrir l&apos;approche
                   <ArrowRight size={15} />
@@ -142,8 +141,7 @@ export default function HomePage() {
                 {/* Caption flottant sous l'illustration */}
                 <div className="text-center mt-3">
                   <p
-                    className="text-[10px] tracking-[0.22em] uppercase"
-                    style={{ color: "rgba(26,10,30,0.35)" }}
+                    className="text-white/30 text-[10px] tracking-[0.22em] uppercase"
                   >
                     Système Nerveux Autonome · Régulation · Performance
                   </p>
@@ -155,10 +153,10 @@ export default function HomePage() {
 
         {/* Scroll indicator — static */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(26,10,30,0.3)" }}>
+          <span className="text-white/25 text-[10px] tracking-[0.2em] uppercase">
             Défiler
           </span>
-          <ChevronDown size={18} style={{ color: "rgba(26,10,30,0.3)" }} />
+          <ChevronDown size={18} className="text-white/25" />
         </div>
       </section>
 
