@@ -160,8 +160,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Transition hero → stats */}
+      <div style={{ height: "5rem", background: "linear-gradient(#1a0a1e, #ffffff)", margin: 0 }} />
+
       {/* ── STATS ────────────────────────────────────────── */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
@@ -202,6 +205,9 @@ export default function HomePage() {
           </SectionReveal>
         </div>
       </section>
+
+      {/* Transition stats → situations */}
+      <div style={{ height: "5rem", background: "linear-gradient(#ffffff, #1a0a1e)", margin: 0 }} />
 
       {/* ── 3 SITUATIONS ─────────────────────────────────── */}
       <section style={{ backgroundColor: "#1a0a1e" }} className="py-20 lg:py-28">
@@ -275,6 +281,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Transition situations → méthode */}
+      <div style={{ height: "5rem", background: "linear-gradient(#1a0a1e, #f2ede5)", margin: 0 }} />
 
       {/* ── MÉTHODE A.N.E. ───────────────────────────────── */}
       <section
@@ -477,6 +486,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Transition logos → testimonials */}
+      <div style={{ height: "5rem", background: "linear-gradient(#f2ede5, #1a0a1e)", margin: 0 }} />
+
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
       <section style={{ backgroundColor: "#1a0a1e" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -553,6 +565,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Transition testimonials → CTA */}
+      <div style={{ height: "5rem", background: "linear-gradient(#1a0a1e, #f2ede5)", margin: 0 }} />
 
       {/* ── CTA FINAL ────────────────────────────────────── */}
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
