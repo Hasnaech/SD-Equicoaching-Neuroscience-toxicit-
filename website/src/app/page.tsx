@@ -83,29 +83,6 @@ export default function HomePage() {
                 </em>
               </h1>
 
-              <p className="text-[1.05rem] text-white/65 mb-5 leading-relaxed max-w-[520px]">
-                Les décisions stratégiques ne se prennent pas sous stress.
-                Nous formons vos directions à maintenir leur disponibilité
-                neurologique sous pression.
-              </p>
-
-              {/* Trust micro-list */}
-              <ul className="flex flex-col gap-2 mb-8">
-                {[
-                  "Méthode A.N.E. — Analyse · Neurosciences · Équicoaching",
-                  "Certifié Qualiopi · Éligible OPCO",
-                  "150+ managers formés · 98 % de satisfaction",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5">
-                    <CheckCircle
-                      size={14}
-                      style={{ color: "#cda540", flexShrink: 0 }}
-                    />
-                    <span className="text-white/55 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <CalendlyButton variant="primary" size="lg">
