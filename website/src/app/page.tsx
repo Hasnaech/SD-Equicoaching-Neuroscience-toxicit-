@@ -31,16 +31,16 @@ export default function HomePage() {
       {/* ── HERO ─────────────────────────────────────────── */}
       <section
         className="relative min-h-screen flex items-center overflow-hidden"
-        style={{ backgroundColor: "#1a0a1e" }}
+        style={{ backgroundColor: "#f2ede5" }}
       >
         <GradientBlob />
 
         {/* Subtle grid overlay */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          className="absolute inset-0 pointer-events-none opacity-[0.06]"
           style={{
             backgroundImage:
-              "linear-gradient(#cda540 1px, transparent 1px), linear-gradient(90deg, #cda540 1px, transparent 1px)",
+              "linear-gradient(#78427f 1px, transparent 1px), linear-gradient(90deg, #78427f 1px, transparent 1px)",
             backgroundSize: "64px 64px",
           }}
         />
@@ -66,8 +66,8 @@ export default function HomePage() {
               </div>
 
               <h1
-                className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] font-bold text-white mb-6 leading-[1.12]"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] font-bold mb-6 leading-[1.12]"
+                style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a0a1e" }}
               >
                 Neurosciences appliquées{" "}
                 <em
@@ -90,7 +90,8 @@ export default function HomePage() {
                 </CalendlyButton>
                 <a
                   href="#methode"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white/85 transition-all duration-200 border border-white/15 hover:border-white/40 hover:text-white hover:bg-white/5 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold transition-all duration-200 cursor-pointer"
+                  style={{ color: "#1a0a1e", border: "1px solid rgba(26,10,30,0.2)" }}
                 >
                   Découvrir l&apos;approche
                   <ArrowRight size={15} />
@@ -141,7 +142,8 @@ export default function HomePage() {
                 {/* Caption flottant sous l'illustration */}
                 <div className="text-center mt-3">
                   <p
-                    className="text-white/30 text-[10px] tracking-[0.22em] uppercase"
+                    className="text-[10px] tracking-[0.22em] uppercase"
+                    style={{ color: "rgba(26,10,30,0.35)" }}
                   >
                     Système Nerveux Autonome · Régulation · Performance
                   </p>
@@ -153,18 +155,15 @@ export default function HomePage() {
 
         {/* Scroll indicator — static */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-white/25 text-[10px] tracking-[0.2em] uppercase">
+          <span className="text-[10px] tracking-[0.2em] uppercase" style={{ color: "rgba(26,10,30,0.3)" }}>
             Défiler
           </span>
-          <ChevronDown size={18} className="text-white/25" />
+          <ChevronDown size={18} style={{ color: "rgba(26,10,30,0.3)" }} />
         </div>
       </section>
 
-      {/* Transition hero → stats */}
-      <div style={{ height: "5rem", background: "linear-gradient(#1a0a1e, #ffffff)", margin: 0 }} />
-
       {/* ── STATS ────────────────────────────────────────── */}
-      <section className="bg-white py-8">
+      <section className="py-16" style={{ backgroundColor: "#f2ede5" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {[
@@ -206,11 +205,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Transition stats → situations */}
-      <div style={{ height: "5rem", background: "linear-gradient(#ffffff, #1a0a1e)", margin: 0 }} />
-
       {/* ── 3 SITUATIONS ─────────────────────────────────── */}
-      <section style={{ backgroundColor: "#1a0a1e" }} className="py-20 lg:py-28">
+      <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal className="text-center mb-16">
             <span
@@ -220,8 +216,8 @@ export default function HomePage() {
               Diagnostic
             </span>
             <h2
-              className="text-3xl lg:text-5xl font-bold text-white"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="text-3xl lg:text-5xl font-bold"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a0a1e" }}
             >
               3 situations qui coûtent cher
             </h2>
@@ -252,8 +248,8 @@ export default function HomePage() {
                 <div
                   className="rounded-2xl p-8 h-full card-hover cursor-default"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(205,165,64,0.2)",
+                    background: "white",
+                    border: "1px solid rgba(205,165,64,0.35)",
                   }}
                 >
                   <div
@@ -266,12 +262,12 @@ export default function HomePage() {
                     {card.icon}
                   </div>
                   <h3
-                    className="text-xl font-bold text-white mb-3"
-                    style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                    className="text-xl font-bold mb-3"
+                    style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a0a1e" }}
                   >
                     {card.title}
                   </h3>
-                  <p className="text-white/60 leading-relaxed mb-4">{card.body}</p>
+                  <p className="text-gray-600 leading-relaxed mb-4">{card.body}</p>
                   <p className="text-sm font-semibold" style={{ color: "#cda540" }}>
                     {card.cost}
                   </p>
@@ -281,9 +277,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Transition situations → méthode */}
-      <div style={{ height: "5rem", background: "linear-gradient(#1a0a1e, #f2ede5)", margin: 0 }} />
 
       {/* ── MÉTHODE A.N.E. ───────────────────────────────── */}
       <section
@@ -393,7 +386,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PRÉSENCE NATIONALE ───────────────────────────── */}
-      <section className="bg-white py-20">
+      <section className="py-20" style={{ backgroundColor: "#f2ede5" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal className="text-center mb-14">
             <h2
@@ -486,11 +479,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Transition logos → testimonials */}
-      <div style={{ height: "5rem", background: "linear-gradient(#f2ede5, #1a0a1e)", margin: 0 }} />
-
       {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section style={{ backgroundColor: "#1a0a1e" }} className="py-20 lg:py-28">
+      <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal className="text-center mb-16">
             <span
@@ -500,8 +490,8 @@ export default function HomePage() {
               Témoignages
             </span>
             <h2
-              className="text-3xl lg:text-4xl font-bold text-white"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+              className="text-3xl lg:text-4xl font-bold"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif", color: "#1a0a1e" }}
             >
               Ce que disent ceux qui l&apos;ont vécu
             </h2>
@@ -529,8 +519,8 @@ export default function HomePage() {
                 <div
                   className="rounded-2xl p-8 h-full flex flex-col"
                   style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
+                    background: "white",
+                    border: "1px solid rgba(120,66,127,0.12)",
                   }}
                 >
                   <Quote
@@ -538,7 +528,7 @@ export default function HomePage() {
                     className="mb-5 opacity-40"
                     style={{ color: "#cda540" }}
                   />
-                  <p className="text-white/80 leading-relaxed flex-1 italic mb-6">
+                  <p className="text-gray-700 leading-relaxed flex-1 italic mb-6">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-3">
@@ -565,9 +555,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Transition testimonials → CTA */}
-      <div style={{ height: "5rem", background: "linear-gradient(#1a0a1e, #f2ede5)", margin: 0 }} />
 
       {/* ── CTA FINAL ────────────────────────────────────── */}
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
