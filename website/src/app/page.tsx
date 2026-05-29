@@ -24,6 +24,7 @@ import HeroIllustration from "@/components/HeroIllustration";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import TiltCard from "@/components/TiltCard";
 
 export default function HomePage() {
   return (
@@ -85,7 +86,7 @@ export default function HomePage() {
 
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <CalendlyButton variant="primary" size="lg">
+                <CalendlyButton variant="primary" size="lg" className="btn-glow-primary">
                   Réserver un diagnostic gratuit
                 </CalendlyButton>
                 <a
@@ -243,6 +244,7 @@ export default function HomePage() {
               },
             ].map((card, i) => (
               <SectionReveal key={i} delay={i * 0.12}>
+                <TiltCard className="h-full" intensity={8}>
                 <div
                   className="rounded-2xl p-8 h-full card-hover cursor-default"
                   style={{
@@ -270,6 +272,7 @@ export default function HomePage() {
                     {card.cost}
                   </p>
                 </div>
+                </TiltCard>
               </SectionReveal>
             ))}
           </div>
@@ -339,6 +342,7 @@ export default function HomePage() {
               },
             ].map((card, i) => (
               <SectionReveal key={i} delay={i * 0.15}>
+                <TiltCard className="h-full" intensity={6}>
                 <div
                   className="rounded-2xl overflow-hidden h-full flex flex-col"
                   style={{
@@ -377,6 +381,7 @@ export default function HomePage() {
                     </span>
                   </div>
                 </div>
+                </TiltCard>
               </SectionReveal>
             ))}
           </div>
@@ -514,6 +519,7 @@ export default function HomePage() {
               },
             ].map((t, i) => (
               <SectionReveal key={i} delay={i * 0.12}>
+                <TiltCard className="h-full" intensity={7}>
                 <div
                   className="rounded-2xl p-8 h-full flex flex-col"
                   style={{
@@ -548,6 +554,7 @@ export default function HomePage() {
                     </p>
                   </div>
                 </div>
+                </TiltCard>
               </SectionReveal>
             ))}
           </div>

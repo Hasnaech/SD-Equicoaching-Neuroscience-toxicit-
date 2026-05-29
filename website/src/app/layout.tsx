@@ -3,6 +3,8 @@ import { Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CustomCursor from "@/components/CustomCursor";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -49,6 +51,8 @@ export default function RootLayout({
       className={`${playfair.variable} ${dmSans.variable}`}
     >
       <body className="flex flex-col min-h-screen antialiased">
+        <CustomCursor />
+        <ScrollProgress />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

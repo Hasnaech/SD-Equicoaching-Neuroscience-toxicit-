@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 interface SectionRevealProps {
   children: React.ReactNode;
@@ -16,38 +16,34 @@ export default function SectionReveal({
   delay = 0,
   direction = "up",
 }: SectionRevealProps) {
-  const getInitial = () => {
-    switch (direction) {
-      case "left":
-        return { opacity: 0, x: -40 };
-      case "right":
-        return { opacity: 0, x: 40 };
-      case "none":
-        return { opacity: 0 };
-      default:
-        return { opacity: 0, y: 40 };
-    }
-  };
+  const reduced = useReducedMotion();
 
-  const getAnimate = () => {
-    switch (direction) {
-      case "left":
-        return { opacity: 1, x: 0 };
-      case "right":
-        return { opacity: 1, x: 0 };
-      case "none":
-        return { opacity: 1 };
-      default:
-        return { opacity: 1, y: 0 };
-    }
+  const variants = {
+    hidden: {
+      opacity: 0,
+      y: direction === "up" ? 36 : 0,
+      x: direction === "left" ? -36 : direction === "right" ? 36 : 0,
+      filter: reduced ? "none" : "blur(6px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      x: 0,
+      filter: "blur(0px)",
+    },
   };
 
   return (
     <motion.div
-      initial={getInitial()}
-      whileInView={getAnimate()}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.7, delay, ease: [0.25, 0.1, 0.25, 1] }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{
+        duration: reduced ? 0 : 0.75,
+        delay: reduced ? 0 : delay,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      variants={variants}
       className={className}
     >
       {children}

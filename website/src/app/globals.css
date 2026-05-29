@@ -140,6 +140,46 @@ h1, h2, h3, h4, h5, h6 {
   .gallery-bento > div { aspect-ratio: 16/10 !important; }
 }
 
+/* ── Premium animation effects ─────────────────────── */
+@keyframes shimmer-gold {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes glow-pulse-gold {
+  0%, 100% { box-shadow: 0 0 18px rgba(205,165,64,0.30), 0 4px 24px rgba(205,165,64,0.15); }
+  50%       { box-shadow: 0 0 36px rgba(205,165,64,0.55), 0 4px 48px rgba(205,165,64,0.28); }
+}
+
+@keyframes float-orb {
+  0%, 100% { transform: translateY(0px)   rotate(0deg); }
+  33%       { transform: translateY(-14px) rotate(2deg); }
+  66%       { transform: translateY(-6px)  rotate(-1deg); }
+}
+
+@keyframes border-glow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #cda540 0%, #f5e07a 35%, #cda540 50%, #a07020 75%, #cda540 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer-gold 4s linear infinite;
+}
+
+.btn-glow-primary {
+  animation: glow-pulse-gold 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+.btn-glow-primary:hover { transform: translateY(-2px) scale(1.02); }
+
+.float-orb { animation: float-orb 7s ease-in-out infinite; }
+.float-orb-delay { animation: float-orb 9s ease-in-out infinite 1.5s; }
+
 /* ── Hero animated words ────────────────────────────── */
 @keyframes heroWordCycle {
   0%, 10%   { opacity: 0; transform: translateY(10px); }
