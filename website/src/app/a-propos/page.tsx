@@ -5,6 +5,7 @@ import GradientBlob from "@/components/GradientBlob";
 import PhotoSarah from "@/components/PhotoSarah";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
+import TiltCard from "@/components/TiltCard";
 
 export const metadata: Metadata = {
   title: "À propos de Sarah Dabancens : Manager de Transition & Équicoach | SD Équicoaching",
@@ -17,30 +18,64 @@ export const metadata: Metadata = {
   },
 };
 
-const team = [
+type TeamMember = {
+  name: string;
+  role: string;
+  tagline: string;
+  photo: string | null;
+  initials: string;
+  accentColor: string;
+  paras: string[];
+};
+
+const team: TeamMember[] = [
   {
-    name: "Christine Lecoeur",
-    role: "Praticienne en équicoaching",
-    description:
-      "Certifiée équicoach et praticienne EMDR. 12 ans d'expérience en accompagnement individuel et collectif. Spécialiste des dynamiques de groupe et de la gestion du stress post-traumatique en milieu professionnel.",
+    name: "Christine Le Cœur",
+    role: "Réseaux dirigeants & Dynamiques relationnelles",
+    tagline: "Le regard qui voit les talents que personne ne voit",
+    photo: "/christine-lecoeur.jpg",
+    initials: "CL",
+    accentColor: "#78427f",
+    paras: [
+      "Christine fait ce que peu de consultants savent faire : entrer dans une organisation et identifier en quelques heures les forces cachées, les talents sous-exploités, les tensions sous-jacentes. Vingt ans à animer des réseaux de dirigeants (plus de 14 000 membres aujourd'hui via le réseau Protéine) lui ont donné cette acuité rare.",
+      "Formée au management, à la qualité de vie au travail et au coaching de cadres par la Croix-Rouge, elle apporte au collectif la lecture fine des dynamiques humaines. Quand j'identifie ce qui se passe dans le système nerveux d'une équipe, Christine identifie ce qui se passe dans son tissu relationnel. Les deux lectures ensemble, c'est ce qui rend les diagnostics implacables.",
+    ],
   },
   {
     name: "Mahdi Lansari",
-    role: "Coach certifié ICF, Neurosciences",
-    description:
-      "Coach certifié ICF et formateur en neurosciences comportementales. Intervient sur les modules de neuroplasticité et de régulation émotionnelle. Ancien directeur de business unit, 10 ans d'expérience terrain.",
+    role: "Business Game & Simulation managériale",
+    tagline: "Celui qui fait passer la théorie dans le réel",
+    photo: "/mehdi-lansari.jpg",
+    initials: "ML",
+    accentColor: "#cda540",
+    paras: [
+      "Mahdi est enseignant et consultant en Business Game. Concrètement, ça veut dire qu'il construit des simulations dans lesquelles les managers vivent en 2 heures ce qu'ils mettraient 2 ans à comprendre en formation classique. Stratégie, négociation, gestion de conflit : il transforme chaque concept en expérience.",
+      "Sa valeur dans notre collectif est précieuse. Pendant que je travaille sur l'ancrage corporel avec les chevaux, Mahdi travaille l'ancrage mental par la mise en situation. Ce sont deux portes d'entrée vers la même chose : un apprentissage qui tient quand le manager est de retour dans son équipe le lundi.",
+    ],
   },
   {
     name: "Hasnae Chnaif",
-    role: "Facilitatrice & coach d'équipe",
-    description:
-      "Facilitatrice certifiée et coach d'équipe. Spécialiste des dynamiques CODIR et des processus de prise de décision collective. Intervient sur les ateliers de co-régulation et de leadership systémique.",
+    role: "Growth hacking & Intelligence digitale",
+    tagline: "L'intelligence digitale au service de l'humain",
+    photo: null,
+    initials: "HC",
+    accentColor: "#9b5aaa",
+    paras: [
+      "Hasnae est growth hacker et formatrice. Elle pilote la croissance digitale d'Oxford Ommunotec et forme la nouvelle génération de marketeurs dans plusieurs écoles parisiennes (Collège de Paris, Metaverse College, Ascencia Business School).",
+      "Pourquoi elle compte dans notre collectif ? Parce qu'aucune transformation managériale ne tient aujourd'hui sans intégrer la donnée et l'IA. Hasnae apporte ce que la plupart des consultants en RH n'ont pas : la maîtrise des outils qui amplifient les bonnes pratiques managériales, l'analyse fine des indicateurs RH, l'automatisation intelligente. Elle nous permet de mesurer ce qu'on fait, et de prouver les résultats avec des chiffres.",
+    ],
   },
   {
     name: "Anja Niestroy",
-    role: "Experte en sécurité psychologique",
-    description:
-      "Docteure en psychologie organisationnelle. Experte en sécurité psychologique et en cultures d'équipe. Référente scientifique du programme sur les travaux d'Amy Edmondson et la recherche Google Project Aristotle.",
+    role: "Coaching humaniste & Conduite du changement",
+    tagline: "La gardienne du sens dans la transformation",
+    photo: "/anja-niestroy.png",
+    initials: "AN",
+    accentColor: "#1a0a1e",
+    paras: [
+      "Anja est Head of Office et coach humaniste à Paris. Son terrain, c'est la conduite du changement quand elle est vraiment respectueuse des personnes qui le vivent.",
+      "Dans notre collectif, elle joue un rôle qu'on néglige trop souvent : s'assurer que la transformation a du sens pour ceux qui la traversent. Une formation peut être brillante, un protocole peut être parfait, si les équipes n'y trouvent pas leur place, rien ne tient. Anja écoute, traduit, accompagne. Elle est l'interface humaine entre les ambitions du dirigeant et la réalité du terrain.",
+    ],
   },
 ];
 
@@ -59,6 +94,18 @@ const valeurs = [
     icon: <BookOpen size={24} />,
     titre: "Rigueur scientifique",
     desc: "Chaque outil utilisé est fondé sur la recherche en neurosciences, en psychologie organisationnelle ou en sciences du comportement. Aucun ésotérisme.",
+  },
+];
+
+const synthesis = [
+  { name: "Christine", color: "#78427f", text: "voit le système relationnel." },
+  { name: "Mahdi", color: "#cda540", text: "crée l'expérience d'apprentissage." },
+  { name: "Hasnae", color: "#9b5aaa", text: "outille avec la donnée et l'IA." },
+  { name: "Anja", color: "#e8d080", text: "sécurise le sens pour les équipes." },
+  {
+    name: "Et moi,",
+    color: "#cda540",
+    text: "j'apporte la lecture par les neurosciences et l'ancrage corporel avec les chevaux.",
   },
 ];
 
@@ -98,14 +145,12 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* ── SARAH'S STORY FULL ───────────────────────── */}
+      {/* ── SARAH'S STORY ───────────────────────────── */}
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Photo Sarah */}
             <SectionReveal direction="left" className="sticky top-24">
               <div className="flex flex-col gap-5">
-                {/* Cadre photo */}
                 <div
                   className="rounded-2xl overflow-hidden"
                   style={{
@@ -115,8 +160,6 @@ export default function AProposPage() {
                 >
                   <PhotoSarah />
                 </div>
-
-                {/* Identité + badges */}
                 <div className="px-1">
                   <p
                     className="text-xl font-bold"
@@ -139,7 +182,6 @@ export default function AProposPage() {
               </div>
             </SectionReveal>
 
-            {/* Full story */}
             <SectionReveal direction="right">
               <span
                 className="text-sm font-semibold uppercase tracking-widest mb-6 block"
@@ -156,7 +198,6 @@ export default function AProposPage() {
               >
                 De Directrice Commerciale à Manager de Transition
               </h2>
-
               <div className="space-y-5 text-gray-700 leading-relaxed">
                 <p>
                   Pendant 15 ans, j&apos;ai piloté des équipes de vente en France et
@@ -194,7 +235,6 @@ export default function AProposPage() {
                   qu&apos;on oublie 3 semaines après.
                 </p>
               </div>
-
               <div className="mt-10 flex flex-wrap gap-2">
                 {[
                   "Manager de Transition",
@@ -266,7 +306,7 @@ export default function AProposPage() {
       </section>
 
       {/* ── CERTIFICATIONS ───────────────────────────── */}
-      <section className="bg-white py-14">
+      <section className="py-14" style={{ backgroundColor: "#f2ede5" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionReveal>
             <h2
@@ -307,66 +347,217 @@ export default function AProposPage() {
         </div>
       </section>
 
+      {/* ── COLLECTIF INTRO ──────────────────────────── */}
+      <section style={{ backgroundColor: "#f2ede5" }} className="pt-4 pb-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionReveal>
+            <div
+              className="rounded-3xl px-10 py-12 lg:px-16 lg:py-14"
+              style={{
+                background: "white",
+                border: "2px solid rgba(205,165,64,0.2)",
+                boxShadow: "0 20px 80px rgba(120,66,127,0.07)",
+              }}
+            >
+              <span
+                className="text-sm font-semibold uppercase tracking-widest mb-5 block"
+                style={{ color: "#cda540" }}
+              >
+                Le collectif
+              </span>
+              <h2
+                className="text-3xl lg:text-4xl font-bold mb-8"
+                style={{
+                  fontFamily: "'Playfair Display', Georgia, serif",
+                  color: "#1a0a1e",
+                }}
+              >
+                Je ne travaille pas seule.
+              </h2>
+              <div className="space-y-5 text-gray-700 leading-relaxed">
+                <p>
+                  {`On accompagne aujourd'hui des organisations qui ne peuvent plus se contenter d'une expertise isolée. Une formation managériale qui ignore les vraies dynamiques de réseau, c'est de la théorie. Un coaching qui ne sait pas activer la croissance d'une entreprise, c'est du bien-être. Une transformation qui oublie l'humain, c'est de l'échec annoncé.`}
+                </p>
+                <p>
+                  {`C'est pour ça que j'ai monté un collectif. Quatre expertises qui se complètent vraiment, autour d'une même conviction : on ne change pas une organisation sans changer la qualité des relations qui la font tenir.`}
+                </p>
+              </div>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       {/* ── ÉQUIPE ───────────────────────────────────── */}
-      <section style={{ backgroundColor: "#f2ede5" }} className="py-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section style={{ backgroundColor: "#f2ede5" }} className="pb-24 lg:pb-32">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-24">
+            {team.map((member, i) => (
+              <SectionReveal key={i} delay={0.05}>
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                  {/* Photo — alternates side on desktop */}
+                  <div className={i % 2 === 1 ? "lg:order-2" : "lg:order-1"}>
+                    <TiltCard className="w-full" intensity={5}>
+                      <div
+                        className="relative rounded-2xl overflow-hidden aspect-square w-full"
+                        style={{
+                          boxShadow: "0 24px 64px rgba(120,66,127,0.18)",
+                          border: "1px solid rgba(205,165,64,0.25)",
+                        }}
+                      >
+                        {member.photo ? (
+                          <img
+                            src={member.photo}
+                            alt={member.name}
+                            className="w-full h-full object-cover object-center"
+                            style={{ display: "block" }}
+                          />
+                        ) : (
+                          <div
+                            className="w-full h-full flex flex-col items-center justify-center gap-4"
+                            style={{
+                              background: `linear-gradient(135deg, ${member.accentColor} 0%, #cda540 100%)`,
+                            }}
+                          >
+                            <span
+                              className="text-8xl font-black"
+                              style={{
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                                color: "rgba(255,255,255,0.2)",
+                              }}
+                            >
+                              {member.initials}
+                            </span>
+                          </div>
+                        )}
+                        {/* Subtle inner border */}
+                        <div
+                          className="absolute inset-0 rounded-2xl pointer-events-none"
+                          style={{ border: "1px solid rgba(205,165,64,0.1)" }}
+                        />
+                        {/* Name chip overlaid at bottom */}
+                        <div
+                          className="absolute bottom-0 left-0 right-0 px-6 py-4"
+                          style={{
+                            background:
+                              "linear-gradient(to top, rgba(26,10,30,0.82) 0%, transparent 100%)",
+                          }}
+                        >
+                          <p
+                            className="text-white font-bold text-lg"
+                            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                          >
+                            {member.name}
+                          </p>
+                          <p className="text-white/60 text-xs font-medium tracking-wide mt-0.5">
+                            {member.role}
+                          </p>
+                        </div>
+                      </div>
+                    </TiltCard>
+                  </div>
+
+                  {/* Text content */}
+                  <div className={i % 2 === 1 ? "lg:order-1" : "lg:order-2"}>
+                    <span
+                      className="text-xs font-semibold uppercase tracking-widest mb-4 block"
+                      style={{ color: "#cda540" }}
+                    >
+                      {member.role}
+                    </span>
+                    <h3
+                      className="text-2xl lg:text-3xl font-bold mb-4"
+                      style={{
+                        fontFamily: "'Playfair Display', Georgia, serif",
+                        color: "#1a0a1e",
+                      }}
+                    >
+                      {member.name}
+                    </h3>
+
+                    {/* Gold tagline */}
+                    <div
+                      className="flex items-start gap-3 mb-7 pl-4"
+                      style={{
+                        borderLeft: `3px solid ${member.accentColor}`,
+                      }}
+                    >
+                      <p
+                        className="text-lg font-semibold italic leading-snug"
+                        style={{
+                          color: member.accentColor,
+                          fontFamily: "'Playfair Display', Georgia, serif",
+                        }}
+                      >
+                        {member.tagline}
+                      </p>
+                    </div>
+
+                    {/* Description paragraphs */}
+                    <div className="space-y-4 text-gray-700 leading-relaxed">
+                      {member.paras.map((para, j) => (
+                        <p key={j}>{para}</p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── POURQUOI NOUS QUATRE ─────────────────────── */}
+      <section style={{ backgroundColor: "#1a0a1e" }} className="py-20 lg:py-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal className="text-center mb-14">
             <span
               className="text-sm font-semibold uppercase tracking-widest mb-4 block"
               style={{ color: "#cda540" }}
             >
-              L&apos;équipe
+              Synergie
             </span>
             <h2
-              className="text-3xl font-bold"
-              style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
-                color: "#1a0a1e",
-              }}
+              className="text-3xl lg:text-4xl font-bold text-white"
+              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
-              Les praticiens qui interviennent
+              Pourquoi nous quatre ensemble
             </h2>
           </SectionReveal>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {team.map((member, i) => (
-              <SectionReveal key={i} delay={i * 0.1}>
+          <div className="space-y-3">
+            {synthesis.map((item, i) => (
+              <SectionReveal key={i} delay={i * 0.09} direction="left">
                 <div
-                  className="rounded-2xl p-7 h-full"
+                  className="flex items-center gap-5 rounded-xl px-6 py-4"
                   style={{
-                    background: "white",
-                    border: "1px solid rgba(120,66,127,0.1)",
+                    background: "rgba(255,255,255,0.04)",
+                    border: "1px solid rgba(205,165,64,0.1)",
                   }}
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div
-                      className="w-12 h-12 rounded-full shrink-0"
-                      style={{
-                        background: "linear-gradient(135deg, #78427f, #9b5aaa)",
-                      }}
-                    />
-                    <div>
-                      <h3
-                        className="font-bold text-lg"
-                        style={{ color: "#1a0a1e" }}
-                      >
-                        {member.name}
-                      </h3>
-                      <p
-                        className="text-sm font-medium"
-                        style={{ color: "#78427f" }}
-                      >
-                        {member.role}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {member.description}
+                  <div
+                    className="w-2.5 h-2.5 rounded-full shrink-0"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  <p className="text-white/80 leading-snug">
+                    <span
+                      className="font-bold"
+                      style={{ color: item.color }}
+                    >
+                      {item.name}
+                    </span>{" "}
+                    {item.text}
                   </p>
                 </div>
               </SectionReveal>
             ))}
           </div>
+
+          <SectionReveal delay={0.55} className="mt-10">
+            <p className="text-white/55 text-center leading-relaxed">
+              {`C'est ce maillage-là qui fait qu'aucune situation ne nous échappe. Quand un client nous appelle, il n'a pas accès à une consultante. Il a accès à une expertise collective, qui mobilise les bonnes compétences au bon moment.`}
+            </p>
+          </SectionReveal>
         </div>
       </section>
 
