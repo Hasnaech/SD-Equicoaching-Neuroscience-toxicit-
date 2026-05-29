@@ -17,9 +17,10 @@ import {
   Globe,
   Award,
   Quote,
+  CheckCircle,
 } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
-import NervousSystemOrb from "@/components/NervousSystemOrb";
+import HeroIllustration from "@/components/HeroIllustration";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -33,22 +34,31 @@ export default function HomePage() {
         style={{ backgroundColor: "#1a0a1e" }}
       >
         <GradientBlob />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left: text */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            >
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 mb-8">
+
+        {/* Subtle grid overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#cda540 1px, transparent 1px), linear-gradient(90deg, #cda540 1px, transparent 1px)",
+            backgroundSize: "64px 64px",
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            {/* ── Left: text ── */}
+            <div>
+              {/* Eyebrow badge */}
+              <div className="inline-flex items-center gap-2 mb-7">
                 <span
-                  className="text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full"
+                  className="text-[11px] font-semibold tracking-[0.18em] uppercase px-4 py-1.5 rounded-full"
                   style={{
-                    border: "1px solid #cda540",
+                    border: "1px solid rgba(205,165,64,0.5)",
                     color: "#cda540",
                     backgroundColor: "rgba(205,165,64,0.08)",
+                    letterSpacing: "0.18em",
                   }}
                 >
                   Manager de Transition · Neurosciences · Équicoaching
@@ -56,58 +66,97 @@ export default function HomePage() {
               </div>
 
               <h1
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+                className="text-[2.6rem] sm:text-5xl lg:text-[3.4rem] font-bold text-white mb-6 leading-[1.12]"
                 style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
               >
                 Neurosciences appliquées{" "}
-                <span style={{ color: "#cda540" }}>
+                <em
+                  className="not-italic"
+                  style={{
+                    background: "linear-gradient(135deg, #cda540 0%, #e8c060 60%, #cda540 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
                   à la performance collective
-                </span>
+                </em>
               </h1>
 
-              <p className="text-lg text-white/70 mb-6 leading-relaxed max-w-xl">
-                Les décisions stratégiques ne se prennent pas sous stress.
-                Nous formons vos directions à maintenir leur disponibilité
-                neurologique sous pression.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
+              {/* CTA buttons */}
+              <div className="flex flex-col sm:flex-row gap-3">
                 <CalendlyButton variant="primary" size="lg">
                   Réserver un diagnostic gratuit
                 </CalendlyButton>
                 <a
                   href="#methode"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-full font-semibold text-white transition-all border border-white/20 hover:border-white/60 hover:bg-white/5"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white/85 transition-all duration-200 border border-white/15 hover:border-white/40 hover:text-white hover:bg-white/5 cursor-pointer"
                 >
-                  Découvrir notre approche
-                  <ArrowRight size={16} />
+                  Découvrir l&apos;approche
+                  <ArrowRight size={15} />
                 </a>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Right: animation système nerveux autonome */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.3 }}
-              className="relative flex justify-center lg:justify-end"
-            >
-              <div className="w-72 h-72 lg:w-[420px] lg:h-[420px]">
-                <NervousSystemOrb />
+            {/* ── Right: illustration motion design ── */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative w-full" style={{ maxWidth: "480px" }}>
+
+                {/* Soft radial backdrop behind the illustration */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 50% 50%, rgba(120,66,127,0.18) 0%, transparent 70%)",
+                    filter: "blur(48px)",
+                    transform: "scale(1.15)",
+                  }}
+                />
+
+                {/* Illustration — carré 1:1 */}
+                <div style={{ aspectRatio: "1 / 1", position: "relative" }}>
+                  <HeroIllustration />
+
+                  {/* Animated words following the particle wave diagonal */}
+                  <span
+                    className="hero-word"
+                    style={{ bottom: "18%", left: "7%", animationDelay: "0s" }}
+                  >
+                    Performance
+                  </span>
+                  <span
+                    className="hero-word"
+                    style={{ top: "38%", left: "18%", animationDelay: "3s" }}
+                  >
+                    Collective
+                  </span>
+                  <span
+                    className="hero-word"
+                    style={{ top: "7%", right: "6%", animationDelay: "6s" }}
+                  >
+                    Régulation
+                  </span>
+                </div>
+
+                {/* Caption flottant sous l'illustration */}
+                <div className="text-center mt-3">
+                  <p
+                    className="text-white/30 text-[10px] tracking-[0.22em] uppercase"
+                  >
+                    Système Nerveux Autonome · Régulation · Performance
+                  </p>
+                </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator — static */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="text-white/30 text-xs tracking-widest uppercase">
+          <span className="text-white/25 text-[10px] tracking-[0.2em] uppercase">
             Défiler
           </span>
-          <ChevronDown
-            size={20}
-            className="text-white/30 animate-scroll-bounce"
-          />
+          <ChevronDown size={18} className="text-white/25" />
         </div>
       </section>
 
@@ -194,9 +243,8 @@ export default function HomePage() {
               },
             ].map((card, i) => (
               <SectionReveal key={i} delay={i * 0.12}>
-                <motion.div
-                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                  className="rounded-2xl p-8 h-full"
+                <div
+                  className="rounded-2xl p-8 h-full card-hover cursor-default"
                   style={{
                     background: "rgba(255,255,255,0.04)",
                     border: "1px solid rgba(205,165,64,0.2)",
@@ -221,7 +269,7 @@ export default function HomePage() {
                   <p className="text-sm font-semibold" style={{ color: "#cda540" }}>
                     {card.cost}
                   </p>
-                </motion.div>
+                </div>
               </SectionReveal>
             ))}
           </div>

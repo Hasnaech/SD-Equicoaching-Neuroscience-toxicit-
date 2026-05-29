@@ -101,23 +101,35 @@ export default function AProposPage() {
       <section style={{ backgroundColor: "#f2ede5" }} className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Photo */}
+            {/* Photo Sarah */}
             <SectionReveal direction="left" className="sticky top-24">
-              <div
-                className="rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-6"
-                style={{
-                  background: "linear-gradient(135deg, rgba(120,66,127,0.15), rgba(205,165,64,0.08))",
-                  border: "1px solid rgba(120,66,127,0.15)",
-                  height: "520px",
-                }}
-              >
+              <div className="flex flex-col gap-5">
+                {/* Cadre photo */}
                 <div
-                  className="w-36 h-36 rounded-full"
-                  style={{ background: "linear-gradient(135deg, #78427f, #cda540)" }}
-                />
-                <div className="text-center px-8">
+                  className="rounded-2xl overflow-hidden"
+                  style={{
+                    border: "1px solid rgba(205,165,64,0.25)",
+                    boxShadow: "0 24px 64px rgba(120,66,127,0.18)",
+                  }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/sarah-dabancens.jpg"
+                    alt="Sarah Dabancens — Fondatrice SD Équicoaching"
+                    style={{
+                      width: "100%",
+                      height: "520px",
+                      objectFit: "cover",
+                      objectPosition: "center top",
+                      display: "block",
+                    }}
+                  />
+                </div>
+
+                {/* Identité + badges */}
+                <div className="px-1">
                   <p
-                    className="text-2xl font-bold"
+                    className="text-xl font-bold"
                     style={{
                       fontFamily: "'Playfair Display', Georgia, serif",
                       color: "#1a0a1e",
@@ -125,15 +137,12 @@ export default function AProposPage() {
                   >
                     Sarah Dabancens
                   </p>
-                  <p className="text-gray-500 mt-2">Fondatrice de SD Équicoaching</p>
-                  <div className="flex flex-wrap justify-center gap-2 mt-5">
+                  <p className="text-gray-500 text-sm mt-1 mb-4">
+                    Fondatrice · Manager de Transition · Équicoach ICF
+                  </p>
+                  <div className="flex flex-wrap gap-2">
                     {["Qualiopi", "ICF", "Manager de Transition"].map((tag) => (
-                      <span
-                        key={tag}
-                        className="qualiopi-badge"
-                      >
-                        {tag}
-                      </span>
+                      <span key={tag} className="qualiopi-badge">{tag}</span>
                     ))}
                   </div>
                 </div>
