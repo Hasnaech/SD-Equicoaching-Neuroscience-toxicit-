@@ -14,12 +14,19 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3
-              className="text-white text-xl font-bold mb-2"
-              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-            >
-              SD Équicoaching
-            </h3>
+            {/* Logo complet */}
+            <div className="mb-5">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo.png"
+                alt="SD Équicoaching"
+                style={{
+                  height: "140px",
+                  width: "auto",
+                  mixBlendMode: "screen",
+                }}
+              />
+            </div>
             <p className="text-sm text-white/50 mb-5 leading-relaxed">
               Manager de Transition · Neurosciences · Équicoaching
             </p>

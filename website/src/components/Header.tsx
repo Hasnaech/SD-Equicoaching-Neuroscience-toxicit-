@@ -47,7 +47,7 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="SD Équicoaching"
-              className="h-12 lg:h-14 w-auto"
+              className="h-16 lg:h-20 w-auto"
               style={{ mixBlendMode: "screen" }}
             />
           </Link>
