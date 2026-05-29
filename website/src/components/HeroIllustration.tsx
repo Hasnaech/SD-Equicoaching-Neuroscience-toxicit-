@@ -100,19 +100,19 @@ export default function HeroIllustration() {
         const fade = Math.max(0, 1 - abs / 42);
         const a    = fade * p.alpha;
 
-        /* Couleur : blanc-or au cœur → or → violet sur les bords */
+        /* Couleur : violet foncé au cœur → or → violet sur les bords */
         let cr: number, cg: number, cb: number;
         if (fade > 0.78) {
-          cr = 255; cg = 248; cb = 210;       // cœur lumineux
+          cr = 120; cg = 60;  cb = 160;       // cœur violet profond
         } else if (fade > 0.42) {
-          cr = 220; cg = 172; cb = 72;        // or
+          cr = 205; cg = 165; cb = 64;        // or
         } else {
-          cr = 165; cg = 88;  cb = 210;       // violet
+          cr = 155; cg = 80;  cb = 200;       // violet clair
         }
 
         /* Halo pour les particules du cœur */
         if (fade > 0.85) {
-          ctx.shadowColor = `rgba(230,190,100,${a * 0.9})`;
+          ctx.shadowColor = `rgba(140,70,180,${a * 0.9})`;
           ctx.shadowBlur  = 10;
         } else if (fade > 0.5) {
           ctx.shadowColor = `rgba(205,165,64,${a * 0.5})`;
