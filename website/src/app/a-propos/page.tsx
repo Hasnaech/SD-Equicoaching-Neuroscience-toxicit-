@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import React from "react";
 import { Award, Heart, Target, BookOpen } from "lucide-react";
 import GradientBlob from "@/components/GradientBlob";
+import PhotoSarah from "@/components/PhotoSarah";
 import CalendlyButton from "@/components/CalendlyButton";
 import SectionReveal from "@/components/SectionReveal";
 
@@ -112,18 +113,7 @@ export default function AProposPage() {
                     boxShadow: "0 24px 64px rgba(120,66,127,0.18)",
                   }}
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/sarah-dabancens.jpg"
-                    alt="Sarah Dabancens — Fondatrice SD Équicoaching"
-                    style={{
-                      width: "100%",
-                      height: "520px",
-                      objectFit: "cover",
-                      objectPosition: "center top",
-                      display: "block",
-                    }}
-                  />
+                  <PhotoSarah />
                 </div>
 
                 {/* Identité + badges */}
