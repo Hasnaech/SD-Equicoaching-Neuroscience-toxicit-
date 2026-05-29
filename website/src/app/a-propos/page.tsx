@@ -19,62 +19,67 @@ export const metadata: Metadata = {
 };
 
 type TeamMember = {
+  number: string;
   name: string;
   role: string;
   tagline: string;
-  photo: string | null;
-  initials: string;
+  photo: string;
   accentColor: string;
+  tags: string[];
   paras: string[];
 };
 
 const team: TeamMember[] = [
   {
+    number: "01",
     name: "Christine Le Cœur",
     role: "Réseaux dirigeants & Dynamiques relationnelles",
     tagline: "Le regard qui voit les talents que personne ne voit",
     photo: "/christine-lecoeur.jpg",
-    initials: "CL",
     accentColor: "#78427f",
+    tags: ["Réseaux dirigeants", "14 000+ membres", "QVT", "Croix-Rouge"],
     paras: [
       "Christine fait ce que peu de consultants savent faire : entrer dans une organisation et identifier en quelques heures les forces cachées, les talents sous-exploités, les tensions sous-jacentes. Vingt ans à animer des réseaux de dirigeants (plus de 14 000 membres aujourd'hui via le réseau Protéine) lui ont donné cette acuité rare.",
       "Formée au management, à la qualité de vie au travail et au coaching de cadres par la Croix-Rouge, elle apporte au collectif la lecture fine des dynamiques humaines. Quand j'identifie ce qui se passe dans le système nerveux d'une équipe, Christine identifie ce qui se passe dans son tissu relationnel. Les deux lectures ensemble, c'est ce qui rend les diagnostics implacables.",
     ],
   },
   {
+    number: "02",
     name: "Mahdi Lansari",
     role: "Business Game & Simulation managériale",
     tagline: "Celui qui fait passer la théorie dans le réel",
     photo: "/mehdi-lansari.jpg",
-    initials: "ML",
     accentColor: "#cda540",
+    tags: ["Business Game", "Simulation", "Négociation", "Stratégie"],
     paras: [
       "Mahdi est enseignant et consultant en Business Game. Concrètement, ça veut dire qu'il construit des simulations dans lesquelles les managers vivent en 2 heures ce qu'ils mettraient 2 ans à comprendre en formation classique. Stratégie, négociation, gestion de conflit : il transforme chaque concept en expérience.",
       "Sa valeur dans notre collectif est précieuse. Pendant que je travaille sur l'ancrage corporel avec les chevaux, Mahdi travaille l'ancrage mental par la mise en situation. Ce sont deux portes d'entrée vers la même chose : un apprentissage qui tient quand le manager est de retour dans son équipe le lundi.",
     ],
   },
   {
-    name: "Hasnae Chnaif",
-    role: "Growth hacking & Intelligence digitale",
-    tagline: "L'intelligence digitale au service de l'humain",
-    photo: null,
-    initials: "HC",
-    accentColor: "#9b5aaa",
-    paras: [
-      "Hasnae est growth hacker et formatrice. Elle pilote la croissance digitale d'Oxford Ommunotec et forme la nouvelle génération de marketeurs dans plusieurs écoles parisiennes (Collège de Paris, Metaverse College, Ascencia Business School).",
-      "Pourquoi elle compte dans notre collectif ? Parce qu'aucune transformation managériale ne tient aujourd'hui sans intégrer la donnée et l'IA. Hasnae apporte ce que la plupart des consultants en RH n'ont pas : la maîtrise des outils qui amplifient les bonnes pratiques managériales, l'analyse fine des indicateurs RH, l'automatisation intelligente. Elle nous permet de mesurer ce qu'on fait, et de prouver les résultats avec des chiffres.",
-    ],
-  },
-  {
+    number: "03",
     name: "Anja Niestroy",
     role: "Coaching humaniste & Conduite du changement",
     tagline: "La gardienne du sens dans la transformation",
     photo: "/anja-niestroy.png",
-    initials: "AN",
-    accentColor: "#1a0a1e",
+    accentColor: "#9b5aaa",
+    tags: ["Coaching humaniste", "Conduite du changement", "Head of Office"],
     paras: [
       "Anja est Head of Office et coach humaniste à Paris. Son terrain, c'est la conduite du changement quand elle est vraiment respectueuse des personnes qui le vivent.",
       "Dans notre collectif, elle joue un rôle qu'on néglige trop souvent : s'assurer que la transformation a du sens pour ceux qui la traversent. Une formation peut être brillante, un protocole peut être parfait, si les équipes n'y trouvent pas leur place, rien ne tient. Anja écoute, traduit, accompagne. Elle est l'interface humaine entre les ambitions du dirigeant et la réalité du terrain.",
+    ],
+  },
+  {
+    number: "04",
+    name: "Hasnae Chnaif",
+    role: "Growth hacking & Intelligence digitale",
+    tagline: "L'intelligence digitale au service de l'humain",
+    photo: "/hasnae-chnaif.png",
+    accentColor: "#cda540",
+    tags: ["Growth hacking", "IA & Données", "Oxford Ommunotec", "Formatrice"],
+    paras: [
+      "Hasnae est growth hacker et formatrice. Elle pilote la croissance digitale d'Oxford Ommunotec et forme la nouvelle génération de marketeurs dans plusieurs écoles parisiennes (Collège de Paris, Metaverse College, Ascencia Business School).",
+      "Pourquoi elle compte dans notre collectif ? Parce qu'aucune transformation managériale ne tient aujourd'hui sans intégrer la donnée et l'IA. Hasnae apporte ce que la plupart des consultants en RH n'ont pas : la maîtrise des outils qui amplifient les bonnes pratiques managériales, l'analyse fine des indicateurs RH, l'automatisation intelligente. Elle nous permet de mesurer ce qu'on fait, et de prouver les résultats avec des chiffres.",
     ],
   },
 ];
@@ -100,8 +105,8 @@ const valeurs = [
 const synthesis = [
   { name: "Christine", color: "#78427f", text: "voit le système relationnel." },
   { name: "Mahdi", color: "#cda540", text: "crée l'expérience d'apprentissage." },
-  { name: "Hasnae", color: "#9b5aaa", text: "outille avec la donnée et l'IA." },
-  { name: "Anja", color: "#e8d080", text: "sécurise le sens pour les équipes." },
+  { name: "Anja", color: "#9b5aaa", text: "sécurise le sens pour les équipes." },
+  { name: "Hasnae", color: "#e8c060", text: "outille avec la donnée et l'IA." },
   {
     name: "Et moi,",
     color: "#cda540",
@@ -390,119 +395,164 @@ export default function AProposPage() {
       {/* ── ÉQUIPE ───────────────────────────────────── */}
       <section style={{ backgroundColor: "#f2ede5" }} className="pb-24 lg:pb-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-24">
-            {team.map((member, i) => (
-              <SectionReveal key={i} delay={0.05}>
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="space-y-28">
+            {team.map((member, i) => {
+              const isReversed = i % 2 === 1;
+              return (
+                <SectionReveal key={i} delay={0.05} direction={isReversed ? "right" : "left"}>
+                  <div className="grid lg:grid-cols-[5fr_6fr] gap-10 lg:gap-20 items-center">
 
-                  {/* Photo — alternates side on desktop */}
-                  <div className={i % 2 === 1 ? "lg:order-2" : "lg:order-1"}>
-                    <TiltCard className="w-full" intensity={5}>
-                      <div
-                        className="relative rounded-2xl overflow-hidden aspect-square w-full"
-                        style={{
-                          boxShadow: "0 24px 64px rgba(120,66,127,0.18)",
-                          border: "1px solid rgba(205,165,64,0.25)",
-                        }}
-                      >
-                        {member.photo ? (
+                    {/* ── Photo block ── */}
+                    <div className={isReversed ? "lg:order-2" : "lg:order-1"}>
+                      <TiltCard className="w-full" intensity={5}>
+                        <div
+                          className="relative rounded-3xl overflow-hidden"
+                          style={{
+                            aspectRatio: "4 / 5",
+                            boxShadow: `0 32px 80px ${member.accentColor}28, 0 8px 24px rgba(0,0,0,0.12)`,
+                          }}
+                        >
                           <img
                             src={member.photo}
                             alt={member.name}
-                            className="w-full h-full object-cover object-center"
+                            className="w-full h-full object-cover object-top"
                             style={{ display: "block" }}
                           />
-                        ) : (
+
+                          {/* Bottom gradient with name */}
                           <div
-                            className="w-full h-full flex flex-col items-center justify-center gap-4"
+                            className="absolute bottom-0 left-0 right-0 px-7 py-6"
                             style={{
-                              background: `linear-gradient(135deg, ${member.accentColor} 0%, #cda540 100%)`,
+                              background: `linear-gradient(to top, rgba(26,10,30,0.88) 0%, rgba(26,10,30,0.4) 60%, transparent 100%)`,
+                            }}
+                          >
+                            <p
+                              className="text-white font-bold text-xl leading-tight"
+                              style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                            >
+                              {member.name}
+                            </p>
+                            <p
+                              className="text-xs font-semibold tracking-widest uppercase mt-1"
+                              style={{ color: member.accentColor }}
+                            >
+                              {member.role}
+                            </p>
+                          </div>
+
+                          {/* Number badge top-right */}
+                          <div
+                            className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center"
+                            style={{
+                              background: "rgba(26,10,30,0.7)",
+                              backdropFilter: "blur(8px)",
+                              border: `1px solid ${member.accentColor}60`,
                             }}
                           >
                             <span
-                              className="text-8xl font-black"
-                              style={{
-                                fontFamily: "'Playfair Display', Georgia, serif",
-                                color: "rgba(255,255,255,0.2)",
-                              }}
+                              className="text-xs font-bold tracking-widest"
+                              style={{ color: member.accentColor }}
                             >
-                              {member.initials}
+                              {member.number}
                             </span>
                           </div>
-                        )}
-                        {/* Subtle inner border */}
-                        <div
-                          className="absolute inset-0 rounded-2xl pointer-events-none"
-                          style={{ border: "1px solid rgba(205,165,64,0.1)" }}
-                        />
-                        {/* Name chip overlaid at bottom */}
-                        <div
-                          className="absolute bottom-0 left-0 right-0 px-6 py-4"
+
+                          {/* Subtle colored top border */}
+                          <div
+                            className="absolute top-0 left-0 right-0 h-0.5"
+                            style={{
+                              background: `linear-gradient(90deg, transparent, ${member.accentColor}, transparent)`,
+                            }}
+                          />
+                        </div>
+                      </TiltCard>
+                    </div>
+
+                    {/* ── Text block ── */}
+                    <div className={isReversed ? "lg:order-1" : "lg:order-2"}>
+
+                      {/* Large ghost number behind content */}
+                      <div className="relative">
+                        <span
+                          className="absolute -top-8 -left-4 select-none pointer-events-none font-black leading-none"
                           style={{
-                            background:
-                              "linear-gradient(to top, rgba(26,10,30,0.82) 0%, transparent 100%)",
+                            fontFamily: "'Playfair Display', Georgia, serif",
+                            fontSize: "clamp(5rem, 12vw, 9rem)",
+                            color: `${member.accentColor}0d`,
+                            lineHeight: 1,
                           }}
                         >
-                          <p
-                            className="text-white font-bold text-lg"
-                            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                          {member.number}
+                        </span>
+
+                        <div className="relative">
+                          <span
+                            className="text-xs font-semibold uppercase tracking-[0.18em] mb-3 block"
+                            style={{ color: "#cda540" }}
+                          >
+                            {member.role}
+                          </span>
+
+                          <h3
+                            className="text-3xl lg:text-4xl font-bold mb-6"
+                            style={{
+                              fontFamily: "'Playfair Display', Georgia, serif",
+                              color: "#1a0a1e",
+                              lineHeight: 1.15,
+                            }}
                           >
                             {member.name}
-                          </p>
-                          <p className="text-white/60 text-xs font-medium tracking-wide mt-0.5">
-                            {member.role}
-                          </p>
+                          </h3>
+
+                          {/* Tagline */}
+                          <div
+                            className="mb-8 py-4 px-5 rounded-xl"
+                            style={{
+                              background: `${member.accentColor}0a`,
+                              borderLeft: `3px solid ${member.accentColor}`,
+                            }}
+                          >
+                            <p
+                              className="text-lg font-semibold italic leading-snug"
+                              style={{
+                                color: member.accentColor,
+                                fontFamily: "'Playfair Display', Georgia, serif",
+                              }}
+                            >
+                              {`"${member.tagline}"`}
+                            </p>
+                          </div>
+
+                          {/* Description */}
+                          <div className="space-y-4 text-gray-700 leading-relaxed mb-8">
+                            {member.paras.map((para, j) => (
+                              <p key={j}>{para}</p>
+                            ))}
+                          </div>
+
+                          {/* Expertise tags */}
+                          <div className="flex flex-wrap gap-2">
+                            {member.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-xs font-semibold px-3 py-1.5 rounded-full"
+                                style={{
+                                  background: `${member.accentColor}12`,
+                                  color: member.accentColor,
+                                  border: `1px solid ${member.accentColor}30`,
+                                }}
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </TiltCard>
-                  </div>
-
-                  {/* Text content */}
-                  <div className={i % 2 === 1 ? "lg:order-1" : "lg:order-2"}>
-                    <span
-                      className="text-xs font-semibold uppercase tracking-widest mb-4 block"
-                      style={{ color: "#cda540" }}
-                    >
-                      {member.role}
-                    </span>
-                    <h3
-                      className="text-2xl lg:text-3xl font-bold mb-4"
-                      style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
-                        color: "#1a0a1e",
-                      }}
-                    >
-                      {member.name}
-                    </h3>
-
-                    {/* Gold tagline */}
-                    <div
-                      className="flex items-start gap-3 mb-7 pl-4"
-                      style={{
-                        borderLeft: `3px solid ${member.accentColor}`,
-                      }}
-                    >
-                      <p
-                        className="text-lg font-semibold italic leading-snug"
-                        style={{
-                          color: member.accentColor,
-                          fontFamily: "'Playfair Display', Georgia, serif",
-                        }}
-                      >
-                        {member.tagline}
-                      </p>
-                    </div>
-
-                    {/* Description paragraphs */}
-                    <div className="space-y-4 text-gray-700 leading-relaxed">
-                      {member.paras.map((para, j) => (
-                        <p key={j}>{para}</p>
-                      ))}
                     </div>
                   </div>
-                </div>
-              </SectionReveal>
-            ))}
+                </SectionReveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -540,10 +590,7 @@ export default function AProposPage() {
                     style={{ backgroundColor: item.color }}
                   />
                   <p className="text-white/80 leading-snug">
-                    <span
-                      className="font-bold"
-                      style={{ color: item.color }}
-                    >
+                    <span className="font-bold" style={{ color: item.color }}>
                       {item.name}
                     </span>{" "}
                     {item.text}
