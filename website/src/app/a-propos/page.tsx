@@ -159,6 +159,7 @@ export default function AProposPage() {
                 <div
                   className="rounded-2xl overflow-hidden"
                   style={{
+                    aspectRatio: "3 / 4",
                     border: "1px solid rgba(205,165,64,0.25)",
                     boxShadow: "0 24px 64px rgba(120,66,127,0.18)",
                   }}
@@ -415,7 +416,7 @@ export default function AProposPage() {
                           <img
                             src={member.photo}
                             alt={member.name}
-                            className="w-full h-full object-cover object-top"
+                            className="w-full h-full object-cover object-center"
                             style={{ display: "block" }}
                           />
 
