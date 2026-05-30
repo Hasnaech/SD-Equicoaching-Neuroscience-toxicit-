@@ -59,11 +59,11 @@ const team: TeamMember[] = [
   {
     number: "03",
     name: "Anja Niestroy",
-    role: "Coaching humaniste & Conduite du changement",
+    role: "Équicoach & Coaching humaniste",
     tagline: "La gardienne du sens dans la transformation",
     photo: "/anja-niestroy.png",
     accentColor: "#9b5aaa",
-    tags: ["Coaching humaniste", "Conduite du changement", "Head of Office"],
+    tags: ["Équicoach", "Coaching humaniste", "Conduite du changement", "Head of Office"],
     paras: [
       "Anja est Head of Office et coach humaniste à Paris. Son terrain, c'est la conduite du changement quand elle est vraiment respectueuse des personnes qui le vivent.",
       "Dans notre collectif, elle joue un rôle qu'on néglige trop souvent : s'assurer que la transformation a du sens pour ceux qui la traversent. Une formation peut être brillante, un protocole peut être parfait, si les équipes n'y trouvent pas leur place, rien ne tient. Anja écoute, traduit, accompagne. Elle est l'interface humaine entre les ambitions du dirigeant et la réalité du terrain.",
@@ -400,7 +400,7 @@ export default function AProposPage() {
               const isReversed = i % 2 === 1;
               return (
                 <SectionReveal key={i} delay={0.05} direction={isReversed ? "right" : "left"}>
-                  <div className="grid lg:grid-cols-[5fr_6fr] gap-10 lg:gap-20 items-center">
+                  <div className="grid lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-center">
 
                     {/* ── Photo block ── */}
                     <div className={isReversed ? "lg:order-2" : "lg:order-1"}>
@@ -408,7 +408,7 @@ export default function AProposPage() {
                         <div
                           className="relative rounded-3xl overflow-hidden"
                           style={{
-                            aspectRatio: "4 / 5",
+                            aspectRatio: "3 / 4",
                             boxShadow: `0 32px 80px ${member.accentColor}28, 0 8px 24px rgba(0,0,0,0.12)`,
                           }}
                         >
