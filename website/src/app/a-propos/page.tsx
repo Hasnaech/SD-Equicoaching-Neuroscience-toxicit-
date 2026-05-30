@@ -36,7 +36,7 @@ const team: TeamMember[] = [
     role: "Réseaux dirigeants & Dynamiques relationnelles",
     tagline: "Le regard qui voit les talents que personne ne voit",
     photo: "/christine-lecoeur.jpg",
-    accentColor: "#78427f",
+    accentColor: "#cda540",
     tags: ["Réseaux dirigeants", "14 000+ membres", "QVT", "Croix-Rouge"],
     paras: [
       "Christine fait ce que peu de consultants savent faire : entrer dans une organisation et identifier en quelques heures les forces cachées, les talents sous-exploités, les tensions sous-jacentes. Vingt ans à animer des réseaux de dirigeants (plus de 14 000 membres aujourd'hui via le réseau Protéine) lui ont donné cette acuité rare.",
@@ -49,7 +49,7 @@ const team: TeamMember[] = [
     role: "Business Game & Simulation managériale",
     tagline: "Celui qui fait passer la théorie dans le réel",
     photo: "/mehdi-lansari.jpg",
-    accentColor: "#cda540",
+    accentColor: "#78427f",
     tags: ["Business Game", "Simulation", "Négociation", "Stratégie"],
     paras: [
       "Mahdi est enseignant et consultant en Business Game. Concrètement, ça veut dire qu'il construit des simulations dans lesquelles les managers vivent en 2 heures ce qu'ils mettraient 2 ans à comprendre en formation classique. Stratégie, négociation, gestion de conflit : il transforme chaque concept en expérience.",
@@ -62,7 +62,7 @@ const team: TeamMember[] = [
     role: "Équicoach & Coaching humaniste",
     tagline: "La gardienne du sens dans la transformation",
     photo: "/anja-niestroy.png",
-    accentColor: "#9b5aaa",
+    accentColor: "#cda540",
     tags: ["Équicoach", "Coaching humaniste", "Conduite du changement", "Head of Office"],
     paras: [
       "Anja est Head of Office et coach humaniste à Paris. Son terrain, c'est la conduite du changement quand elle est vraiment respectueuse des personnes qui le vivent.",
@@ -75,7 +75,7 @@ const team: TeamMember[] = [
     role: "Growth hacking & Intelligence digitale",
     tagline: "L'intelligence digitale au service de l'humain",
     photo: "/hasnae-chnaif.png",
-    accentColor: "#cda540",
+    accentColor: "#78427f",
     tags: ["Growth hacking", "IA & Données", "Oxford Ommunotec", "Formatrice"],
     paras: [
       "Hasnae est growth hacker et formatrice. Elle pilote la croissance digitale d'Oxford Ommunotec et forme la nouvelle génération de marketeurs dans plusieurs écoles parisiennes (Collège de Paris, Metaverse College, Ascencia Business School).",
@@ -103,10 +103,10 @@ const valeurs = [
 ];
 
 const synthesis = [
-  { name: "Christine", color: "#78427f", text: "voit le système relationnel." },
-  { name: "Mahdi", color: "#cda540", text: "crée l'expérience d'apprentissage." },
-  { name: "Anja", color: "#9b5aaa", text: "sécurise le sens pour les équipes." },
-  { name: "Hasnae", color: "#e8c060", text: "outille avec la donnée et l'IA." },
+  { name: "Christine", color: "#cda540", text: "voit le système relationnel." },
+  { name: "Mahdi", color: "#78427f", text: "crée l'expérience d'apprentissage." },
+  { name: "Anja", color: "#cda540", text: "sécurise le sens pour les équipes." },
+  { name: "Hasnae", color: "#78427f", text: "outille avec la donnée et l'IA." },
   {
     name: "Et moi,",
     color: "#cda540",
@@ -159,7 +159,6 @@ export default function AProposPage() {
                 <div
                   className="rounded-2xl overflow-hidden"
                   style={{
-                    aspectRatio: "3 / 4",
                     border: "1px solid rgba(205,165,64,0.25)",
                     boxShadow: "0 24px 64px rgba(120,66,127,0.18)",
                   }}
