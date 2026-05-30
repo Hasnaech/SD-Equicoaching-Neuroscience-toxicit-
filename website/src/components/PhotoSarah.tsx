@@ -10,7 +10,7 @@ export default function PhotoSarah() {
       <div
         style={{
           width: "100%",
-          height: "100%",
+          height: "480px",
           background: "linear-gradient(160deg, #1a0a1e 0%, #78427f 55%, #cda540 100%)",
           display: "flex",
           alignItems: "center",
@@ -52,9 +52,7 @@ export default function PhotoSarah() {
       onError={() => setFailed(true)}
       style={{
         width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        objectPosition: "center top",
+        height: "auto",
         display: "block",
       }}
     />
