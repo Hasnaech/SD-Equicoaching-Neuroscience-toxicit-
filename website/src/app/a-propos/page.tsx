@@ -401,7 +401,7 @@ export default function AProposPage() {
               const isReversed = i % 2 === 1;
               return (
                 <SectionReveal key={i} delay={0.05} direction={isReversed ? "right" : "left"}>
-                  <div className="grid lg:grid-cols-[2fr_3fr] gap-10 lg:gap-16 items-center">
+                  <div className={`grid gap-10 lg:gap-16 items-center ${isReversed ? "lg:grid-cols-[3fr_2fr]" : "lg:grid-cols-[2fr_3fr]"}`}>
 
                     {/* ── Photo block ── */}
                     <div className={isReversed ? "lg:order-2" : "lg:order-1"}>
